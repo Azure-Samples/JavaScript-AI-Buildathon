@@ -17,7 +17,7 @@ jobs:
     if: ${{ github.event.head_commit.message == 'Initial commit' && !github.event.repository.is_template }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check if README already contains Step 0
         id: check_readme
