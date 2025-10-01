@@ -68,7 +68,7 @@ jobs:
           sed -i "s#github.com/${OWNER_REPO}/blob/main/issues/new?#github.com/${OWNER_REPO}/issues/new?#g" README.md
 
       - name: Comment and close issue
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
