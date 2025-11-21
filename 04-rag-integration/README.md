@@ -1,9 +1,5 @@
 # 📚 Quest: I want to integrate external data RAG
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -18,10 +14,7 @@ In this step, you will learn how to add RAG (**R**etrieval-**A**ugmented **G**en
 
 ### Assumption ⚠️
 
-- You have completed the previous steps and have a working AI app that can answer questions. If you haven't, please click the **Reset Progress** button above to select the _Add a simple chat interface_ quest.
-
-> [!IMPORTANT]  
-> If you have done the previous quest, ensure you pull your changes from GitHub using `git pull` before continuing with this project to update the project README.
+- You have completed the previous steps and have a working AI app that can answer questions.
 
 To complete this step, you will need to get a sample dataset in any format (e.g., PDF, CSV, JSON) to work with. 
 
@@ -384,31 +377,6 @@ Open your browser to use the app, usually at `http://localhost:5123`.
       ![AI Foundry no RAG general question](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/no-rag-general.png?raw=true)
 
 Notice how, with RAG enabled, the AI is strictly limited to the handbook and refuses to answer unrelated questions. With RAG disabled, the AI is more flexible and answers any question to the best of its ability.
-   
-
-## ✅ Activity: Push your updated code to the repository
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-
-- [ ] Have a `data` folder in the root of your project 
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Connected to external data using RAG technique"
-    git push
-    ```
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 
 ## 📚 Further Reading
 

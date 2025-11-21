@@ -1,10 +1,6 @@
 
 # 🤖 Quest: I want to build a local Gen AI prototype
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progress](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Progress:+Back+to+Welcome&labels=reset&body=🔄+I+want+to+reset+my+progress+and+go+back+to+the+Welcome+page.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+page+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -136,7 +132,7 @@ Now that you have a better understanding of the models from the GitHub Models pl
     Follow the instructions provided to:
     - Get a free developer key, (Personal Access Token (classic)) and store it in an environment variable either using bash, PowerShell or command line.
     - Install dependencies 
-    - Run basic code sample. **Ensure your local file is named `sample.js`**
+    - Run basic code sample. **This quest assumes the file is named `sample.js`**
 
       ![Run node sample file](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/node-sample.png?raw=true)
 
@@ -185,30 +181,6 @@ The AI Toolkit in Visual Studio Code is a powerful extension that provides a set
 
     ![AI Toolkit - html preview](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/html-preview.png?raw=true)
 
-## ✅ Activity: Push `sample.js` code to your repository
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-- [ ] Have a `sample.js` file at the root of your project
-- [ ] The file MUST include a reference to your GITHUB_TOKEN environment variable
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Working with GitHub Models and AI Toolkit"
-    git push
-    ```
-
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-    
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+Quest:+Back+to+Welcome&labels=reset&body=🔄+I+want+to+skip+this+quest+and+go+back+to+the+Welcome+page.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+page+to+select+a+new+quest.**)
 
 ## 📚 Further Reading
 

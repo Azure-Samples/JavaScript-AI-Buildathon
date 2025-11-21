@@ -1,9 +1,5 @@
 # ⚡️ Quest: I want a Production-Ready Template to customize
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -14,8 +10,6 @@
 
 ## 📝 Overview
 
-> [!IMPORTANT]  
-> If you have done the previous quest, ensure you pull your changes from GitHub using `git pull` before continuing with this project to update the project README.
 
 Throughout all quests in this project, you have been following a minimalistic approach to building functional AI applications. However, in today's fast-paced world of technology, building robust production-ready AI solutions demands the use of the right tools and frameworks, and adoption of industry best practices.
 
@@ -114,13 +108,6 @@ To complete this final challenge and unlock the true power of **AI + Cloud**, yo
 - [ ] Encourage your peers to upvote your issue for the **People’s Choice spotlight**!
 
     ⏳ After submission: Keep updating your project as you build. You can edit your issue to reflect new progress and keep your voters informed.
-    
-<!-- [![Complete Quest](https://img.shields.io/badge/Complete--Quest-ff3860?logo=esbuild)](/issues/new?title=Quest:+I+want+a+Production-Ready+Template+to+customize&labels=quest&body=🚀+I%27ve+browsed+through+the+AI+App+Template+gallery%21%0A%0A**After+you+click+on+Create+below,+wait+about+15+seconds.+This+issue+will+automatically+close,+and+the+README+will+update+with+your+next+instructions.**) -->
-
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
 
 ## 📚 Further Reading
 

@@ -1,9 +1,5 @@
 # 🔗 Quest: Create an AI Agent with Tools from an MCP Server
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -15,10 +11,7 @@
 
 ## 📝 Overview
 
-This quest will guide you through the process of creating an AI Agent with tools from an MCP (Model Context Protocol) server using the AI Toolkit extension for Visual Studio Code. 
-
-> [!IMPORTANT]  
-> If you have done the previous quest, ensure you pull your changes from GitHub using `git pull` before continuing with this project to update the project README.
+This quest will guide you through the process of creating an AI Agent with tools from an MCP (Model Context Protocol) server using the AI Toolkit extension for Visual Studio Code.
 
 ## Step 1️⃣: Add a tool-compatible model
 
@@ -239,30 +232,6 @@ Run `npm install` to install the dependencies for the MCP server.
 3. To simulate a natural conversation maintaining the context, click on the **Add to Prompts** button under the Model Response to add the response from the agent as an **Assistant prompt**. Now, when you run the agent again, or with a new user prompt, the previous response will be included in the prompt and the model will reference it as conversation history.
 
     ![Add to prompts](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/os-summary-response.png?raw=true)
-
-
-## ✅ Activity: Push your mcp server code to the repository
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-
-- [ ] Have a `node-os-mcp` folder in the packages directory
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Added os mcp server"
-    git push
-    ```
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
 
 ## 📚 Further Reading
 

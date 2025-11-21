@@ -1,9 +1,5 @@
 # 🤖 Quest: I want to build an AI Agent
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -19,13 +15,9 @@ In this step, you will learn how to build a basic AI agent using the AI Foundry 
 
 ### Assumption ⚠️
 
-This step assumes you have already completed previous steps and that you have the Azure AI Foundry VS Code extension installed with a default project set up. If you haven't done so, please click the **Reset Progress** button above and start from the _Move AI prototype to Azure_ quest.
-
-> [!IMPORTANT]  
-> If you have done the previous quest, ensure you pull your changes from GitHub using `git pull` before continuing with this project to update the project README.
+This step assumes you have already completed previous steps and that you have the Microsoft Foundry VS Code extension installed with a default project set up. 
 
 ## Step 1️⃣: Create an Agent
-
 
 **‼️IMPORTANT NOTE**
 
@@ -33,7 +25,7 @@ Currently, agents are only supported in the following regions: **australiaeast, 
 
 At a later stage, you will add **bing grounding** to your agent, a service that works with **all Azure OpenAI models except _gpt-4o-mini, 2024-07-18_**. We therefore recommend using the _gpt-4o_ model for this quest.
 
-If you used a different region, please [create a new Azure AI Foundry project](https://ai.azure.com/build), _(On the AI Foundry portal)_, in one of the supported regions and deploy a model, (gpt-4o), there.
+If you used a different region, please [create a new Microsoft Foundry project](https://ai.azure.com/build), _(On the Microsoft Foundry portal)_, in one of the supported regions and deploy a model, (gpt-4o), there.
 
 **‼️END OF NOTE**
 
@@ -82,9 +74,9 @@ If you used a different region, please [create a new Azure AI Foundry project](h
       ````
 3.  **Create Agent** 
 
-    Click on the **Create Agent on Azure AI Foundry** button in the Agent Designer to create and deploy your agent to Azure AI Foundry. Once created, the agent will pop up in the AI Foundry extension under the "Agents" section.
+    Click on the **Create Agent on Microsoft Foundry** button in the Agent Designer to create and deploy your agent to Microsoft Foundry. Once created, the agent will pop up in the AI Foundry extension under the "Agents" section.
 
-    ![Deploy to Azure AI Foundry Button](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/deploy-to-ai-foundry.png?raw=true)
+    ![Deploy to Microsoft Foundry Button](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/deploy-to-ai-foundry.png?raw=true)
 
 ## Step 2️⃣: Test the Agent in the Playground
 
@@ -162,7 +154,7 @@ On the `yaml` file, scroll down to the `tools` section and delete the empty arra
    - `project_name` = Your Project name on AI Foundry
    - `bing_grounding_connection_name` = The connection name **NOT** the bing resource name
 
-- A Bing Grounding connection should appear under the **Tool** section on the Agent Designer. Click on **Update Agent on Azure AI Foundry** to update your agent with the new tool configuration.
+- A Bing Grounding connection should appear under the **Tool** section on the Agent Designer. Click on **Update Agent on Microsoft Foundry** to update your agent with the new tool configuration.
 
 Now that you've added the Bing Grounding to your agent, you can test it in the Playground. Open the "Agent Playground" and send the agent a message like _"What's the weather in Nairobi right now?"_ The agent should use the Bing Search API tool to fetch the current weather information and respond with a friendly message.
 
@@ -476,31 +468,6 @@ On the app, select the **Agent** mode from the dropdown. Type a message in the i
 If you ask the agent a question that requires real-time information, such as _"What's the current weather in Spain?"_, the agent should ground its response using the Bing Search API and provide you with the latest information.
 
 ![Weather in Spain in Agent mode](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/weather-in-spain.png?raw=true)
-
-
-## ✅ Activity: Push your updated code to the repository
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-
-- [ ] Ensure your agent configuration file is added to `.gitignore` to prevent it from being committed. DON'T PUSH IT TO THE REPOSITORY.
-- [ ] Have an `agentService.js` file in the `packages/webapi` directory 
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Added agent mode"
-    git push
-    ```
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
 
 ## 📚 Further Reading
 

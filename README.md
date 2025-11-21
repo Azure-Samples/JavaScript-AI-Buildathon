@@ -1,60 +1,46 @@
 <header>
 
-# 🚀 JS AI Build-a-thon
+# The JavaScript AI Build-a-thon
 
 ![banner](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/practical-ai-learning.png?raw=true)
 
-Unique Hands-On Quests for JS/ TS Developers to Build AI Apps on Azure AI Foundry, and gain a deeper understanding of AI Technologies, Tools and Frameworks.
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+
+Unique Hands-On Quests for JavaScript/ TypeScript Developers to Build AI Apps on Microsoft Foundry, and gain a deeper understanding of AI Technologies, Tools and Frameworks. This is a hands-on experience designed for you to work through a series of quests, each designed to guide you through the process of building AI apps step by step.
+
+## 🗺️ How it works
+
+This build-a-thon is organized into **quests** — choose the one that matches your goals and click its badge to begin. The quests are ordered in a sequence that **builds your skills progressively** - so **we recommend starting with the first quest and working your way through them in the given order** for the best learning experience.
+
+## 🏁 Your Quests
+
+| #   | **Quest**                                    | **Tools** |
+| --- | ---------------------------------------------| --------------- |
+| 01  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_build_a_local_GenAI_prototype-green)](./01-local-genai-prototype/README.md)| GitHub Models, AI Toolkit Extension |
+| 02  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_move_my_prototype_to_Azure-orange)](./02-local-to-azure/README.md) | Microsoft Foundry Extension |
+| 03  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_add_a_simple_chat_interface_to_my_app-blue)](./03-add-chat-interface/README.md) | Azure Developer CLI (azd), Vite, Lit |
+| 04  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_integrate_external_data_using_RAG-purple)](./04-rag-integration/README.md) | LangChain.js |
+| 05  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_explore_frameworks-yellow)](./05-explore-frameworks/README.md) | Next.js, React |
+| 06  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_build_an_AI_Agent-violet)](./06-build-agent/README.md) | Microsoft Foundry Agents Service |
+| 07  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_use_MCP_tools-cyan)](./07-use-mcp/README.md) | AI Toolkit Extension |
+| 08  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_automate_code_reviews-crimson)](./08-automate-code-reviews/README.md) | GitHub Models, GenAIScript |
+| 09  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_create_templates-pink)](./09-create-templates/README.md) | Azure Developer CLI (azd) |
 
 ✨ [Check the Study Guide for additional resources](https://aka.ms/JSAIStudyGuide) ✨
 
 </header>
 
-- **👩‍💻 Who this is for:** Developers &#8594; AI Engineers
-- **🧠 What you'll learn:** To Seamlessly Integrate AI Capabilities into Web Applications. The build-a-thon is designed to get you from _Not having worked with AI_ &#8594; _building local AI prototypes_ &#8594; _deploying and extending AI applications on Azure_
-- **🛠️ What you'll do:** 
-   - 💻 Build Local AI Prototypes with **GitHub Models** & **AI Toolkit Extension** _(NO AZURE ACCOUNT NEEDED)_
-   - 🔄 Migrate Prototype to Azure **(GitHub Models &#8594; Azure AI Foundry)**
-   - ☁️ Deploy Models and Use in Code with the **Azure AI Foundry Extension**
-   - 📊 Connect to external data with RAG, add conversation history with **LangChain.js**
-   - 🤖 Build an AI Agent with **Azure AI Foundry Extension**
-   - 🧰 Extend Agent with MCP Tools using the **AI Toolkit Extension**
-   - ⚡ Automate your dev workflows with **GitHub Models** and **GenAIScript** _(NO AZURE ACCOUNT NEEDED)_
+## Appendix: The JavaScript AI Build-a-thon (June 2025)
 
-## 🏁 How to get started
-
-1️⃣ Right Click on the **Start Course** &#8595; button below and open in a new tab. 
-
-   - **Owner**: _Your personal account_ 
-   - **Repository name**: (e.g. `JSAI-Build-a-thon`)
-   - **We recommend creating a public repository**, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   - Optionally give your repository a description, such as `JS-AI-Build-a-thon`
-   - **Privacy**: _Public_ 
-      
-      ⚠️ Ensure you select **Public**. If you select Private, GitHub Actions will not work.
-   - Scroll down and click the **Create repository** button at the bottom of the form.
-
-2️⃣ After you click the **Create repository** button, ⏳ **WAIT FOR ABOUT 20 SECONDS, THEN REFRESH THE PAGE.**
-
- [GitHub Actions](https://docs.github.com/actions) will AUTOMATICALLY UPDATE YOUR README WITH THE NEXT STEP
-
-
-   [![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_name=JS-AI-Build-a-thon&template_owner=Azure-Samples)
-<footer>
-
----
-
-## JS AI Build-a-thon (June 2025)
 Developers from all over the world joined us in the **AI June Jams with JavaScript** - turning their real-world ideas into ready AI apps, through this hands-on learning experience!
 
-### 🚀 People’s Choice Spotlight Project: AI Career Navigator - Your Personal AI Career Coach
+### 🏅 AI Career Navigator - Your Personal AI Career Coach
 
-By [Aryanjstar](https://github.com/Aryanjstar)
+[Aryanjstar](https://github.com/Aryanjstar)
 
 https://github.com/user-attachments/assets/0bde9089-050a-40d8-8eef-a9bfd92d6e49
 
-
-### Participating Projects
+### June 2025 Projects
 
 |Project|Description|Submission|
 |---|---|---|
@@ -90,27 +76,13 @@ https://github.com/user-attachments/assets/0bde9089-050a-40d8-8eef-a9bfd92d6e49
 
 ## 🤝 Community 
 
-To connect with other developers, join us in the Azure AI Community Discord _(#js-ai-build-a-thon)_.
+If you get stuck or have any questions about building AI apps. Join fellow learners and experienced developers in discussions about Microsoft Foundry and AI Integrations. It's a supportive community where questions are welcome and knowledge is shared freely.
 
-[![Join Azure AI Community Discord](https://dcbadge.limes.pink/api/server/kzRShWzttr)](https://aka.ms/JSAIonDiscord)
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-<!--
-|Study Jam|Country|Time zone|
-|---|---|---|
-|[University of Southern California (USC)](https://bit.ly/js-ai-buildathon)|US, UK, India, Bangladesh|PT, ET, BST, IST|
-|[MLSA SPSU (Sir Padampat Singhania University)](https://forms.cloud.microsoft/r/fNFAuELdk4)|India|IST (GMT + 05:30)|
-|[MLSA Nepal](https://forms.cloud.microsoft/r/ANcMqGKrrv)|Nepal|GMT + 5:45|
-|[Azure Developer Community Kolkata](https://forms.cloud.microsoft/r/tZLHWTk3Cm )|India|IST (GMT + 05:30)|
-|[Elliot, Herzegovina](https://forms.office.com/r/MGJ6StHWa4?origin=lprLink)|Bosnia|Central Time|
-|[MLSC-PRPCEM](https://globalai.community/chapters/amravati/events/js-ai-build-a-thon/)|India|IST (GMT + 05:30)|
-|[MLSA - Nigeria](https://forms.cloud.microsoft/r/eHYGdD2gBr)|Nigeria|WAT (GMT + 1)|
-|[Nairobi Azure AI](https://forms.office.com/r/3DK5Z7gqU3)|Kenya|EAT (GMT + 3)|
-|[SRM Institute of Science & Technology](https://forms.office.com/r/VQ4f1TXdCv)|India |IST (GMT + 05:30)|
-|[National Institute of Business Management](https://shorturl.at/UN509)|Sri Lanka|IST (GMT + 05:30)|
-|[DHA Suffa University](https://forms.cloud.microsoft/r/7r1ddkxyfH)|India |IST (GMT + 05:30)|
-|[Code Crafting](https://forms.office.com/pages/responsepage.aspx?id=oBzDhDusrk6tEVGdgCM-b034xDCHMYNAl2nq0Nl42JZUMVFaQTJFSEpIT0xYVTc0QUoxWjEyMExNVi4u&route=shorturl)|India|IST (GMT + 05:30)|
-|[MLSA Peru](https://forms.office.com/pages/responsepage.aspx?id=oBzDhDusrk6tEVGdgCM-b034xDCHMYNAl2nq0Nl42JZUMVFaQTJFSEpIT0xYVTc0QUoxWjEyMExNVi4u&route=shorturl)|Peru |(GMT - 05:00)|
-|[MLSA DEKUT](https://forms.office.com/r/YLWiQrGisf)|Kenya |EAT (GMT + 3)| -->
+If you have product feedback or errors while building visit:
+
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
 
 
 &copy; 2025 JavaScript at Microsoft &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)

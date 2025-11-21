@@ -1,10 +1,6 @@
 
 # ☁️ Quest: I want to move my AI prototype to Azure 
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -14,16 +10,14 @@
 
 ## 📝 Overview
 
-In this step, you will learn how to deploy your AI model to Azure AI Foundry after testing it locally with GitHub Models.
+In this step, you will learn how to deploy your AI model to Microsoft Foundry after testing it locally with GitHub Models.
 
 ### Assumption ⚠️
 
 - You have already completed the previous steps in this project and have opened the **model playground on GitHub Models.**
 
-> [!IMPORTANT]  
-> If you have done the previous quest, ensure you pull your changes from GitHub using `git pull` before continuing with this project to update the project README.
+## 🧠 GitHub Models to Microsoft Foundry
 
-## 🧠 GitHub Models to Azure AI Foundry
 > [!Note]
 > The following steps on GitHub Models should be in A SEPARATE BROWSER TAB. Keep this tab open for reference.
 
@@ -44,9 +38,9 @@ In this step, you will learn how to deploy your AI model to Azure AI Foundry aft
 
 ## 🧰 AI Foundry VS Code Extension
 
-To continue working with your deployed model in VS Code, you will need to install the AI Foundry VS Code extension, which will allow you to deploy and manage models in Azure AI Foundry without leaving your IDE.
+To continue working with your deployed model in VS Code, you will need to install the AI Foundry VS Code extension, which will allow you to deploy and manage models in Microsoft Foundry without leaving your IDE.
 
-1. Click on the **Extensions** icon in the left sidebar of Visual Studio Code, search for **Azure AI Foundry** and **install**.
+1. Click on the **Extensions** icon in the left sidebar of Visual Studio Code, search for **Microsoft Foundry** and **install**.
 
 2. Once installed, click on the **AI Foundry** icon in the left sidebar and click on **Set Default Project**. Select your project and expand the **Models** section. You should see your deployed model(s) listed there.
 
@@ -94,37 +88,11 @@ To continue working with your deployed model in VS Code, you will need to instal
 
    ![AI Foundry sample code](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/run-ai-foundry-sample.png?raw=true)
 
-
-## ✅ Activity: Push `ai-foundry.js` code to your repository
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-
-- [ ] Have a `ai-foundry.js` file at the root of your project
-- [ ] The file MUST include a call to the `chat/completion` endpoint of your deployed model
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Connect to Azure AI Foundry"
-    git push
-    ```
-
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📚 Further Reading
 
-Here are some additional resources to help you learn more about getting started with Azure AI Foundry and deploying models:
+Here are some additional resources to help you learn more about getting started with Microsoft Foundry and deploying models:
 
-- [Azure AI Foundry Extension for Visual Studio Code is Available in Preview](https://devblogs.microsoft.com/foundry/azure-ai-foundry-vscode-extension-preview/)
-- [Work with the Azure AI Foundry for Visual Studio Code extension docs](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/get-started-projects-vs-code)
-- [📹 BRK107: Develop, Build and Deploy LLM Apps using GitHub Models and Azure AI Foundry](https://build.microsoft.com/en-US/sessions/BRK107?source=sessions)
+- [Microsoft Foundry Extension for Visual Studio Code is Available in Preview](https://devblogs.microsoft.com/foundry/azure-ai-foundry-vscode-extension-preview/)
+- [Work with the Microsoft Foundry for Visual Studio Code extension docs](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/get-started-projects-vs-code)
+- [📹 BRK107: Develop, Build and Deploy LLM Apps using GitHub Models and Microsoft Foundry](https://build.microsoft.com/en-US/sessions/BRK107?source=sessions)
 - [Microsoft AI Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.microsoft-ai-tools-pack), a curated set of essential extensions for building generative AI applications and agents in VS Code
