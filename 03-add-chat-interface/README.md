@@ -1,9 +1,5 @@
 # 💬 Quest: I want to add a simple chat interface
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -314,32 +310,6 @@ To deploy the application,
 - Select a location for the resources.
 
   ![azd up](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/azd-up.png?raw=true)
-
-
-## ✅ Activity: Push deployment infra code to your repository
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-
-- [ ] Have an `azure.yaml` file at the root of your project
-- [ ] The file MUST include a service being deployed to `staticwebapp`
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Added a simple chat interface"
-    git push
-    ```
-
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
 
 ## 📚 Further Reading
 

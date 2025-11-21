@@ -1,9 +1,5 @@
 # ⚙️ Quest: I want to automate code reviews
 
-> To reset your progress and select a different quest, click this button:
->
-> [![Reset Progess](https://img.shields.io/badge/Reset--Progress-ff3860?logo=mattermost)](../../issues/new?title=Reset+Quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+click+on+Create+below,+then+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
-
 ## 📋 Pre-requisites
 
 1. A GitHub account
@@ -11,9 +7,6 @@
 3. [Node.js](https://nodejs.org/en) installed
 
 ## 📝 Overview
-
-> [!IMPORTANT]  
-> If you have done the previous quest, ensure you pull your changes from GitHub using `git pull` before continuing with this project to update the project README.
 
 You will build an **automated code review system** that uses AI to analyze code changes and provide feedback. This system will help you ensure that your code meets the quality standards best practices of your project, while also learning how to use AI to automate some of your development tasks.
 
@@ -87,27 +80,6 @@ Then while your `code-review.genai.js` file is open, select the **Run GenAIScrip
 ![Run GenAIScript button](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/run-genaiscript.png?raw=true)
 
 You should then see a new tab open with the AI's code review feedback. It should point out a few things since the model has no knowledge of GenAIScript here, but you can use this as a starting point. Experiment with tweaking the prompt to get more specific feedback based on your coding standards and practices.
-
-### Quest Checklist
-
-To complete this quest and **AUTOMATICALLY UPDATE** your progress, you MUST push your code to the repository as described below.
-
-**Checklist**
-- [ ] Have a `code-review.genai.js` file at the root of your project
-
-1. In the terminal, run the following commands to add, commit, and push your changes to the repository:
-
-    ```bash
-    git add .
-    git commit -m "Add code review script"
-    git push
-    ```
-
-2.  After pushing your changes, **WAIT ABOUT 15 SECONDS FOR GITHUB ACTIONS TO UPDATE YOUR README**.
-
-> To skip this quest and select a different one, click this button:
->
-> [![Skip to another quest](https://img.shields.io/badge/Skip--to--another--quest-ff3860?logo=mattermost)](../../issues/new?title=Skip+quest&labels=reset-quest&body=🔄+I+want+to+reset+my+AI+learning+quest+and+start+from+the+beginning.%0A%0A**Please+wait+about+15+seconds.+Your+progress+will+be+reset,+this+issue+will+automatically+close,+and+you+will+be+taken+back+to+the+Welcome+step+to+select+a+new+quest.**)
 
 ## 📚 Further Reading
 
