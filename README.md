@@ -27,20 +27,24 @@ This build-a-thon is organized into **quests** — choose the one that matches y
 | 09  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_create_templates-pink)](./09-create-templates/README.md) | Azure Developer CLI (azd) |
 
 ✨ [Check the Study Guide for additional resources](https://aka.ms/JSAIStudyGuide) ✨
-
 </header>
 
-## Appendix: The JavaScript AI Build-a-thon (June 2025)
+---
 
-Developers from all over the world joined us in the **AI June Jams with JavaScript** - turning their real-world ideas into ready AI apps, through this hands-on learning experience!
+## Appendix
 
-### 🏅 AI Career Navigator - Your Personal AI Career Coach
+<details>
+<summary>The JavaScript AI Build-a-thon (June 2025)</summary><br>
+
+Developers from all over the world joined us in the AI June Jams with JavaScript - turning their real-world ideas into ready AI apps, through this hands-on learning experience!
+
+#### 🏅 AI Career Navigator - Your Personal AI Career Coach
 
 [Aryanjstar](https://github.com/Aryanjstar)
 
 https://github.com/user-attachments/assets/0bde9089-050a-40d8-8eef-a9bfd92d6e49
 
-### June 2025 Projects
+#### June 2025 Projects
 
 |Project|Description|Submission|
 |---|---|---|
@@ -72,6 +76,8 @@ https://github.com/user-attachments/assets/0bde9089-050a-40d8-8eef-a9bfd92d6e49
 | MLSA LearnBot | An intelligent chatbot for Microsoft Learn Student Ambassadors that provides instant answers, integrated documentation, and a student-focused experience through Azure OpenAI and AI Search. | [View project](https://github.com/Azure-Samples/JS-AI-Build-a-thon/issues/67) |
 | DocuChat AI | An AI chat app that enables users to interact conversationally with complex documents through RAG, memory, and semantic search for expert-level answers. | [View project](https://github.com/Azure-Samples/JS-AI-Build-a-thon/issues/66) |
 
+</details>
+
 ---
 
 ## 🤝 Community 
@@ -83,7 +89,6 @@ If you get stuck or have any questions about building AI apps. Join fellow learn
 If you have product feedback or errors while building visit:
 
 [![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
-
 
 &copy; 2025 JavaScript at Microsoft &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 </footer>
