@@ -2,6 +2,20 @@
 
 # The JavaScript AI Build-a-thon
 
+<div align="center">
+
+![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/season2-coming-soon.svg)
+
+### 🚀 The JavaScript AI Build-a-thon Season 2 — Coming Soon!
+
+**Get ready for new quests, new challenges, and more hands-on AI adventures with JavaScript!**<br>
+📍 Join us in the [#buildathon channel under Hackathons and Events](https://aka.ms/JSAIonDiscord).<br>
+🎙️ [Register for Season 2 Livestreams](https://developer.microsoft.com/reactor/series/S-1628)
+
+</div>
+
+---
+
 ![banner](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/practical-ai-learning.png?raw=true)
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
