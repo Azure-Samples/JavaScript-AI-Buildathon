@@ -6,6 +6,21 @@
 
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
+---
+
+<div align="center">
+
+![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/season2-coming-soon.svg)
+
+### 🚀 The JavaScript AI Build-a-thon Season 2 — Coming Soon!
+
+**Get ready for new quests, new challenges, and more hands-on AI adventures with JavaScript!**<br>
+Stay tuned and join our [Discord community](https://discord.gg/nTYy5BXMWG) for the latest updates.
+
+</div>
+
+---
+
 Unique Hands-On Quests for JavaScript/ TypeScript Developers to Build AI Apps on Microsoft Foundry, and gain a deeper understanding of AI Technologies, Tools and Frameworks. This is a hands-on experience designed for you to work through a series of quests, each designed to guide you through the process of building AI apps step by step.
 
 ## 🗺️ How it works

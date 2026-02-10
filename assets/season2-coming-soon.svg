@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="50%" style="stop-color:#302b63"/>
+      <stop offset="100%" style="stop-color:#24243e"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f7df1e"/>
+      <stop offset="100%" style="stop-color:#f0c000"/>
+    </linearGradient>
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f7df1e;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#f7df1e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f7df1e;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="subtleGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="320" fill="url(#bgGrad)" rx="16" ry="16"/>
+
+  <!-- Decorative grid dots -->
+  <g opacity="0.08" fill="#f7df1e">
+    <circle cx="60" cy="40" r="2"/><circle cx="120" cy="40" r="2"/><circle cx="180" cy="40" r="2"/>
+    <circle cx="240" cy="40" r="2"/><circle cx="300" cy="40" r="2"/><circle cx="360" cy="40" r="2"/>
+    <circle cx="420" cy="40" r="2"/><circle cx="480" cy="40" r="2"/><circle cx="540" cy="40" r="2"/>
+    <circle cx="600" cy="40" r="2"/><circle cx="660" cy="40" r="2"/><circle cx="720" cy="40" r="2"/>
+    <circle cx="780" cy="40" r="2"/><circle cx="840" cy="40" r="2"/><circle cx="900" cy="40" r="2"/>
+    <circle cx="60" cy="280" r="2"/><circle cx="120" cy="280" r="2"/><circle cx="180" cy="280" r="2"/>
+    <circle cx="240" cy="280" r="2"/><circle cx="300" cy="280" r="2"/><circle cx="360" cy="280" r="2"/>
+    <circle cx="420" cy="280" r="2"/><circle cx="480" cy="280" r="2"/><circle cx="540" cy="280" r="2"/>
+    <circle cx="600" cy="280" r="2"/><circle cx="660" cy="280" r="2"/><circle cx="720" cy="280" r="2"/>
+    <circle cx="780" cy="280" r="2"/><circle cx="840" cy="280" r="2"/><circle cx="900" cy="280" r="2"/>
+  </g>
+
+  <!-- JS logo element (top-left area) -->
+  <rect x="56" y="100" width="68" height="68" rx="8" fill="#f7df1e"/>
+  <text x="76" y="152" font-family="'Courier New', monospace" font-size="40" font-weight="bold" fill="#0f0c29">JS</text>
+
+  <!-- AI sparkle nodes (top-right decorative) -->
+  <g filter="url(#subtleGlow)" opacity="0.7">
+    <circle cx="830" cy="80" r="5" fill="#67e8f9"/>
+    <circle cx="870" cy="110" r="3.5" fill="#a78bfa"/>
+    <circle cx="810" cy="130" r="4" fill="#67e8f9"/>
+    <line x1="830" y1="80" x2="870" y2="110" stroke="#67e8f9" stroke-width="1" opacity="0.5"/>
+    <line x1="870" y1="110" x2="810" y2="130" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+    <line x1="810" y1="130" x2="830" y2="80" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
+  </g>
+
+  <!-- Main heading -->
+  <text x="480" y="115" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="38" font-weight="700" fill="#ffffff" letter-spacing="1">
+    The JavaScript AI Build-a-thon
+  </text>
+
+  <!-- Season 2 large text with glow -->
+  <text x="480" y="178" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="62" font-weight="800" fill="url(#accentGrad)" filter="url(#softGlow)" letter-spacing="3">
+    SEASON 2
+  </text>
+
+  <!-- Decorative line -->
+  <rect x="280" y="200" width="400" height="2" rx="1" fill="url(#glowLine)"/>
+
+  <!-- Coming Soon text -->
+  <text x="480" y="240" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="600" fill="#c4b5fd" letter-spacing="8">
+    COMING SOON
+  </text>
+
+  <!-- Bottom tagline -->
+  <text x="480" y="278" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#94a3b8" letter-spacing="1">
+    New quests · New challenges · Build AI apps with JavaScript
+  </text>
+</svg>
