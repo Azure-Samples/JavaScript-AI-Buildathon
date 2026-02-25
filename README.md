@@ -1,49 +1,95 @@
 <header>
 
-# The JavaScript AI Build-a-thon
-
 <div align="center">
 
-![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/season2-coming-soon.svg)
+![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/poster.svg)
 
-### 🚀 The JavaScript AI Build-a-thon Season 2 — Coming Soon!
+<p align="center">
+  <strong>Create, compete, and turn ideas into working AI.</strong><br/>
+  <em>Starting March 2, 2026</em>
+</p>
 
-**Get ready for new quests, new challenges, and more hands-on AI adventures with JavaScript!**<br>
-📍 Join us in the [#buildathon channel under Hackathons and Events](https://aka.ms/JSAIonDiscord).<br>
-🎙️ [Register for Season 2 Livestreams](https://developer.microsoft.com/reactor/series/S-1628)
+<p align="center">
+  <a href="https://aka.ms/JSAI_Discussions"><img src="https://img.shields.io/badge/Discussions-Join%20Now-blue?logo=github" alt="Discussions"></a>&nbsp;
+  <a href="https://aka.ms/JSAIonDiscord"><img src="https://img.shields.io/badge/Discord-Office%20Hours-7289DA?logo=discord&logoColor=white" alt="Discord"></a>&nbsp;
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript">&nbsp;
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+</p>
+
+[Register today](https://aka.ms/JSAIBuildathon)
 
 </div>
 
 ---
 
-![banner](https://github.com/Azure-Samples/JS-AI-Build-a-thon/blob/assets/jsai-buildathon-assets/practical-ai-learning.png?raw=true)
+# What is the JavaScript AI Build-a-thon?
 
-[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
+The JavaScript AI Build-a-thon is a focused, hands-on initiative that helps **builders** quickly move from exploration to working AI prototypes. Through concise quests and practical demos, you'll gain real skills with modern AI tools in a clear, outcome-driven format.
 
-Unique Hands-On Quests for JavaScript/ TypeScript Developers to Build AI Apps on Microsoft Foundry, and gain a deeper understanding of AI Technologies, Tools and Frameworks. This is a hands-on experience designed for you to work through a series of quests, each designed to guide you through the process of building AI apps step by step.
+**This isn't just another hackathon. It's your launchpad into the Agentic future of JavaScript and TypeScript development.**
 
-## 🗺️ How it works
+If you're building your first AI app or architecting multi-agent systems, the Build-a-thon gives you the tools, the mentorship, and the stage to ship something real.
 
-This build-a-thon is organized into **quests** — choose the one that matches your goals and click its badge to begin. The quests are ordered in a sequence that **builds your skills progressively** - so **we recommend starting with the first quest and working your way through them in the given order** for the best learning experience.
+# Key Dates
 
-## 🏁 Your Quests
+| Milestone | Date |
+|---|---|
+| 🎬 Build-a-thon Begins | **Monday, March 2, 2026** |
+| 📚 Quests & Livestreams | **March 2 – March 13, 2026** |
+| **🔥 Hackathon Launches** | **Friday, March 13, 2026** |
+| 🏁 Hackathon Ends | **Tuesday, March 31, 2026** |
 
-| #   | **Quest**                                    | **Tools** |
-| --- | ---------------------------------------------| --------------- |
-| 01  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_build_a_local_GenAI_prototype-green)](./01-local-genai-prototype/README.md)| GitHub Models, AI Toolkit Extension |
-| 02  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_move_my_prototype_to_Azure-orange)](./02-local-to-azure/README.md) | Microsoft Foundry Extension |
-| 03  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_add_a_simple_chat_interface_to_my_app-blue)](./03-add-chat-interface/README.md) | Azure Developer CLI (azd), Vite, Lit |
-| 04  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_integrate_external_data_using_RAG-purple)](./04-rag-integration/README.md) | LangChain.js |
-| 05  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_explore_frameworks-yellow)](./05-explore-frameworks/README.md) | Next.js, React |
-| 06  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_build_an_AI_Agent-violet)](./06-build-agent/README.md) | Microsoft Foundry Agents Service |
-| 07  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_use_MCP_tools-cyan)](./07-use-mcp/README.md) | AI Toolkit Extension |
-| 08  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_automate_code_reviews-crimson)](./08-automate-code-reviews/README.md) | GitHub Models, GenAIScript |
-| 09  | [![Static Badge](https://img.shields.io/badge/Quest-I_want_to_create_templates-pink)](./09-create-templates/README.md) | Azure Developer CLI (azd) |
+# How It Works
 
-✨ [Check the Study Guide for additional resources](https://aka.ms/JSAIStudyGuide) ✨
-</header>
+The Build-a-thon runs in two phases.
 
----
+![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/roadmap.svg)
+
+## 📚 Phase 1: Learn & Skill Up (March 2 – March 13)
+
+Complete guided quests and attend expert-led livestreams to build the skills you'll need. Each quest is hands-on, self-paced, and designed to teach you a core AI development pattern with JavaScript/TypeScript:
+
+> *Season 2 Quests will go live on Monday March 2, 2026.*
+
+### Livestream Schedule
+
+Expert-led sessions streamed live on Microsoft Reactor, covering everything from local AI development to production-grade agent architectures.
+
+#### Week 1: March 2 – March 6
+
+| Day/Time (PT) | Topic | Links to join |
+|---|---|---|
+| Mon 3/2, 8:00 AM PST | Local AI Development with Foundry Local | [Livestream](https://developer.microsoft.com/en-us/reactor/events/26772/) <br> [Discord Office Hour](https://discord.gg/microsoftfoundry?event=1465380906842853666)|
+| Wed 3/4, 8:00 AM PST | End-to-End Model Development on Microsoft Foundry | [Livestream](https://developer.microsoft.com/en-us/reactor/events/26773/) <br> [Discord Office Hour](https://discord.gg/microsoftfoundry?event=1470927803888173109)|
+| Fri 3/6, 9:00 AM PST | Advanced RAG Deep Dive + Guided Project | [Livestream](https://developer.microsoft.com/en-us/reactor/events/26775) <br> [Discord Office Hour](https://discord.gg/microsoftfoundry?event=1465381686362509323)|
+
+#### Week 2: March 9 – March 13
+
+| Day/Time (PT) | Topic | Links to join |
+|---|---|---|
+| Mon 3/9, 8:00 AM PST | Design & Build an Agent E2E with Agent Builder (AITK) | [Livestream](https://developer.microsoft.com/en-us/reactor/events/26776/) <br> [Discord Office Hour](https://discord.gg/microsoftfoundry?event=1465382167894036481)|
+| Wed 3/11, 8:00 AM PST | Build, Scale & Govern AI Agents + Guided project | [Livestream](https://developer.microsoft.com/en-us/reactor/events/26786/) <br> [Discord Office Hour](https://discord.gg/microsoftfoundry?event=1465382908687814840)|
+| Fri 3/13, 8:00 AM PST | Build-a-thon Global Hack Launch | [Livestream](https://developer.microsoft.com/en-us/reactor/events/26777/) <br> [Discord Office Hour](https://discord.gg/microsoftfoundry?event=1470930191994847343)|
+
+## 🔥 Phase 2: Hack! (March 13 – March 31)
+
+Build something that matters. Use everything you learned in the quests, and beyond, to create an AI-powered project that solves a real problem, delights users, or pushes what's possible.
+
+> **The hackathon launches on March 13, 2026.** Full details on registration, submission, judging criteria, award categories, prizes, and the hack phase schedule will be published when the hack goes live. Stay tuned!
+
+Here's what we can tell you now:
+
+- 🏆 **6 award categories** with cash prizes
+- 💻 **Product demo showcases** throughout the hack phase to keep you building with the latest tools
+- 👥 Teams of up to 4 or solo — your call
+
+## 💬 Community & Support
+
+Join our community to connect with other participants and experts from Microsoft &. GitHub to support your builder journey.
+
+- **Foundry Discord** (#js-ai-build-a-thon channel): [Our platform for office hours, live QnA, quick questions, community & expert support](https://aka.ms/JSAIonDiscord)
+- **GitHub Discussions:** [This is where you'll share ideas, ask questions, find teammates](https://aka.ms/JSAI_Discussions)
+- **Social:** Share your progress online using **#JSAIBuildathon**
 
 ## Appendix
 
@@ -52,13 +98,13 @@ This build-a-thon is organized into **quests** — choose the one that matches y
 
 Developers from all over the world joined us in the AI June Jams with JavaScript - turning their real-world ideas into ready AI apps, through this hands-on learning experience!
 
-#### 🏅 AI Career Navigator - Your Personal AI Career Coach
+## 🏅 AI Career Navigator - Your Personal AI Career Coach
 
 [Aryanjstar](https://github.com/Aryanjstar)
 
 https://github.com/user-attachments/assets/0bde9089-050a-40d8-8eef-a9bfd92d6e49
 
-#### June 2025 Projects
+## June 2025 Projects
 
 |Project|Description|Submission|
 |---|---|---|
@@ -94,15 +140,5 @@ https://github.com/user-attachments/assets/0bde9089-050a-40d8-8eef-a9bfd92d6e49
 
 ---
 
-## 🤝 Community 
-
-If you get stuck or have any questions about building AI apps. Join fellow learners and experienced developers in discussions about Microsoft Foundry and AI Integrations. It's a supportive community where questions are welcome and knowledge is shared freely.
-
-[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
-
-If you have product feedback or errors while building visit:
-
-[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
-
-&copy; 2025 JavaScript at Microsoft &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2026 JavaScript at Microsoft &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 </footer>

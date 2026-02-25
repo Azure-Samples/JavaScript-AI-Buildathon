@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06061a"/>
+      <stop offset="35%" style="stop-color:#0d0d2b"/>
+      <stop offset="65%" style="stop-color:#110e30"/>
+      <stop offset="100%" style="stop-color:#06061a"/>
+    </linearGradient>
+    <!-- Title accent gradient -->
+    <linearGradient id="titleAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F7DF1E"/>
+      <stop offset="50%" style="stop-color:#43E97B"/>
+      <stop offset="100%" style="stop-color:#38F9D7"/>
+    </linearGradient>
+    <!-- Glow gradient for hero text -->
+    <linearGradient id="heroGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7B68EE"/>
+      <stop offset="50%" style="stop-color:#C850C0"/>
+      <stop offset="100%" style="stop-color:#E84393"/>
+    </linearGradient>
+    <!-- Orb gradients -->
+    <radialGradient id="orbPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#7B68EE;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#7B68EE;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orbPink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E84393;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#E84393;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orbGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#43E97B;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#43E97B;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orbYellow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F7DF1E;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#F7DF1E;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Bar gradients -->
+    <linearGradient id="barPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7B68EE"/>
+      <stop offset="100%" style="stop-color:#4158D0"/>
+    </linearGradient>
+    <linearGradient id="barPink" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D"/>
+      <stop offset="100%" style="stop-color:#C850C0"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#43E97B"/>
+      <stop offset="100%" style="stop-color:#38F9D7"/>
+    </linearGradient>
+    <linearGradient id="barYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F7DF1E"/>
+      <stop offset="100%" style="stop-color:#E8C800"/>
+    </linearGradient>
+    <linearGradient id="barBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3178C6"/>
+      <stop offset="100%" style="stop-color:#235A9E"/>
+    </linearGradient>
+    <!-- CTA gradient -->
+    <linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7B68EE"/>
+      <stop offset="100%" style="stop-color:#E84393"/>
+    </linearGradient>
+    <!-- Filter for glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Clip for rounded poster -->
+    <clipPath id="posterClip">
+      <rect width="1200" height="675" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#posterClip)">
+    <!-- Background -->
+    <rect width="1200" height="675" fill="url(#bgGrad)"/>
+
+    <!-- Subtle grid -->
+    <g opacity="0.03">
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#fff" stroke-width="0.5"/>
+      </pattern>
+      <rect width="1200" height="675" fill="url(#grid)"/>
+    </g>
+
+    <!-- Large ambient orbs -->
+    <circle cx="180" cy="280" r="300" fill="url(#orbPurple)"/>
+    <circle cx="950" cy="150" r="250" fill="url(#orbPink)"/>
+    <circle cx="1050" cy="550" r="200" fill="url(#orbGreen)"/>
+    <circle cx="600" cy="600" r="180" fill="url(#orbYellow)"/>
+
+    <!-- === RIGHT SIDE DECORATIVE ELEMENTS === -->
+
+    <!-- Floating accent bars (right side) -->
+    <rect x="1020" y="100" width="18" height="200" rx="9" fill="url(#barPurple)" opacity="0.7"/>
+    <rect x="1052" y="160" width="18" height="260" rx="9" fill="url(#barPink)" opacity="0.65"/>
+    <rect x="1084" y="80" width="18" height="180" rx="9" fill="url(#barGreen)" opacity="0.6"/>
+    <rect x="1116" y="200" width="18" height="220" rx="9" fill="url(#barYellow)" opacity="0.55"/>
+    <rect x="1148" y="130" width="18" height="170" rx="9" fill="url(#barBlue)" opacity="0.5"/>
+
+    <!-- Wavy pill shape (top right area) -->
+    <rect x="860" y="60" width="130" height="40" rx="20" fill="#E84393" opacity="0.6"/>
+    <g opacity="0.35">
+      <path d="M873 70 Q883 66 893 70 Q903 74 913 70 Q923 66 933 70 Q943 74 953 70 Q963 66 973 70" stroke="#fff" stroke-width="1.5" fill="none"/>
+      <path d="M873 80 Q883 76 893 80 Q903 84 913 80 Q923 76 933 80 Q943 84 953 80 Q963 76 973 80" stroke="#fff" stroke-width="1.5" fill="none"/>
+      <path d="M873 90 Q883 86 893 90 Q903 94 913 90 Q923 86 933 90 Q943 94 953 90 Q963 86 973 90" stroke="#fff" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Dotted block (top right corner) -->
+    <rect x="1020" y="20" width="120" height="55" rx="8" fill="#43E97B" opacity="0.08"/>
+    <g fill="#43E97B" opacity="0.3">
+      <circle cx="1035" cy="33" r="2"/><circle cx="1052" cy="33" r="2"/><circle cx="1069" cy="33" r="2"/><circle cx="1086" cy="33" r="2"/><circle cx="1103" cy="33" r="2"/><circle cx="1120" cy="33" r="2"/>
+      <circle cx="1035" cy="48" r="2"/><circle cx="1052" cy="48" r="2"/><circle cx="1069" cy="48" r="2"/><circle cx="1086" cy="48" r="2"/><circle cx="1103" cy="48" r="2"/><circle cx="1120" cy="48" r="2"/>
+      <circle cx="1035" cy="63" r="2"/><circle cx="1052" cy="63" r="2"/><circle cx="1069" cy="63" r="2"/><circle cx="1086" cy="63" r="2"/><circle cx="1103" cy="63" r="2"/><circle cx="1120" cy="63" r="2"/>
+    </g>
+
+    <!-- AI sparkle clusters -->
+    <g filter="url(#glow)" opacity="0.5">
+      <path d="M980 420 L983 430 L993 433 L983 436 L980 446 L977 436 L967 433 L977 430 Z" fill="#7B68EE"/>
+      <path d="M1060 480 L1062 487 L1069 489 L1062 491 L1060 498 L1058 491 L1051 489 L1058 487 Z" fill="#E84393"/>
+      <path d="M920 510 L921.5 515 L926 516.5 L921.5 518 L920 523 L918.5 518 L914 516.5 L918.5 515 Z" fill="#43E97B"/>
+      <path d="M1100 400 L1101 404 L1105 405 L1101 406 L1100 410 L1099 406 L1095 405 L1099 404 Z" fill="#F7DF1E"/>
+    </g>
+
+    <!-- Neural network dots (right side decorative) -->
+    <g opacity="0.15">
+      <circle cx="870" cy="440" r="3" fill="#7B68EE"/>
+      <circle cx="920" cy="460" r="2.5" fill="#E84393"/>
+      <circle cx="960" cy="430" r="2" fill="#43E97B"/>
+      <circle cx="900" cy="490" r="2.5" fill="#3178C6"/>
+      <circle cx="950" cy="500" r="3" fill="#F7DF1E"/>
+      <line x1="870" y1="440" x2="920" y2="460" stroke="#7B68EE" stroke-width="0.5"/>
+      <line x1="920" y1="460" x2="960" y2="430" stroke="#E84393" stroke-width="0.5"/>
+      <line x1="920" y1="460" x2="900" y2="490" stroke="#E84393" stroke-width="0.5"/>
+      <line x1="900" y1="490" x2="950" y2="500" stroke="#3178C6" stroke-width="0.5"/>
+      <line x1="960" y1="430" x2="950" y2="500" stroke="#43E97B" stroke-width="0.5"/>
+    </g>
+
+    <!-- === LEFT SIDE CONTENT === -->
+
+    <!-- Microsoft logo (top left) -->
+    <g transform="translate(80,45)">
+      <rect x="0" y="0" width="12" height="12" fill="#F25022"/>
+      <rect x="14" y="0" width="12" height="12" fill="#7FBA00"/>
+      <rect x="0" y="14" width="12" height="12" fill="#00A4EF"/>
+      <rect x="14" y="14" width="12" height="12" fill="#FFB900"/>
+      <text x="38" y="21" font-family="'Segoe UI',system-ui,sans-serif" font-size="18" fill="#fff" opacity="0.85" font-weight="400">Microsoft</text>
+    </g>
+
+    <!-- Subheading -->
+    <text x="80" y="135" font-family="'Segoe UI',system-ui,sans-serif" font-size="20" fill="#aab" letter-spacing="3" font-weight="300">
+      DESIGN AI SOLUTIONS ON MICROSOFT'S AI STACK
+    </text>
+
+    <!-- Accent line under subheading -->
+    <rect x="80" y="148" width="80" height="3" rx="1.5" fill="url(#heroGlow)" opacity="0.7"/>
+
+    <!-- Main title — "The JavaScript AI" -->
+    <text x="76" y="220" font-family="'Segoe UI',system-ui,sans-serif" font-size="68" font-weight="700" fill="#fff" letter-spacing="-1">
+      The JavaScript AI
+    </text>
+
+    <!-- Main title — "Build-a-thon" with gradient -->
+    <text x="76" y="300" font-family="'Segoe UI',system-ui,sans-serif" font-size="72" font-weight="800" fill="url(#titleAccent)" letter-spacing="-1" filter="url(#softGlow)">
+      Build-a-thon
+    </text>
+
+    <!-- Tagline -->
+    <text x="82" y="348" font-family="'Segoe UI',system-ui,sans-serif" font-size="22" fill="#ccd" font-weight="300" letter-spacing="0.5">
+      Create, compete, and turn ideas into working AI.
+    </text>
+
+    <!-- Language badges row -->
+    <g transform="translate(80,380)">
+      <!-- JS badge -->
+      <rect x="0" y="0" width="52" height="34" rx="6" fill="#F7DF1E"/>
+      <text x="26" y="23" font-family="'Segoe UI',system-ui,sans-serif" font-size="16" font-weight="bold" fill="#323330" text-anchor="middle">JS</text>
+      <!-- TS badge -->
+      <rect x="62" y="0" width="52" height="34" rx="6" fill="#3178C6"/>
+      <text x="88" y="23" font-family="'Segoe UI',system-ui,sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">TS</text>
+      <!-- AI sparkle badge -->
+      <rect x="124" y="0" width="52" height="34" rx="6" fill="#9B59B6"/>
+      <path d="M150 8 L152 14 L158 16 L152 18 L150 24 L148 18 L142 16 L148 14 Z" fill="#fff"/>
+      <!-- Separator -->
+      <line x1="198" y1="4" x2="198" y2="30" stroke="#333" stroke-width="1"/>
+      <!-- Date badge -->
+      <rect x="218" y="0" width="260" height="34" rx="6" fill="#1a1a3a" stroke="#2a2a5a" stroke-width="1"/>
+      <text x="232" y="13" font-family="'Segoe UI',system-ui,sans-serif" font-size="10" fill="#888" font-weight="500" letter-spacing="1.5">PROGRAM DATES</text>
+      <text x="232" y="28" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" fill="#ddd" font-weight="600">March 2 – March 31, 2026</text>
+    </g>
+
+    <!-- Quest highlights -->
+    <g transform="translate(80,455)">
+      <text x="0" y="14" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#667" font-weight="500" letter-spacing="1.5">GUIDED QUESTS</text>
+      <g transform="translate(0,26)">
+        <circle cx="8" cy="8" r="8" fill="#7B68EE" opacity="0.8"/>
+        <text x="8" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+        <text x="24" y="13" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#99a">Local AI</text>
+
+        <circle cx="118" cy="8" r="8" fill="#E84393" opacity="0.8"/>
+        <text x="118" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+        <text x="134" y="13" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#99a">Foundry Models</text>
+
+        <circle cx="264" cy="8" r="8" fill="#43E97B" opacity="0.8"/>
+        <text x="264" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="9" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+        <text x="280" y="13" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#99a">Agentic RAG</text>
+
+        <circle cx="390" cy="8" r="8" fill="#F7DF1E" opacity="0.8"/>
+        <text x="390" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="9" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4</text>
+        <text x="406" y="13" font-family="'Segoe UI',system-ui,sans-serif" font-size="12" fill="#99a">Agent Orchestration</text>
+      </g>
+    </g>
+
+    <!-- CTA button -->
+    <g transform="translate(80,590)">
+      <rect x="0" y="0" width="220" height="44" rx="22" fill="url(#ctaGrad)"/>
+      <text x="110" y="28" font-family="'Segoe UI',system-ui,sans-serif" font-size="15" fill="#fff" text-anchor="middle" font-weight="600" letter-spacing="0.5">Register Now</text>
+    </g>
+
+    <!-- Bottom bar -->
+    <g transform="translate(80,648)">
+      <text x="0" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" font-weight="700" fill="#E84393">#JSAIBuildathon</text>
+      <text x="140" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" fill="#556">•</text>
+      <text x="162" y="12" font-family="'Segoe UI',system-ui,sans-serif" font-size="13" fill="#778">aka.ms/JSAIBuildathon</text>
+    </g>
+
+    <!-- Floating code bracket decorations (subtle) -->
+    <g opacity="0.06" font-family="'Courier New',monospace" font-size="120" fill="#fff">
+      <text x="720" y="580">{</text>
+      <text x="870" y="640">}</text>
+    </g>
+
+    <!-- Bottom edge subtle gradient -->
+    <rect x="0" y="650" width="1200" height="25" fill="url(#ctaGrad)" opacity="0.15"/>
+  </g>
+</svg>
