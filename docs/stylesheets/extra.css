@@ -404,3 +404,4 @@
 .quest-card:nth-child(2) { border-image: linear-gradient(180deg, #8b5cf6, #a78bfa) 1; border-image-slice: 0 0 0 1; }
 .quest-card:nth-child(3) { border-image: linear-gradient(180deg, #ec4899, #f472b6) 1; border-image-slice: 0 0 0 1; }
 .quest-card:nth-child(4) { border-image: linear-gradient(180deg, #f59e0b, #fbbf24) 1; border-image-slice: 0 0 0 1; }
+.quest-card:nth-child(5) { border-image: linear-gradient(180deg, #10b981, #34d399) 1; border-image-slice: 0 0 0 1; }
