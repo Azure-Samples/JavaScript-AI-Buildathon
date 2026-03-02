@@ -17,7 +17,7 @@ With Foundry Local, you gain:
 
 > [!NOTE]
 >
-> **Hackathon Award Category: Offline-Ready Award**
+> **Hackathon Award Category: Offline-Ready AI Award**
 >
 > As part of the Build-a-thon Hack!, we have a special award category that will recognize the best performing AI solution with standout offline capabilities (local inference).
 >
@@ -193,7 +193,7 @@ Once configured, GitHub Copilot Chat will use your local Foundry model for all r
 
 > [!NOTE]
 >
-> For the Offline-Ready Award, using GitHub Copilot with Foundry Local demonstrates a powerful offline development workflow. Highlight this capability in your submission!
+> For the Offline-Ready AI Award, using GitHub Copilot with Foundry Local demonstrates a powerful offline development workflow. Highlight this capability in your submission!
 
 ### 3. Software Development Kits (SDKs)
 
