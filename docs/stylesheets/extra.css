@@ -1,0 +1,406 @@
+:root {
+  --js-yellow: #F7DF1E;
+  --ai-blue: #3b82f6;
+  --ai-purple: #8b5cf6;
+  --ai-pink: #ec4899;
+  --gradient-primary: linear-gradient(135deg, var(--ai-blue), var(--ai-purple));
+  --gradient-accent: linear-gradient(135deg, var(--ai-purple), var(--ai-pink));
+  --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  --card-radius: 12px;
+  --card-shadow: 0 2px 12px rgba(0,0,0,.08);
+  --card-shadow-hover: 0 8px 30px rgba(59,130,246,.15);
+  --transition-smooth: .25s cubic-bezier(.4,0,.2,1);
+}
+
+[data-md-color-scheme="slate"] {
+  --card-shadow: 0 2px 12px rgba(0,0,0,.3);
+  --card-shadow-hover: 0 8px 30px rgba(139,92,246,.25);
+}
+
+/* ---------- Header / Nav Bar ---------- */
+.md-header {
+  background: var(--gradient-primary) !important;
+  box-shadow: 0 2px 20px rgba(59,130,246,.3);
+}
+
+.md-tabs {
+  background: rgba(15,23,42,.6) !important;
+  backdrop-filter: blur(10px);
+}
+
+.md-tabs__link {
+  font-weight: 600;
+  letter-spacing: .02em;
+  opacity: .8;
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+}
+
+/* ---------- Hero Title (h1) ---------- */
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -.02em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  background: linear-gradient(135deg, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ---------- Section Headings ---------- */
+.md-typeset h2 {
+  font-weight: 700;
+  padding-bottom: .4em;
+  border-bottom: 3px solid transparent;
+  border-image: var(--gradient-primary) 1;
+  margin-top: 2em;
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+  color: var(--ai-blue);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #93c5fd;
+}
+
+/* ---------- Links & Buttons ---------- */
+.md-typeset a:not(.md-button):not(.md-nav__link):not(.md-header__button):not(.md-tabs__link):not(.md-footer__link):not(.headerlink) {
+  color: var(--ai-blue);
+  text-decoration: none;
+  background-image: linear-gradient(var(--ai-purple), var(--ai-purple));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size var(--transition-smooth), color var(--transition-smooth);
+}
+
+.md-typeset a:not(.md-button):not(.md-nav__link):not(.md-header__button):not(.md-tabs__link):not(.md-footer__link):not(.headerlink):hover {
+  color: var(--ai-purple);
+  background-size: 100% 2px;
+}
+
+/* CTA-style strong links — "Register now!", "Start Quest →" etc. */
+.md-typeset a strong,
+.md-typeset strong a {
+  display: inline-block;
+  padding: .5em 1.2em;
+  border-radius: 8px;
+  background: var(--gradient-primary);
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  font-weight: 700;
+  text-decoration: none !important;
+  background-size: 100% 100% !important;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  box-shadow: 0 2px 10px rgba(59,130,246,.3);
+}
+
+.md-typeset a strong:hover,
+.md-typeset strong a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139,92,246,.4);
+}
+
+/* ---------- Admonitions ---------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: var(--card-radius) !important;
+  border-left: 4px solid;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: box-shadow var(--transition-smooth);
+}
+
+.md-typeset .admonition:hover,
+.md-typeset details:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/* Tip — JS yellow accent */
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-left-color: var(--js-yellow);
+}
+
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: rgba(247, 223, 30, .08);
+}
+
+/* Info — blue gradient accent */
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-left-color: var(--ai-blue);
+}
+
+.md-typeset .info > .admonition-title,
+.md-typeset .info > summary {
+  background-color: rgba(59,130,246,.08);
+}
+
+/* Note — purple accent */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-left-color: var(--ai-purple);
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: rgba(139,92,246,.08);
+}
+
+/* ---------- Tables ---------- */
+.md-typeset table:not([class]) {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .02em;
+  padding: .9em 1em;
+  text-align: left;
+}
+
+.md-typeset table:not([class]) td {
+  padding: .8em 1em;
+  border-bottom: 1px solid rgba(139,92,246,.1);
+  transition: background-color var(--transition-smooth);
+}
+
+.md-typeset table:not([class]) tr:last-child td {
+  border-bottom: none;
+}
+
+.md-typeset table:not([class]) tbody tr:hover td {
+  background-color: rgba(59,130,246,.04);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:hover td {
+  background-color: rgba(59,130,246,.08);
+}
+
+/* ---------- Horizontal Rules ---------- */
+.md-typeset hr {
+  border: none;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+  opacity: .3;
+  margin: 2.5em 0;
+}
+
+/* ---------- Code Blocks ---------- */
+.md-typeset code {
+  border-radius: 6px;
+  font-size: .85em;
+}
+
+.md-typeset pre {
+  border-radius: var(--card-radius) !important;
+  box-shadow: var(--card-shadow);
+}
+
+.md-typeset pre > code {
+  border-radius: var(--card-radius) !important;
+}
+
+/* ---------- Quest Cards (quests.md) ---------- */
+/* Each quest is separated by an hr — style the h2 + content sections */
+.md-typeset h2 + p,
+.md-typeset h2 + p + p,
+.md-typeset h2 + p + p + ul {
+  /* ensure content flows well under card-style headings */
+}
+
+/* ---------- Content Cards (index.md sections) ---------- */
+.md-content__inner {
+  max-width: 960px;
+}
+
+/* ---------- Footer ---------- */
+.md-footer {
+  background: var(--gradient-hero) !important;
+}
+
+.md-footer-meta {
+  background: transparent !important;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-accent);
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(139,92,246,.25);
+  color: inherit;
+}
+
+/* ---------- Smooth Entry Animations ---------- */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.md-content__inner > * {
+  animation: fadeSlideUp .4s ease-out both;
+}
+
+.md-content__inner > *:nth-child(1)  { animation-delay: .05s; }
+.md-content__inner > *:nth-child(2)  { animation-delay: .1s; }
+.md-content__inner > *:nth-child(3)  { animation-delay: .15s; }
+.md-content__inner > *:nth-child(4)  { animation-delay: .2s; }
+.md-content__inner > *:nth-child(5)  { animation-delay: .25s; }
+.md-content__inner > *:nth-child(6)  { animation-delay: .3s; }
+.md-content__inner > *:nth-child(7)  { animation-delay: .35s; }
+
+/* ---------- Banner Image ---------- */
+.md-typeset img[alt="JavaScript AI Build-a-thon"] {
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 30px rgba(59,130,246,.2);
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.md-typeset img[alt="JavaScript AI Build-a-thon"]:hover {
+  box-shadow: 0 8px 40px rgba(139,92,246,.3);
+  transform: scale(1.005);
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 768px) {
+  .md-typeset h1 {
+    font-size: 1.6rem;
+  }
+
+  .md-typeset a strong,
+  .md-typeset strong a {
+    padding: .4em .9em;
+    font-size: .9em;
+  }
+}
+
+/* ---------- Grid Cards (Community section) ---------- */
+.grid.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2em;
+  padding: 0;
+  margin: 1.5em 0;
+  list-style: none;
+}
+
+.grid.cards > * {
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(139,92,246,.15);
+  padding: 1.4em;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth);
+  background: var(--md-default-bg-color);
+}
+
+.grid.cards > *:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-3px);
+  border-color: rgba(59,130,246,.3);
+}
+
+.grid.cards hr {
+  margin: .8em 0;
+  opacity: .15;
+  height: 1px;
+  background: var(--gradient-primary);
+}
+
+.grid.cards .twemoji,
+.grid.cards .fontawesome {
+  color: var(--ai-blue);
+}
+
+[data-md-color-scheme="slate"] .grid.cards .twemoji,
+[data-md-color-scheme="slate"] .grid.cards .fontawesome {
+  color: #93c5fd;
+}
+
+/* ---------- Quest Cards ---------- */
+.quest-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.quest-card {
+  border: 1px solid rgba(139,92,246,.12);
+  border-left: 5px solid;
+  border-image: var(--gradient-primary) 1;
+  border-image-slice: 0 0 0 1;
+  border-radius: var(--card-radius);
+  padding: 1.5em 1.8em;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
+  background: var(--md-default-bg-color);
+  overflow: hidden;
+}
+
+.quest-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateX(4px);
+}
+
+.quest-card h2 {
+  margin-top: .2em !important;
+  border-bottom: none !important;
+  font-size: 1.3em;
+}
+
+.quest-card .quest-icon {
+  color: var(--ai-blue);
+  margin-right: .2em;
+}
+
+[data-md-color-scheme="slate"] .quest-card .quest-icon {
+  color: #93c5fd;
+}
+
+/* Alternate quest card left border colors */
+.quest-card:nth-child(1) { border-image: linear-gradient(180deg, #3b82f6, #60a5fa) 1; border-image-slice: 0 0 0 1; }
+.quest-card:nth-child(2) { border-image: linear-gradient(180deg, #8b5cf6, #a78bfa) 1; border-image-slice: 0 0 0 1; }
+.quest-card:nth-child(3) { border-image: linear-gradient(180deg, #ec4899, #f472b6) 1; border-image-slice: 0 0 0 1; }
+.quest-card:nth-child(4) { border-image: linear-gradient(180deg, #f59e0b, #fbbf24) 1; border-image-slice: 0 0 0 1; }

@@ -1,0 +1,91 @@
+# Project information .........................................
+site_name: "JavaScript AI Build-a-thon"
+site_url: https://Azure-Samples.github.io/JavaScript-AI-Buildathon
+
+# Copyright ...................................................
+copyright: >
+  &copy; 2026 Microsoft &nbsp;|&nbsp;
+  <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy </a>&nbsp;|&nbsp;
+  <a href="https://go.microsoft.com/fwlink/?LinkId=2259814">Consumer Health Privacy </a>&nbsp;|&nbsp;
+  <a onclick="window.manageConsent();">Cookies </a>&nbsp;|&nbsp;
+  <a href="https://go.microsoft.com/fwlink/?LinkID=206977">Terms of Use </a>&nbsp;|&nbsp;
+  <a href="https://www.microsoft.com/trademarks">Trademarks </a>
+
+# Configuration ...............................................
+theme:
+  name: material
+  icon:
+    admonition:
+      note: fontawesome/solid/note-sticky
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+  font:
+    code: JetBrains Mono
+    text: Inter
+  logo: media/logo.svg
+  language: en
+
+  # Theme Modes ...............................................
+  palette:
+    - scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # Theme Features ...............................................
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - content.code.copy
+
+# Extras  ...............................................
+extra:
+  generator: false
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    actions:
+      - accept
+      - manage
+
+# Navigation  ...............................................
+nav:
+  - Overview: index.md
+  - Quests: quests.md
+  - Discussions: https://aka.ms/JSAI_Discussions
+
+# Extensions  ...............................................
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      toc_depth: 3
+  - tables
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - stylesheets/extra.css
