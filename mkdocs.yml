@@ -1,6 +1,7 @@
 # Project information .........................................
 site_name: "JavaScript AI Build-a-thon"
 site_url: https://Azure-Samples.github.io/JavaScript-AI-Buildathon
+repo_url: https://github.com/Azure-Samples/JavaScript-AI-Buildathon
 
 # Copyright ...................................................
 copyright: >
@@ -15,6 +16,7 @@ copyright: >
 theme:
   name: material
   icon:
+    repo: fontawesome/brands/github
     admonition:
       note: fontawesome/solid/note-sticky
       info: fontawesome/solid/circle-info
