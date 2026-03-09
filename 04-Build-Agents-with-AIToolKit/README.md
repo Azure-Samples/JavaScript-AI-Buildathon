@@ -1,6 +1,6 @@
 ![AI Toolkit](./assets/aitk.png)
 
-Livestream starting soon! **Click below to register.**
+Livestream starting soon! **Click the image below to register.**
 
 [![Reactor Livestream](./assets/poster-quest4.png)](https://developer.microsoft.com/en-us/reactor/events/26776/)
 

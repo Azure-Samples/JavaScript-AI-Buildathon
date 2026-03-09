@@ -1,8 +1,8 @@
 ![Serverless RAG](./assets/favicon.png)
 
-Livestream starting soon! **Click below to register.**
+Livestream starting soon! **Click the image below to watch the recording.**
 
-[![Reactor Livestream](./assets/poster-quest3.png)](https://developer.microsoft.com/en-us/reactor/events/26775/)
+[![Reactor Livestream](./assets/poster-quest3.png)](https://www.youtube.com/live/hfx7F7lObdg?si=vEtg3dt411oHcvJG)
 
 ## Overview
 

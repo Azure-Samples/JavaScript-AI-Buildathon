@@ -1,8 +1,8 @@
 ![Foundry Local](./assets/foundry-logo.png)
 
-Livestream starting soon! **Click below to register.**
+Livestream starting soon! **Click the image below to watch the recording.**
 
-[![Reactor Livestream](./assets/poster-quest2.png)](https://developer.microsoft.com/reactor/events/26773/)
+[![Reactor Livestream](./assets/poster-quest2.png)](https://www.youtube.com/live/8ded7UAdPTA?si=UwncP4b4tIs1dwLS)
 
 # Building AI Agents E2E On Microsoft Foundry
 
@@ -21,6 +21,9 @@ Cora needs to meet three requirements:
 How do we go from plan to prototype and production, to meet these goals?
 
 ## Steps To Complete The Quest
+
+![Note on costs associated with the quest](./assets/image.png)
+
 ### 1. Pre-Requisites
 
 To complete the quest, you will need:
@@ -50,9 +53,15 @@ To complete the quest, you will need:
     ```
 1. Your local environment is connected to Azure. ✅
 
-
-
 ### 4. Complete the Quest
+
+> [!NOTE]
+>
+> The **Foundry SDK is under active development**. 
+>
+> If you encounter any blockers, unclear steps, or have suggestions to improve the developer experience, please open an issue using the [provided issue template](https://github.com/microsoft/microsoft-foundry-e2e-js/issues/new/choose) - *Bug report/ Build-a-thon Feedback*. Make sure to **apply the label** that matches the step you were on when the issue occurred.
+>
+> ![Buildathon issue with labels](./assets/buildathon-feedback.png)
 
 The repoistory is setup with a `devcontainer.json` that installs all the required depdencencies and gives you access to a free tier of GitHub Copilot. 
 

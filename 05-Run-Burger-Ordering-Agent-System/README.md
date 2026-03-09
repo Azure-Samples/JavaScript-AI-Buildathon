@@ -1,6 +1,6 @@
 ![Burger Ordering Agent Logo](./assets/burger-logo.png)
 
-Livestream starting soon! **Click below to register.**
+Livestream starting soon! **Click the image below to register.**
 
 [![Reactor Livestream](./assets/poster-quest5.png)](https://developer.microsoft.com/en-us/reactor/events/26786/)
 

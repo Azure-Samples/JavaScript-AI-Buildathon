@@ -1,6 +1,6 @@
 ![Foundry Local](./assets/foundry-local-logo.png)
 
-Livestream starting soon! **Click below to watch live.**
+Livestream starting soon! **Click the image below to watch the recording.**
 
 [![Reactor Livestream](./assets/poster-quest1.png)](https://www.youtube.com/live/GHH50rDlLn0?si=-i3hPYq1o6H271_z)
 
@@ -30,6 +30,11 @@ With Foundry Local, you gain:
 >
 > - Achieve **privacy** (no sensitive data leaving the device).
 > - Optimize for **latency** using local inference.
+>
+> Checkout some Foundry Local + JavaScript projects: -
+>
+> 1. [Interview Doctor](https://github.com/leestott/interview-doctor-js) - AI-powered interview preparation assistant that runs **100% offline** on your local machine
+> 1. [Gas Field Support Agent](https://github.com/leestott/local-rag) - A fully offline, on-device Retrieval-Augmented Generation (RAG) support agent for gas field inspection and maintenance engineers. 
 
 First step, **installation instructions** for your OS:
 
