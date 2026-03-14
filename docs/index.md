@@ -36,7 +36,7 @@ Complete guided [quests](quests.md) and attend expert-led livestreams to build t
 
 ### 🔥 Phase 2: Hack! (March 13 – March 31)
 
-Build something that matters. Use everything you learned — and beyond —  to build AI Agents that solve real problems
+Build something that matters. Use everything you learned — and beyond — to build AI agents that solve real problems.
 
 <img alt="JavaScript AI Build-a-thon Hack" src="media/hack-roadmap.svg" width="100%">
 
