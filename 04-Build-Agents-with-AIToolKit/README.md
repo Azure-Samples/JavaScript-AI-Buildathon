@@ -1,6 +1,6 @@
 ![AI Toolkit](./assets/aitk.png)
 
-Livestream starting soon! **Click the image below to register.**
+Livestream starting soon! **Click the image below to watch the recording.**
 
 [![Reactor Livestream](./assets/poster-quest4.png)](https://www.youtube.com/live/k0q5-VIGtWQ?si=yXLiyalxU6wELpxW)
 
