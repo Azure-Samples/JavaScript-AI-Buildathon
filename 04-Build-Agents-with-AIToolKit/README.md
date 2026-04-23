@@ -1,6 +1,6 @@
 ![AI Toolkit](./assets/aitk.png)
 
-Livestream starting soon! **Click the image below to watch the recording.**
+**Click the image below to watch the recording.**
 
 [![Reactor Livestream](./assets/poster-quest4.png)](https://www.youtube.com/live/k0q5-VIGtWQ?si=yXLiyalxU6wELpxW)
 
@@ -24,19 +24,19 @@ The **AI Toolkit** is a powerful VS Code extension that streamlines generative A
 >
 > **Hackathon Award Category: Agent Architecture Award**
 >
-> As part of the Build-a-thon Hack!, we have a special award category that will recognize the best AI agents with innovative and well-architected designs.
+> This quest mapped to our special award category that recognized the best AI agents with innovative and well-architected designs.
 >
-> Consider building:
+> Winning submissions featured:
 >
-> - Agents that solve complex problems with multiple steps of reasoning
-> - Agents that integrate with custom MCP servers to access specialized tools or data
-> - Agents with sophisticated evaluation techniques that push performance boundaries
+> - Agents that solved complex problems with multiple steps of reasoning
+> - Agents that integrated with custom MCP servers to access specialized tools or data
+> - Agents with sophisticated evaluation techniques that pushed performance boundaries
 >
-> Highlight in your submission how you:
+> Winners demonstrated:
 >
-> - Demonstrate innovative agent design patterns
-> - Leverage MCP servers for specialized tool integration
-> - Showcase evaluation methods that validate agent performance
+> - Innovative agent design patterns
+> - Leverage of MCP servers for specialized tool integration
+> - Evaluation methods that validated agent performance
 
 ### Install the AI Toolkit Extension
 

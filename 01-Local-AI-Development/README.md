@@ -1,6 +1,6 @@
 ![Foundry Local](./assets/foundry-local-logo.png)
 
-Livestream starting soon! **Click the image below to watch the recording.**
+**Click the image below to watch the recording.**
 
 [![Reactor Livestream](./assets/poster-quest1.png)](https://www.youtube.com/live/GHH50rDlLn0?si=-i3hPYq1o6H271_z)
 
@@ -19,17 +19,17 @@ With Foundry Local, you gain:
 >
 > **Hackathon Award Category: Offline-Ready AI Award**
 >
-> As part of the Build-a-thon Hack!, we have a special award category that will recognize the best performing AI solution with standout offline capabilities (local inference).
+> This quest mapped to our Offline-Ready AI Award category, which recognized the best performing AI solutions with standout offline capabilities (local inference).
 >
-> Consider building an app that:
+> Winning solutions featured apps that:
 >
-> - Processes sensitive data entirely on-device.
-> - Uses Foundry Local for reasoning and a cloud storage service for optional sync or analytics.
+> - Processed sensitive data entirely on-device.
+> - Used Foundry Local for reasoning and cloud storage services for optional sync or analytics.
 >
-> Highlight in your submission how you:
+> Winners demonstrated:
 >
-> - Achieve **privacy** (no sensitive data leaving the device).
-> - Optimize for **latency** using local inference.
+> - **Privacy** (no sensitive data leaving the device).
+> - **Latency** optimization using local inference.
 >
 > Checkout some Foundry Local + JavaScript projects: -
 >

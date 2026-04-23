@@ -1,6 +1,6 @@
 ![Foundry Local](./assets/foundry-logo.png)
 
-Livestream starting soon! **Click the image below to watch the recording.**
+**Click the image below to watch the recording.**
 
 [![Reactor Livestream](./assets/poster-quest2.png)](https://www.youtube.com/live/8ded7UAdPTA?si=UwncP4b4tIs1dwLS)
 
