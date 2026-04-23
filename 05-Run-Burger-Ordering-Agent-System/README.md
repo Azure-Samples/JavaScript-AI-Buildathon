@@ -1,6 +1,6 @@
 ![Burger Ordering Agent Logo](./assets/burger-logo.png)
 
-Livestream starting soon! **Click the image below to watch the livestream/recording.**
+**Click the image below to watch the livestream/recording.**
 
 [![Reactor Livestream](./assets/poster-quest5.png)](https://www.youtube.com/live/kBVsqJbM7Vc?si=hmIEfla6KOB9MsYW)
 
@@ -14,11 +14,11 @@ In this quest, you will set up and run a **complete end-to-end Burger Ordering A
 >
 > **Hackathon Award Category: Agentic System Architecture Award**
 >
-> As part of the Build-a-thon Hack!, we have a special award category recognizing agentic designs that are **useful, reliable, and secure**.
+> This quest mapped to our special award category recognizing agentic designs that are **useful, reliable, and secure**.
 >
-> This quest demonstrates foundational patterns: **MCP tool integration** enables agents to interact with external systems (useful), **structured agent workflows** with proper error handling ensure consistent behavior (reliable), and **API-based architectures** allow for controlled access and validation (secure).
+> The quest demonstrated foundational patterns: **MCP tool integration** enabling agents to interact with external systems (useful), **structured agent workflows** with proper error handling ensuring consistent behavior (reliable), and **API-based architectures** allowing for controlled access and validation (secure).
 >
-> Consider how these patterns can help you build production-ready agent systems that users can trust.
+> Winners leveraged these patterns to build production-ready agent systems that users could trust.
 
 ## Steps to Complete the Quest
 

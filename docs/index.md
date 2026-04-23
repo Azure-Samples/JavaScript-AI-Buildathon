@@ -7,97 +7,248 @@ hide:
 
 ---
 
-# 🚀 Build, Innovate, and Ship working AI!
+<div style="text-align:center;" markdown>
 
-**The JavaScript AI Build-a-thon** is a focused, hands-on initiative that helps builders quickly move from exploration to working AI prototypes. Through concise quests and practical demos, you'll gain real skills with modern AI tools in a clear, outcome-driven format.
+<span class="hero-trophy">🏆</span>
 
-**This isn't just another hackathon. It's your launchpad into the Agentic future of JavaScript and TypeScript development.**
+# 🎉 And the Winners Are...
 
-!!! tip "📅 **Key Dates**"
+<p class="hero-subtitle">The JavaScript AI Build-a-thon has concluded! Thank you to every builder who turned bold ideas into working AI. Here are the projects that stood out.</p>
 
-    * 🎬 Build-a-thon Begins: **Monday, March 2, 2026**
-    * 📚 Quests & Livestreams: **March 2 – March 13, 2026**
-    * 🔥 **Hackathon Launches**: **Friday, March 13, 2026**
-    * 🏁 Hackathon Ends: **Tuesday, March 31, 2026**
+</div>
 
-## 🎟️ Registration
+## 🏆 Award Winners
 
-[**Register for the hackathon**](https://aka.ms/JSBuildathon_Hack)
+<div class="winners-grid" markdown>
 
-Once you're registered, [introduce yourself](https://aka.ms/JSAIonDiscord) in the Build-a-thon channel and connect with other builders to find teammates.
+<div class="winner-card grand" markdown>
 
-## ⚙️ How It Works
+<span class="winner-trophy">🥇</span>
+<div class="winner-label">GRAND PRIZE</div>
+<div class="winner-prize">$1,000</div>
+<div class="winner-project">CivicLens AI</div>
+<div class="winner-desc">A multi-agent AI pipeline that transforms invisible municipal infrastructure data into plain-language intelligence reports, dispatches repair crews, and predicts infrastructure failures — all in JavaScript.</div>
+<div class="winner-links">
+<a href="https://github.com/JonEricEubanks/CivicLens">📂 Repository</a>
+<a href="https://portfolio-jet-five-57.vercel.app/#blog">📝 Blog Post</a>
+<a href="https://civiclens-app.azurewebsites.net/">🌐 Live App</a>
+<a href="https://youtu.be/rFCUO5acv5Q">▶️ Demo Video</a>
+</div>
 
-The Build-a-thon runs in two phases:
+</div>
 
-### 📚 Phase 1: Learn & Skill Up (March 2 – March 13)
+<div class="winner-cards-row" markdown>
 
-Complete guided [quests](quests.md) and attend expert-led livestreams to build the skills you need. Each quest is hands-on, self-paced, and teaches a core AI development pattern with JavaScript/TypeScript.
+<div class="winner-card category blue" markdown>
 
-### 🔥 Phase 2: Hack! (March 13 – March 31)
+<span class="winner-trophy">🥈</span>
+<div class="winner-label">OFFLINE-READY AI AWARD</div>
+<div class="winner-prize">$500</div>
+<div class="winner-project">SourcingIntel</div>
+<div class="winner-desc">AI-Powered Supply Chain Intelligence Platform with on-device inference.</div>
+<div class="winner-links">
+<a class="primary" href="https://github.com/Kalyan-AI-Hub/SourcingIntel">📂 Repo</a>
+<a class="secondary" href="https://dev.to/kalyan_8b63839572c8a7db1b/building-sourcing-intel-an-ai-powered-supply-chain-intelligence-platform-with-on-device-inference-4kdi">📝 Blog</a>
+<a class="secondary" href="https://youtu.be/CEXyfcWrI_8?si=dO9tQwln6T3ZZDZM">▶️ Demo</a>
+</div>
 
-Build something that matters. Use everything you learned — and beyond — to build AI agents that solve real problems.
+</div>
 
-<img alt="JavaScript AI Build-a-thon Hack" src="media/hack-roadmap.svg" width="100%">
+<div class="winner-card category purple" markdown>
 
-## 🎥 Office Hours Schedule
+<span class="winner-trophy">🥉</span>
+<div class="winner-label">AGENTIC SYSTEM ARCHITECTURE</div>
+<div class="winner-prize">$500</div>
+<div class="winner-project">Agile Sprint Orchestrator</div>
+<div class="winner-desc">The Intelligence Layer That Runs Your Sprint — a multi-agent system for autonomous agile lifecycle management.</div>
+<div class="winner-links">
+<a class="primary" href="https://github.com/snehasankaran/agile-sprint-orchestrator">📂 Repo</a>
+<a class="secondary" href="https://agile-sprint-orchestrator-h9ks.vercel.app/">🌐 App</a>
+<a class="secondary" href="https://youtu.be/7eUrJVtNtbQ?si=SrvPo9sBhvHhpoeE">▶️ Demo</a>
+</div>
 
-During the hack phase, attend technical demos and special Discord Office Hours (8:00 AM PDT) to learn the latest AI tools, best practices, and get help with your project
+</div>
 
-| Day/Time (PT) | Topic |
-|---|---|
-| [Mon 3/16, 8:00 AM PDT](https://discord.gg/microsoftfoundry?event=1476309470312136704) | Azure & Foundry MCP Server Demo |
-| [Mon 3/18, 8:00 AM PDT](https://discord.gg/microsoftfoundry?event=1476310190885175296) | Azure Developer CLI (azd) Demo |
-| [Wed 3/20, 8:00 AM PDT](https://discord.gg/microsoftfoundry?event=1473725339959033866) | Azure DocumentDB Demo |
-| [Wed 3/23, 8:00 AM PDT](https://discord.gg/microsoftfoundry?event=1473726030421430272) | GitHub Copilot CLI & SDK Demo |
-| [Fri 3/25, 8:00 AM PDT](https://discord.gg/microsoftfoundry?event=1473781418956947566) | GitHub Agentic Workflows Demo |
-| [Fri 3/27, 8:00 AM PDT](https://discord.gg/microsoftfoundry?event=1473781883811795147) | GitHub Copilot App Modernization Demo |
+</div>
 
-## ⚖️ Judging Criteria
+</div>
 
-| Criteria | Weight |
-|---|---|
-| Depth of AI Integration | 25% |
-| Technical Implementation & User Experience | 20% |
-| Use of Responsible AI Patterns | 15% |
-| Solution Value (Potential of your solution to solve real-world problems) | 15% |
-| Innovation & Creativity | 10% |
-| Documentation & Storytelling | 10% |
-| Compliance with the Award Category | 5% |
+## 🚀 All Submissions
 
-## 🏆 Award Categories
+Every project that participated in the JavaScript AI Build-a-thon — celebrating builders from around the world.
 
-<img alt="Award categories" src="media/award-categories.png" width="100%">
+<div class="submissions-grid" markdown>
 
-### ✨ Special Spotlight: AI-Builder Award
+<div class="submission-card" markdown>
+<div class="sub-name">Sauti Porini</div>
+<div class="sub-desc">An autonomous AI agent that shifts forest conservation from passive to proactive monitoring using deterministic state-machine logic, IoT, and satellite intelligence.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/Gerald-mut/Sauti-Porini-Js">📂 Repo</a>
+<a class="blog" href="https://medium.com/@muterugerald/building-sauti-porini-356c7e01c225">📝 Blog</a>
+<a class="video" href="https://youtu.be/-lXLX5dN_T4?si=M4cLJqrlox-HQNoR">▶️ Video</a>
+</div>
+</div>
 
-!!! note
-    Did you use AI to build your AI? We want to see it!
+<div class="submission-card" markdown>
+<div class="sub-name">Talewind</div>
+<div class="sub-desc">An AI story tutor that learns every child's world — then teaches them through a story that feels like it was made just for them.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/digitalfl0wer/taleWind">📂 Repo</a>
+</div>
+</div>
 
-This special recognition goes to builders who go beyond just building with AI — they show how they built. Share your prompts, workflows, tips, and tricks with the community.
+<div class="submission-card" markdown>
+<div class="sub-name">Superhuman AI Chief of Staff</div>
+<div class="sub-desc">The AI Operating System for Organizational Intelligence — a multi-agent intelligence layer for the company brain.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/snjugunanjenga/org-flow-ai/">📂 Repo</a>
+<a class="blog" href="https://medium.com/@simonnjenganjuguna/superhuman-ai-chief-of-staff-074cf4b2af34">📝 Blog</a>
+<a class="app" href="https://org-ai-chief-of-staff.vercel.app/">🌐 App</a>
+<a class="video" href="https://www.youtube.com/watch?v=wJXagm1TU18">▶️ Video</a>
+</div>
+</div>
 
-We will be giving away **10 GitHub Copilot Pro + licenses** for this award, and here is how you can stand out: 
+<div class="submission-card" markdown>
+<div class="sub-name">AI Policy Explainer</div>
+<div class="sub-desc">Policies from colleges, companies, and governments — now easy to understand.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/scha54/AI-Policy-Explainer">📂 Repo</a>
+<a class="blog" href="https://medium.com/@sandeepchakravartty/building-a-grounded-pdf-q-a-agent-with-react-express-and-rag-4fc03cbc6741">📝 Blog</a>
+<a class="video" href="https://youtu.be/S_BTCm2UKh0?si=N7fuAt1PPhK1W_o7">▶️ Video</a>
+</div>
+</div>
 
-1. 🪄 Share your prompts & prompt engineering strategies in your submission, blog post, and on Discord using the provided template
-1. 🔧 Document your AI tools & workflows — how you used GitHub Copilot, AI Toolkit, Copilot CLI, or other AI-assisted tools
-1. 💬 Be active in the community — post tips, answer questions, and share what you're learning in Discord
-1. 📝 Share what worked and what didn't — your honest takeaways help everyone level up
+<div class="submission-card" markdown>
+<div class="sub-name">Matchflow</div>
+<div class="sub-desc">The Intelligence Layer Connecting Brands and Creators — a multi-agent system for autonomous negotiation.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/tilakgupta2005/Matchflow">📂 Repo</a>
+<a class="blog" href="https://tilak-dev.vercel.app/blog/matchflow-autonomous-ai-negotiation-engine">📝 Blog</a>
+<a class="app" href="https://matchflow-ai.vercel.app/">🌐 App</a>
+<a class="video" href="https://youtu.be/LqKXRuOoUCc?si=ElvTHyQ52sn--tlv">▶️ Video</a>
+</div>
+</div>
 
-!!! note
-    We'll be watching both submissions and community contributions. This isn't about perfection — it's about transparency, generosity, and helping others learn. The best AI builders lift the whole community.
+<div class="submission-card" markdown>
+<div class="sub-name">KrishiAI</div>
+<div class="sub-desc">AI-powered farming assistant for Indian farmers with disease detection, multi-language chat, crop recommendations, price forecasting, and fertilizer optimization.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/ManishKumawat450/KrishiAi">📂 Repo</a>
+<a class="blog" href="https://dev.to/manish_kumawat_0202f769e7/building-real-ai-in-24-hours-krishiai-with-github-copilot-9ml">📝 Blog</a>
+<a class="video" href="https://youtu.be/3G2sJmo3rnk?si=CXRS1YUWXtZnj7be">▶️ Video</a>
+</div>
+</div>
 
-## 🏁 Project Submission
+<div class="submission-card" markdown>
+<div class="sub-name">Mauzoplus</div>
+<div class="sub-desc">Smarter Sales, Powered by AI for Africa.</div>
+<div class="sub-links">
+<a class="blog" href="https://docs.mauzoplus.app/">📝 Blog</a>
+<a class="video" href="https://youtu.be/fE7_CjSJ0cs?si=wz3wpIjkW_3Qx1T8">▶️ Video</a>
+</div>
+</div>
 
-Submit your project on [Innovation Studio](https://aka.ms/JSBuildathon_Hack). Your submission must include:
+<div class="submission-card" markdown>
+<div class="sub-name">GlobeTrotter</div>
+<div class="sub-desc">A fun, LLM-powered way to discover landmarks on a globe.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/BY3D/Globetrotter-Build-a-Thon-2026">📂 Repo</a>
+<a class="video" href="https://vimeo.com/1178243103?share=copy">▶️ Video</a>
+</div>
+</div>
 
-1. **GitHub repository**: URL to your project's code for judging and testing
-2. **Technical blog**: URL to a blog post with a step-by-step walkthrough of your project
-3. **Project video**: 3–5 minute demo on YouTube, Vimeo, or Facebook (public)
-4. **GitHub usernames**: For ALL team members
+<div class="submission-card" markdown>
+<div class="sub-name">AccessBridge AI</div>
+<div class="sub-desc">A multi-agent AI system that transforms any web page into universally accessible content — five specialized agents collaborate to detect and auto-fix accessibility barriers.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/jpablortiz96/accessbridge-ai">📂 Repo</a>
+<a class="blog" href="https://dev.to/jpablortiz96/building-accessbridge-ai-how-5-ai-agents-collaborate-to-make-the-web-accessible-24kf">📝 Blog</a>
+<a class="app" href="https://accessbridge-ai.vercel.app/">🌐 App</a>
+<a class="video" href="https://youtu.be/SFbjWWApP4M?si=8act2mG6aXXszGI8">▶️ Video</a>
+</div>
+</div>
 
-!!! warning
-    Judging time per project is strictly under 5 minutes — make your demo count!
+<div class="submission-card" markdown>
+<div class="sub-name">CODE2FLOW AI</div>
+<div class="sub-desc">AI-Powered Code Visualizer — see your code architecture come to life.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/shreeplays/Microsoft-hackathon">📂 Repo</a>
+<a class="blog" href="https://dev.to/forgotten_areeb/code2flow-ai-visualizing-code-architecture-using-ai-24">📝 Blog</a>
+<a class="video" href="https://youtu.be/OG_b3GTaV6o">▶️ Video</a>
+</div>
+</div>
 
+<div class="submission-card" markdown>
+<div class="sub-name">Multi-Agent Meeting Intelligence Assistant</div>
+<div class="sub-desc">A real-time, AI-powered meeting assistant built with TypeScript and multi-agent orchestration.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/Malvine254/Missa-The-Translator">📂 Repo</a>
+<a class="blog" href="https://malvine254.github.io/meeting-intelligence-assistant/">📝 Blog</a>
+<a class="video" href="https://youtu.be/yo6T_LnPowg?si=kjVIm_z2pzGAH5ZQ">▶️ Video</a>
+</div>
+</div>
+
+<div class="submission-card" markdown>
+<div class="sub-name">Water Quality Control</div>
+<div class="sub-desc">Healthy lives begin with safe water and sanitation.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/ZEEZCO/Water-Quality-Analysis-Analyzer-">📂 Repo</a>
+<a class="video" href="https://youtu.be/xxae9aRmhlk?si=AWzncU7HjXAgGt9G">▶️ Video</a>
+</div>
+</div>
+
+<div class="submission-card" markdown>
+<div class="sub-name">InboxShield AI</div>
+<div class="sub-desc">Email Security, Fraud Detection, Cybersecurity.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/peymosiec01/inboxshield-ai">📂 Repo</a>
+</div>
+</div>
+
+<div class="submission-card" markdown>
+<div class="sub-name">AfyaPack</div>
+<div class="sub-desc">An offline-first AI clinical decision support tool for community health workers in East Africa — protocol-grounded guidance in English and Swahili.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/DaymondMartin/AfyaPack">📂 Repo</a>
+<a class="blog" href="https://daymondmartin.github.io/AfyaPack/">📝 Blog</a>
+<a class="video" href="https://youtu.be/Hlb94C4W2Ps?si=l_c_ZAyqWAGwEVT8">▶️ Video</a>
+</div>
+</div>
+
+<div class="submission-card" markdown>
+<div class="sub-name">ContextGuard AI</div>
+<div class="sub-desc">A grounded MERN study assistant with flashcards, Mermaid diagrams, and more.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/x88-code/JS-AI-Build-a-thon-Hack">📂 Repo</a>
+<a class="blog" href="https://dev.to/x88code/building-contextguard-ai-a-grounded-mern-study-assistant-with-flashcards-mermaid-diagrams-and-15h1">📝 Blog</a>
+<a class="app" href="https://js-ai-build-a-thon-hack.vercel.app/">🌐 App</a>
+<a class="video" href="https://youtu.be/nTpxgDchvas?si=YBfrVYMF03quDmFD">▶️ Video</a>
+</div>
+</div>
+
+<div class="submission-card" markdown>
+<div class="sub-name">Tuwon</div>
+<div class="sub-desc">Test your knowledge through interactive activities with a real-time AI proctor.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/nerdeulivrian/tuwon.dev">📂 Repo</a>
+<a class="blog" href="https://medium.com/@ian_52882/building-tuwon-an-ai-study-platform-that-talks-back-968a44b66bf1">📝 Blog</a>
+<a class="app" href="https://www.tuwon.app/">🌐 App</a>
+<a class="video" href="https://youtu.be/fneyfto0pTw?si=zPEyvzfRxIKUi0HJ">▶️ Video</a>
+</div>
+</div>
+
+<div class="submission-card" markdown>
+<div class="sub-name">Neural Math Lab</div>
+<div class="sub-desc">See the math, learn the steps, and level up your skills — online or offline, with an AI that's a partner, not a cheat sheet.</div>
+<div class="sub-links">
+<a class="repo" href="https://github.com/dev-Adhithiya/Neural-Math-Lab">📂 Repo</a>
+<a class="blog" href="https://dev.to/devadhithiya/beyond-the-chatbot-engineering-a-hybrid-ai-math-tutor-for-the-future-86g">📝 Blog</a>
+<a class="app" href="https://dev-adhithiya.github.io/Neural-Math-Lab/">🌐 App</a>
+<a class="video" href="https://youtu.be/-IjN8eADVoA?si=UaoUX5HvlNJh7nYm">▶️ Video</a>
+</div>
+</div>
+
+</div>
 
 ## 💬 Community & Support
 

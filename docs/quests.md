@@ -1,6 +1,6 @@
 # Quests
 
-Complete at least **2 quests** (including the guided project) to be eligible for the hack. Each quest teaches a core AI development pattern with JavaScript/TypeScript.
+Each quest teaches a core AI development pattern with JavaScript/TypeScript.
 
 <div class="quest-grid" markdown>
 
@@ -17,8 +17,8 @@ You'll learn to:
 - Build an AI Insight Mapper that extracts structured data from unstructured text
 - Power GitHub Copilot with local models for private coding assistance
 
-!!! tip "Award Tie-in: Offline-Ready AI Award"
-    This quest directly maps to the **Offline-Ready AI Award** category. Build an app that processes sensitive data entirely on-device and highlights privacy + latency optimizations.
+!!! info "Award Recognition: Offline-Ready AI Award"
+    This quest mapped to the **Offline-Ready AI Award** category. Participants who built apps processing sensitive data entirely on-device earned recognition for privacy + latency optimizations.
 
 [**Start Quest 1 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/01-Local-AI-Development)
 
@@ -72,8 +72,8 @@ You'll learn to:
 - Evaluate agent performance with built-in and custom metrics
 - Export production-ready code
 
-!!! tip "Award Tie-in: Agentic System Architecture Award"
-    This quest teaches the patterns you need for the **Agentic System Architecture Award** — innovative agent design with MCP tool integration.
+!!! info "Award Recognition: Agentic System Architecture Award"
+    This quest taught the patterns needed for the **Agentic System Architecture Award** — innovative agent design with MCP tool integration.
 
 [**Start Quest 4 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/04-Build-Agents-with-AIToolKit)
 
@@ -93,8 +93,8 @@ You'll learn to:
 - Create agent APIs and backend services
 - Plan for production scaling with Azure
 
-!!! tip "Award Tie-in: Agentic System Architecture Award"
-    This quest demonstrates foundational patterns for **useful, reliable, and secure** agent systems.
+!!! info "Award Recognition: Agentic System Architecture Award"
+    This quest demonstrated foundational patterns for **useful, reliable, and secure** agent systems.
 
 [**Start Quest 5 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/05-Run-Burger-Ordering-Agent-System)
 

@@ -2,11 +2,11 @@
 
 <div align="center">
 
-![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/poster.svg)
+![The JavaScript AI Build-a-thon Season 2](assets/poster.svg)
 
 <p align="center">
   <strong>Create, compete, and turn ideas into working AI.</strong><br/>
-  <em>Starting March 2, 2026</em>
+  <em>March 2 – March 31, 2026</em>
 </p>
 
 <p align="center">
@@ -25,24 +25,24 @@ The JavaScript AI Build-a-thon is a focused, hands-on initiative that helps **bu
 
 If you're building your first AI app or architecting multi-agent systems, the Build-a-thon gives you the tools, the mentorship, and the stage to ship something real.
 
-# Key Dates
+# Program Timeline
 
 | Milestone | Date |
 |---|---|
-| 🎬 Build-a-thon Begins | **Monday, March 2, 2026** |
+| 🎬 Build-a-thon Began | **Monday, March 2, 2026** |
 | 📚 Quests & Livestreams | **March 2 – March 13, 2026** |
-| **🔥 Hackathon Launches** | **Friday, March 13, 2026** |
-| 🏁 Hackathon Ends | **Tuesday, March 31, 2026** |
+| **🔥 Hackathon Phase** | **Friday, March 13 – Tuesday, March 31, 2026** |
+| 🏆 Program Concluded | **Tuesday, March 31, 2026** |
 
-# How It Works
+# How It Worked
 
-The Build-a-thon runs in two phases.
+The Build-a-thon ran in two phases.
 
-![The JavaScript AI Build-a-thon Season 2 - Coming Soon!](assets/roadmap.svg)
+![The JavaScript AI Build-a-thon Season 2](assets/roadmap.svg)
 
 ## 📚 Phase 1: Learn & Skill Up (March 2 – March 13)
 
-Complete guided quests and attend expert-led livestreams to build the skills you'll need. Each quest is hands-on, self-paced, and designed to teach you a core AI development pattern with JavaScript/TypeScript:
+Participants completed guided quests and attended expert-led livestreams to build the skills needed for the hackathon phase. Each quest was hands-on, self-paced, and designed to teach a core AI development pattern with JavaScript/TypeScript:
 
 | Quest | Topic | What You'll Learn |
 |---|---|---|
@@ -52,26 +52,24 @@ Complete guided quests and attend expert-led livestreams to build the skills you
 | [Quest 4](/04-Build-Agents-with-AIToolKit/README.md) | Build Agents with AI Toolkit | Create AI agents with MCP tools, evaluation, and code export on VS Code |
 | [Quest 5](/05-Run-Burger-Ordering-Agent-System/README.md) | E2E Burger Ordering Agent | Design and run a full agentic system with MCP server integration |
 
-Participation Requirement: Complete at least 2 quests (including the guided project) to be eligible for the hack.
+Participation Requirement: Participants were required to complete at least 2 quests (including the guided project) to be eligible for the hackathon phase.
 
 ## 🔥 Phase 2: Hack! (March 13 – March 31)
 
-Build something that matters. Use everything you learned in the quests, and beyond, to build AI Agents that solve real problems, delight users, and push what's possible.
-
-[Register for the hackathon](https://aka.ms/JSBuildathon_Hack)
+Participants built solutions that matter using everything they learned in the quests and beyond, creating AI Agents that solved real problems, delighted users, and pushed what's possible.
 
 ![Hack roadmap](assets/hack-roadmap.png)
 
-During the hack phase, attend technical demos and special Discord Office Hours (8:00 AM PDT) to learn the latest tools and best practices.
+During the hack phase, participants attended technical demos and special Discord Office Hours (8:00 AM PDT) to learn the latest tools and best practices.
 
-| Date (8:00 AM PDT) | Demo | Link |
+| Date (8:00 AM PDT) | Demo | Archive |
 |---|---|---|
-| March 16 | Azure & Foundry MCP Server Demo | [Join event](https://discord.gg/microsoftfoundry?event=1476309470312136704) |
-| March 18 | Azure Developer CLI (azd) Demo | [Join event](https://discord.gg/microsoftfoundry?event=1476310190885175296) |
-| March 20 | Azure DocumentDB Demo | [Join event](https://discord.gg/microsoftfoundry?event=1473725339959033866) |
-| March 23 | GitHub Copilot CLI & SDK Demo | [Join event](https://discord.gg/microsoftfoundry?event=1473726030421430272) |
-| March 25 | GitHub Agentic Workflows Demo | [Join event](https://discord.gg/microsoftfoundry?event=1473781418956947566) |
-| March 27 | GitHub Copilot App Modernization Demo | [Join event](https://discord.gg/microsoftfoundry?event=1473781883811795147) |
+| March 16 | Azure & Foundry MCP Server Demo | [Recording](https://discord.gg/microsoftfoundry?event=1476309470312136704) |
+| March 18 | Azure Developer CLI (azd) Demo | [Recording](https://discord.gg/microsoftfoundry?event=1476310190885175296) |
+| March 20 | Azure DocumentDB Demo | [Recording](https://discord.gg/microsoftfoundry?event=1473725339959033866) |
+| March 23 | GitHub Copilot CLI & SDK Demo | [Recording](https://discord.gg/microsoftfoundry?event=1473726030421430272) |
+| March 25 | GitHub Agentic Workflows Demo | [Recording](https://discord.gg/microsoftfoundry?event=1473781418956947566) |
+| March 27 | GitHub Copilot App Modernization Demo | [Recording](https://discord.gg/microsoftfoundry?event=1473781883811795147) |
 
 
 ## 💬 Community & Support

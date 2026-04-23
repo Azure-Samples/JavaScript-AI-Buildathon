@@ -87,7 +87,6 @@
 
 .md-typeset a:not(.md-button):not(.md-nav__link):not(.md-header__button):not(.md-tabs__link):not(.md-footer__link):not(.headerlink):hover {
   color: var(--ai-purple);
-  background-size: 100% 2px;
 }
 
 /* CTA-style strong links — "Register now!", "Start Quest →" etc. */
@@ -108,8 +107,8 @@
 
 .md-typeset a strong:hover,
 .md-typeset strong a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139,92,246,.4);
+  transform: none;
+  box-shadow: 0 2px 10px rgba(59,130,246,.3);
 }
 
 /* ---------- Admonitions ---------- */
@@ -124,7 +123,7 @@
 
 .md-typeset .admonition:hover,
 .md-typeset details:hover {
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: var(--card-shadow);
 }
 
 .md-typeset .admonition-title,
@@ -296,12 +295,10 @@
 .md-typeset img[alt="JavaScript AI Build-a-thon"] {
   border-radius: var(--card-radius);
   box-shadow: 0 4px 30px rgba(59,130,246,.2);
-  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
 }
 
 .md-typeset img[alt="JavaScript AI Build-a-thon"]:hover {
-  box-shadow: 0 8px 40px rgba(139,92,246,.3);
-  transform: scale(1.005);
+  box-shadow: 0 4px 30px rgba(59,130,246,.2);
 }
 
 /* ---------- Responsive Tweaks ---------- */
@@ -332,14 +329,16 @@
   border: 1px solid rgba(139,92,246,.15);
   padding: 1.4em;
   box-shadow: var(--card-shadow);
-  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth), border-color var(--transition-smooth);
   background: var(--md-default-bg-color);
 }
 
-.grid.cards > *:hover {
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(-3px);
-  border-color: rgba(59,130,246,.3);
+/* Override Material theme hover on grid cards */
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover,
+.md-typeset .grid > .card:hover {
+  border-color: rgba(139,92,246,.15) !important;
+  box-shadow: var(--card-shadow) !important;
+  transform: none !important;
 }
 
 .grid.cards hr {
@@ -405,3 +404,275 @@
 .quest-card:nth-child(3) { border-image: linear-gradient(180deg, #ec4899, #f472b6) 1; border-image-slice: 0 0 0 1; }
 .quest-card:nth-child(4) { border-image: linear-gradient(180deg, #f59e0b, #fbbf24) 1; border-image-slice: 0 0 0 1; }
 .quest-card:nth-child(5) { border-image: linear-gradient(180deg, #10b981, #34d399) 1; border-image-slice: 0 0 0 1; }
+
+/* ========== Winners Announcement Page ========== */
+
+/* ---------- Celebration Hero ---------- */
+/* ---------- Hero trophy + text (no box) ---------- */
+.hero-trophy {
+  font-size: 3em;
+  display: block;
+  margin-bottom: .1em;
+  animation: trophyBounce 2s ease-in-out infinite;
+}
+
+@keyframes trophyBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero-subtitle {
+  color: #64748b;
+  font-size: 1.05em;
+  max-width: 560px;
+  margin: .4em auto 0;
+  line-height: 1.5;
+}
+
+[data-md-color-scheme="slate"] .hero-subtitle {
+  color: #94a3b8;
+}
+
+/* ---------- Winner Cards ---------- */
+.winners-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin: 1.5em 0;
+}
+
+.winner-card {
+  text-align: center;
+  padding: 2.2em 2em;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* Grand Prize — dark card with gold border */
+.winner-card.grand {
+  background: var(--gradient-hero);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #F7DF1E, #f59e0b, #F7DF1E) 1;
+  box-shadow: 0 4px 30px rgba(247,223,30,.15);
+  color: #fff;
+}
+
+
+
+.winner-card.grand .winner-trophy { font-size: 3.2em; }
+.winner-card.grand .winner-label {
+  color: #F7DF1E;
+  font-size: .8em;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin: .3em 0;
+}
+.winner-card.grand .winner-prize {
+  font-size: 2.6em;
+  font-weight: 800;
+  color: #F7DF1E;
+  letter-spacing: -.02em;
+  margin: .1em 0;
+}
+.winner-card.grand .winner-project {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #fff;
+  margin: .2em 0;
+}
+.winner-card.grand .winner-desc {
+  color: #94a3b8;
+  font-size: .95em;
+  max-width: 550px;
+  margin: .3em auto .8em;
+  line-height: 1.5;
+}
+
+/* Category awards — light cards with gradient border */
+.winner-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+}
+
+.winner-card.category {
+  background: var(--md-default-bg-color);
+  border: 2px solid transparent;
+  box-shadow: var(--card-shadow);
+}
+
+
+
+.winner-card.category.blue {
+  border-image: linear-gradient(180deg, #3b82f6, #60a5fa) 1;
+}
+
+.winner-card.category.purple {
+  border-image: linear-gradient(180deg, #8b5cf6, #ec4899) 1;
+}
+
+.winner-card.category .winner-trophy { font-size: 2.6em; }
+.winner-card.category .winner-label {
+  font-size: .75em;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin: .3em 0;
+}
+.winner-card.category.blue .winner-label { color: var(--ai-blue); }
+.winner-card.category.purple .winner-label { color: var(--ai-purple); }
+
+.winner-card.category .winner-prize {
+  font-size: 2em;
+  font-weight: 800;
+  color: var(--md-typeset-color);
+  margin: .1em 0;
+}
+.winner-card.category .winner-project {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--md-typeset-color);
+  margin: .2em 0;
+}
+.winner-card.category .winner-desc {
+  color: var(--md-typeset-fg-color--light);
+  font-size: .9em;
+  max-width: 400px;
+  margin: .3em auto .8em;
+  line-height: 1.5;
+}
+
+/* Winner link buttons */
+.winner-links {
+  display: flex;
+  justify-content: center;
+  gap: .4em 1.2em;
+  flex-wrap: wrap;
+  margin-top: .5em;
+}
+
+.winner-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  padding: .2em 0;
+  font-size: .82em;
+  font-weight: 600;
+  text-decoration: none !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b;
+  background: transparent !important;
+}
+
+/* Links on grand (dark) card */
+.winner-card.grand .winner-links a {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8;
+}
+
+
+/* Links on category (light) cards — same as base */
+.winner-card.category .winner-links a.primary,
+.winner-card.category .winner-links a.secondary {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b;
+  background: transparent !important;
+}
+
+
+[data-md-color-scheme="slate"] .winner-card.category .winner-links a {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8;
+}
+
+
+/* ---------- Submissions Gallery ---------- */
+.submissions-section {
+  background: rgba(59,130,246,.02);
+  border-radius: var(--card-radius);
+  padding: 2em 0;
+  margin-top: 1em;
+}
+
+[data-md-color-scheme="slate"] .submissions-section {
+  background: rgba(59,130,246,.04);
+}
+
+.submissions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2em;
+  margin: 1.5em 0;
+}
+
+.submission-card {
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(139,92,246,.1);
+  padding: 1.3em 1.5em;
+  box-shadow: var(--card-shadow);
+  background: var(--md-default-bg-color);
+}
+
+.submission-card .sub-name {
+  font-size: 1.05em;
+  font-weight: 700;
+  color: var(--md-typeset-color);
+  margin: 0 0 .2em;
+}
+
+.submission-card .sub-desc {
+  font-size: .85em;
+  color: var(--md-typeset-fg-color--light);
+  line-height: 1.5;
+  margin: 0 0 .7em;
+}
+
+.submission-card .sub-links {
+  display: flex;
+  gap: .4em 1em;
+  flex-wrap: wrap;
+}
+
+.submission-card .sub-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  padding: .2em 0;
+  font-size: .78em;
+  font-weight: 600;
+  text-decoration: none !important;
+  background: transparent !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b;
+}
+
+
+
+[data-md-color-scheme="slate"] .submission-card .sub-links a {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8;
+}
+
+
+/* ---------- Responsive Winners ---------- */
+@media (max-width: 768px) {
+  .hero-trophy {
+    font-size: 2.5em;
+  }
+  .winner-cards-row {
+    grid-template-columns: 1fr;
+  }
+  .submissions-grid {
+    grid-template-columns: 1fr;
+  }
+  .winner-card.grand .winner-prize {
+    font-size: 2em;
+  }
+  .winner-card.grand .winner-project {
+    font-size: 1.3em;
+  }
+}
