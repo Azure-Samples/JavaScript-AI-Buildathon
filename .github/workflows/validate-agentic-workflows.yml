@@ -1,0 +1,64 @@
+name: Validate Agentic Workflows
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths:
+      - ".gitattributes"
+      - ".github/agents/**"
+      - ".github/agentic-refresh/**"
+      - ".github/mcp.json"
+      - ".github/skills/**"
+      - ".github/workflows/**"
+      - "scripts/validate-refresh-config.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-agentic-workflows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate-agentic-workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Install gh-aw
+        uses: github/gh-aw-actions/setup-cli@3ea13c02d765410340d533515cb31a7eef2baaf0 # v0.77.5
+        with:
+          version: v0.77.5
+
+      - name: Validate compiled workflows
+        shell: bash
+        run: |
+          orphaned=0
+          while IFS= read -r lock_file; do
+            source_file="${lock_file%.lock.yml}.md"
+            if [[ ! -f "$source_file" ]]; then
+              echo "Orphaned executable workflow: $lock_file"
+              orphaned=1
+            fi
+          done < <(find .github/workflows -maxdepth 1 -name '*.lock.yml' -print)
+          if [[ "$orphaned" -ne 0 ]]; then
+            exit 1
+          fi
+
+          if find .github/workflows -maxdepth 1 -name '*.md' -print -quit | grep -q .; then
+            gh aw compile --strict --validate --no-check-update --purge
+            changes="$(git status --porcelain --untracked-files=all -- .github/workflows)"
+            if [[ -n "$changes" ]]; then
+              printf '%s\n' "$changes"
+              echo "Compile generated workflow changes. Commit every synchronized .lock.yml file."
+              exit 1
+            fi
+          else
+            echo "No agentic workflow definitions exist in Phase 0."
+          fi

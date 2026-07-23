@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "name": "agentic-refresh",
+  "installationScope": "selected-repositories",
+  "repositories": [
+    "Azure-Samples/JavaScript-AI-Buildathon",
+    "Azure-Samples/serverless-chat-langchainjs",
+    "Azure-Samples/mcp-agent-langchainjs"
+  ],
+  "permissions": {
+    "metadata": "read",
+    "contents": "write",
+    "pullRequests": "write",
+    "issues": "write",
+    "actions": "read",
+    "checks": "read"
+  },
+  "forbiddenPermissions": [
+    "administration",
+    "deployments",
+    "environments",
+    "organizationAdministration",
+    "releases"
+  ],
+  "credentials": {
+    "appIdVariable": "AGENTIC_REFRESH_APP_ID",
+    "privateKeySecret": "AGENTIC_REFRESH_APP_PRIVATE_KEY"
+  },
+  "constraints": {
+    "allowedBranchPrefix": "refresh/",
+    "defaultBranchWritesAllowed": false,
+    "mergeAllowed": false,
+    "humanMergeRuleset": ".github/agentic-refresh/rulesets/human-merge.json",
+    "installationTokenMaximumLifetimeMinutes": 60
+  },
+  "tokenHandling": {
+    "exposedToAgent": false,
+    "consumer": "pinned-deterministic-safe-output-action",
+    "allowedOperations": [
+      "createRefreshBranch",
+      "updateRefreshBranch",
+      "createPullRequest",
+      "updatePullRequest",
+      "createIssue",
+      "updateIssue",
+      "comment"
+    ],
+    "forbiddenOperations": [
+      "mergePullRequest",
+      "updateDefaultBranch",
+      "deleteBranch",
+      "forcePush"
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "labels": [
+    {
+      "name": "refresh/plan",
+      "color": "1d76db",
+      "description": "Agentic refresh plan"
+    },
+    {
+      "name": "refresh/awaiting-approval",
+      "color": "fbca04",
+      "description": "Waiting for the configured human approver"
+    },
+    {
+      "name": "refresh/approved",
+      "color": "0e8a16",
+      "description": "Refresh plan approved by the configured human"
+    },
+    {
+      "name": "refresh/implementing",
+      "color": "5319e7",
+      "description": "Approved refresh is being implemented"
+    },
+    {
+      "name": "refresh/asset-review",
+      "color": "bfdadc",
+      "description": "Assets are awaiting bounded review"
+    },
+    {
+      "name": "refresh/copilot-review",
+      "color": "7057ff",
+      "description": "Copilot findings are being adjudicated"
+    },
+    {
+      "name": "refresh/human-review",
+      "color": "0052cc",
+      "description": "Core stack is awaiting human review"
+    },
+    {
+      "name": "refresh/docs",
+      "color": "c5def5",
+      "description": "Documentation-owner layer is active"
+    },
+    {
+      "name": "refresh/final-review",
+      "color": "006b75",
+      "description": "Highest stack layer is awaiting final human review"
+    },
+    {
+      "name": "refresh/blocked",
+      "color": "b60205",
+      "description": "Refresh stopped pending human guidance"
+    },
+    {
+      "name": "refresh/completed",
+      "color": "0e8a16",
+      "description": "Human-merged refresh completed"
+    },
+    {
+      "name": "quest/1-foundry-local",
+      "color": "d4c5f9",
+      "description": "Foundry Local quest"
+    },
+    {
+      "name": "quest/2-microsoft-foundry",
+      "color": "d4c5f9",
+      "description": "Microsoft Foundry quest"
+    },
+    {
+      "name": "quest/3-agentic-rag",
+      "color": "d4c5f9",
+      "description": "Agentic RAG quest"
+    },
+    {
+      "name": "quest/4-foundry-toolkit",
+      "color": "d4c5f9",
+      "description": "Foundry Toolkit quest"
+    },
+    {
+      "name": "quest/5-context-engineering",
+      "color": "d4c5f9",
+      "description": "Context Engineering quest"
+    }
+  ]
+}

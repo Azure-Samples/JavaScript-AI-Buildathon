@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "defaultMode": "report-only",
+  "lastReviewedAt": "2026-07-23",
+  "repositories": [
+    {
+      "name": "Azure-Samples/JavaScript-AI-Buildathon",
+      "status": "blocked",
+      "writeAutomationAllowed": false,
+      "capabilities": {
+        "githubAppInstalled": false,
+        "copilotCodeReviewEnabled": true,
+        "aiCreditBudgetAvailable": false,
+        "repositoryAdministratorAvailable": true,
+        "refreshBranchCreationAllowed": false,
+        "rulesetConfigured": false,
+        "conversationResolutionRequired": true,
+        "codeOwnerReviewRequired": false,
+        "requiredChecksKnown": true
+      },
+      "requiredChecks": [
+        "validate-content",
+        "validate-agentic-workflows"
+      ],
+      "pendingRequiredChecks": [
+        "copilot-review-gate"
+      ],
+      "approval": {
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidence": null
+      },
+      "auditEvidence": {
+        "copilotCodeReviewWorkflowId": 209015997,
+        "rulesetId": 19622585,
+        "approverVariable": "REFRESH_APPROVER_LOGIN=juliamuiruri4",
+        "labelsConfigured": true
+      },
+      "blockers": [
+        "An Azure-Samples organization owner must create or approve and install the dedicated GitHub App.",
+        "The Copilot Code Review AI-credit budget has not been confirmed.",
+        "Ruleset 19622585 must be activated after CODEOWNERS and both Phase 0 validation checks are merged and have successful check runs.",
+        "The human-only merge ruleset template must be created or confirmed in repository settings; the REST API returned 404 when user bypass was requested.",
+        "Automation permission to create refresh/** branches has not been approved."
+      ]
+    },
+    {
+      "name": "Azure-Samples/serverless-chat-langchainjs",
+      "status": "blocked",
+      "writeAutomationAllowed": false,
+      "capabilities": {
+        "githubAppInstalled": false,
+        "copilotCodeReviewEnabled": true,
+        "aiCreditBudgetAvailable": false,
+        "repositoryAdministratorAvailable": false,
+        "refreshBranchCreationAllowed": false,
+        "rulesetConfigured": false,
+        "conversationResolutionRequired": false,
+        "codeOwnerReviewRequired": false,
+        "requiredChecksKnown": false
+      },
+      "requiredChecks": [],
+      "approval": {
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidence": null
+      },
+      "blockers": [
+        "No repository administrator confirmation has been recorded.",
+        "An Azure-Samples organization owner must approve and install the dedicated GitHub App.",
+        "The Copilot Code Review AI-credit budget has not been confirmed.",
+        "The active rulesets have not been confirmed to satisfy the refresh governance contract.",
+        "Automation permission to create refresh/** branches has not been approved."
+      ]
+    },
+    {
+      "name": "Azure-Samples/mcp-agent-langchainjs",
+      "status": "blocked",
+      "writeAutomationAllowed": false,
+      "capabilities": {
+        "githubAppInstalled": false,
+        "copilotCodeReviewEnabled": true,
+        "aiCreditBudgetAvailable": false,
+        "repositoryAdministratorAvailable": false,
+        "refreshBranchCreationAllowed": false,
+        "rulesetConfigured": false,
+        "conversationResolutionRequired": false,
+        "codeOwnerReviewRequired": false,
+        "requiredChecksKnown": false
+      },
+      "requiredChecks": [],
+      "approval": {
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidence": null
+      },
+      "blockers": [
+        "No repository administrator confirmation has been recorded.",
+        "An Azure-Samples organization owner must approve and install the dedicated GitHub App.",
+        "The Copilot Code Review AI-credit budget has not been confirmed.",
+        "No qualifying main-branch ruleset or classic branch protection was visible.",
+        "Automation permission to create refresh/** branches has not been approved."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "ghAwVersion": "v0.77.5",
+  "ghAwSetupAction": "github/gh-aw-actions/setup-cli@3ea13c02d765410340d533515cb31a7eef2baaf0",
+  "checkoutAction": "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+  "pythonVersion": "3.12"
+}

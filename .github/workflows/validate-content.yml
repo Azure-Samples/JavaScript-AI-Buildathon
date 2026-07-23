@@ -1,0 +1,51 @@
+name: Validate Content
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+      - "**/*.json"
+      - "docs/**"
+      - "mkdocs.yml"
+      - "requirements.txt"
+      - "scripts/validate-content-links.mjs"
+      - "scripts/validate-refresh-config.mjs"
+      - ".github/workflows/validate-content.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-content-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate-content
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Validate refresh configuration
+        run: node scripts/validate-refresh-config.mjs
+
+      - name: Validate local content links
+        run: node scripts/validate-content-links.mjs
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install documentation dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Build documentation
+        run: mkdocs build --strict
