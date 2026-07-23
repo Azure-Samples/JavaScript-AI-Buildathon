@@ -1,8 +1,8 @@
 ![Serverless RAG](./assets/favicon.png)
 
-**Click the image below to watch the recording.**
+**Optional companion recording:** click the image below for a guided walkthrough.
 
-[![Reactor Livestream](./assets/poster-quest3.png)](https://www.youtube.com/live/hfx7F7lObdg?si=vEtg3dt411oHcvJG)
+[![Watch the Quest 3 companion recording](./assets/quest-3-companion-recording.png)](https://www.youtube.com/live/hfx7F7lObdg?si=vEtg3dt411oHcvJG)
 
 ## Overview
 
@@ -85,13 +85,13 @@ There are 6 tours to walk you through the entire RAG implementation flow. We rec
 - Tour 5: Response Generation (7 steps)
 - Tour 6: Streaming & Chat History (8 steps)
 
-### Return to the Build-a-thon
+### Continue learning
 
-Once you have completed the CodeTour and explored the RAG implementation, return to the main Build-a-thon repository to continue with the next quests.
+Once you have completed the CodeTour and explored the RAG implementation, return to the [Quest directory](https://github.com/Azure-Samples/JavaScript-AI-Buildathon#the-learning-path) to choose what to explore next.
 
 ## Stay connected
 
-Have a question, project, or insight to share? Join the [Build-a-thon Discord channel](https://aka.ms/JSAIonDiscord)
+Have a question, project, or insight to share? Join the [JavaScript AI community on Discord](https://aka.ms/JSAIonDiscord).
 
 ## AI Note
 

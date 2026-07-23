@@ -1,8 +1,8 @@
 ![Foundry Local](./assets/foundry-logo.png)
 
-**Click the image below to watch the recording.**
+**Optional companion recording:** click the image below for a guided walkthrough.
 
-[![Reactor Livestream](./assets/poster-quest2.png)](https://www.youtube.com/live/8ded7UAdPTA?si=UwncP4b4tIs1dwLS)
+[![Watch the Quest 2 companion recording](./assets/quest-2-companion-recording.png)](https://www.youtube.com/live/8ded7UAdPTA?si=UwncP4b4tIs1dwLS)
 
 # Building AI Agents E2E On Microsoft Foundry
 
@@ -59,9 +59,7 @@ To complete the quest, you will need:
 >
 > The **Foundry SDK is under active development**. 
 >
-> If you encounter any blockers, unclear steps, or have suggestions to improve the developer experience, please open an issue using the [provided issue template](https://github.com/microsoft/microsoft-foundry-e2e-js/issues/new/choose) - *Bug report/ Build-a-thon Feedback*. Make sure to **apply the label** that matches the step you were on when the issue occurred.
->
-> ![Buildathon issue with labels](./assets/buildathon-feedback.png)
+> If you encounter a blocker or unclear instruction in the linked sample, open an issue in the [Microsoft Foundry end-to-end JavaScript repository](https://github.com/microsoft/microsoft-foundry-e2e-js/issues/new/choose). Include the task you were completing and enough environment detail to reproduce the problem.
 
 The repoistory is setup with a `devcontainer.json` that installs all the required depdencencies and gives you access to a free tier of GitHub Copilot. 
 
@@ -90,9 +88,9 @@ This quest has a lot of steps to complete, many of which cannot be completed in 
 **Explore the rest at your own pace later**. Create a fork of the repo, then launch a new Codespaces instance on that fork and work through the steps in order. Try customizing the data to suit a different scenario. Or change the code to try a different evaluator or attack strategy for red-teaming. Use your fork as a sandbox for building a deeper understanding of these capabilities with hands-on experiments.
 
 
-### Return to the Build-a-thon
+### Continue learning
 
-Once you have completed this quest and get an intuitive sense for end-to-end development with Microsoft Foundry, return to the main Build-a-thon repository to continue with the next quests.
+When you have an intuitive sense of end-to-end development with Microsoft Foundry, return to the [Quest directory](https://github.com/Azure-Samples/JavaScript-AI-Buildathon#the-learning-path) to choose what to explore next.
 
 ## AI Note
 

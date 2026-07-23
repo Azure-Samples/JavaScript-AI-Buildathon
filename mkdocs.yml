@@ -1,11 +1,12 @@
 # Project information .........................................
 site_name: "JavaScript AI Build-a-thon"
 site_url: https://Azure-Samples.github.io/JavaScript-AI-Buildathon
+site_description: "Self-paced JavaScript and TypeScript Quests for learning practical AI development patterns."
 repo_url: https://github.com/Azure-Samples/JavaScript-AI-Buildathon
 
 # Copyright ...................................................
 copyright: >
-  &copy; 2026 Microsoft &nbsp;|&nbsp;
+  &copy; Microsoft &nbsp;|&nbsp;
   <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy </a>&nbsp;|&nbsp;
   <a href="https://go.microsoft.com/fwlink/?LinkId=2259814">Consumer Health Privacy </a>&nbsp;|&nbsp;
   <a onclick="window.manageConsent();">Cookies </a>&nbsp;|&nbsp;
@@ -26,9 +27,7 @@ theme:
       warning: fontawesome/solid/triangle-exclamation
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
-  font:
-    code: JetBrains Mono
-    text: Inter
+  font: false
   logo: media/logo.svg
   language: en
 
@@ -72,8 +71,13 @@ extra:
 
 # Navigation  ...............................................
 nav:
-  - Overview: index.md
+  - Home: index.md
+  - Start here: start-here.md
   - Quests: quests.md
+
+validation:
+  nav:
+    omitted_files: info
 
 # Extensions  ...............................................
 markdown_extensions:
@@ -90,3 +94,6 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/hero-video.js

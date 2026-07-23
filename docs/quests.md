@@ -1,103 +1,89 @@
-# Quests
+# Choose a Quest
 
-Each quest teaches a core AI development pattern with JavaScript/TypeScript.
+Each Quest teaches a practical AI development pattern with JavaScript or
+TypeScript. Follow them in order for a complete path, or choose the outcome
+that matches what you want to learn next.
 
-<div class="quest-grid" markdown>
+<div class="quest-directory" markdown>
 
-<div class="quest-card" markdown>
+<article class="quest-entry" markdown>
 
-## 💻 Quest 1: Local AI Development with Foundry Local
+## Quest 1: Local AI Development with Foundry Local
 
-**Run AI models on-device** for privacy, speed, and offline access using Microsoft Foundry Local.
+Run AI models on-device for privacy, low latency, and offline access.
 
-You'll learn to:
+**You will explore:** model management with the Foundry Local CLI, LangChain.js
+integration, structured extraction from unstructured text, and private coding
+assistance with local models.
 
-- Install and manage local AI models with Foundry Local CLI
-- Use the Foundry Local SDK with LangChain.js
-- Build an AI Insight Mapper that extracts structured data from unstructured text
-- Power GitHub Copilot with local models for private coding assistance
+**Environment:** Local
 
-!!! info "Award Recognition: Offline-Ready AI Award"
-    This quest mapped to the **Offline-Ready AI Award** category. Participants who built apps processing sensitive data entirely on-device earned recognition for privacy + latency optimizations.
+[Start Quest 1](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/01-Local-AI-Development){ .md-button .md-button--primary }
 
-[**Start Quest 1 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/01-Local-AI-Development)
+</article>
 
-</div>
+<article class="quest-entry" markdown>
 
-<div class="quest-card" markdown>
+## Quest 2: End-to-End Model Development on Microsoft Foundry
 
-## ☁️ Quest 2: End-to-End Model Development on Microsoft Foundry
+Work through the lifecycle of a cloud AI solution, from choosing a model to
+evaluating and protecting an agent.
 
-**Build AI solutions end-to-end in the cloud** with Microsoft Foundry models and workflows.
+**You will explore:** the model catalog and playgrounds, customization,
+evaluation, tracing, safety, and cloud-scale development patterns.
 
-You'll learn to:
+**Environment:** Cloud
 
-- Explore model selection workflows using catalog, leaderboards, and playgrounds
-- Understand customization options like fine-tuning
-- Evaluate model quality, safety, and trustworthiness
-- Apply cloud-scale AI development patterns for real-world scenarios
+[Start Quest 2](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/02-E2E-Model-Development-on-Foundry){ .md-button .md-button--primary }
 
-[**Start Quest 2 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/02-E2E-Model-Development-on-Foundry)
+</article>
 
-</div>
+<article class="quest-entry" markdown>
 
-<div class="quest-card" markdown>
+## Quest 3: Run a Serverless RAG Support System
 
-## 🔍 Quest 3: Run a Serverless RAG Support System
+Build a retrieval-augmented generation pipeline with LangChain.js and local
+models.
 
-**Build a retrieval-augmented generation pipeline** with LangChain.js and local models.
+**You will explore:** document ingestion, vector storage, semantic retrieval,
+grounded responses with citations, streaming, and chat history.
 
-You'll learn to:
+**Environment:** Local & Cloud
 
-- Set up a serverless RAG system with document ingestion
-- Implement vector storage and semantic retrieval
-- Generate grounded responses with citations
-- Handle streaming and chat history
+[Start Quest 3](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/03-Run-Serverless-RAG-Support-System){ .md-button .md-button--primary }
 
-[**Start Quest 3 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/03-Run-Serverless-RAG-Support-System)
+</article>
 
-</div>
+<article class="quest-entry" markdown>
 
-<div class="quest-card" markdown>
+## Quest 4: Build Agents with AI Toolkit
 
-## 🤖 Quest 4: Build Agents with AI Toolkit
+Create and evaluate an agent with the AI Toolkit for Visual Studio Code.
 
-**Create AI agents** with the AI Toolkit for VS Code — from model discovery to evaluation.
+**You will explore:** model comparison, Agent Builder, dynamic variables, MCP
+server integration, response evaluation, and code export.
 
-You'll learn to:
+**Environment:** Local & Cloud
 
-- Explore and compare models in the Model Catalog
-- Build agents with Agent Builder and dynamic variables
-- Integrate MCP servers for tool use
-- Evaluate agent performance with built-in and custom metrics
-- Export production-ready code
+[Start Quest 4](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/04-Build-Agents-with-AIToolKit){ .md-button .md-button--primary }
 
-!!! info "Award Recognition: Agentic System Architecture Award"
-    This quest taught the patterns needed for the **Agentic System Architecture Award** — innovative agent design with MCP tool integration.
+</article>
 
-[**Start Quest 4 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/04-Build-Agents-with-AIToolKit)
+<article class="quest-entry" markdown>
 
-</div>
+## Quest 5: Run an End-to-End Burger Ordering Agent System
 
-<div class="quest-card" markdown>
+Explore a complete agentic system with LangChain.js and MCP integrations.
 
-## 🍔 Quest 5: Run an E2E Burger Ordering Agent System
+**You will explore:** agent architecture, multi-service workflows, MCP tools,
+agent APIs, backend services, and an Azure scaling path.
 
-**Design and run a full agentic system** with MCP server integration using LangChain.js.
+**Environment:** Local & Cloud
 
-You'll learn to:
+[Start Quest 5](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/05-Run-Burger-Ordering-Agent-System){ .md-button .md-button--primary }
 
-- Understand AI agent architecture patterns
-- Design multi-service agent workflows
-- Build MCP tools for external system integration
-- Create agent APIs and backend services
-- Plan for production scaling with Azure
-
-!!! info "Award Recognition: Agentic System Architecture Award"
-    This quest demonstrated foundational patterns for **useful, reliable, and secure** agent systems.
-
-[**Start Quest 5 →**](https://github.com/Azure-Samples/JavaScript-AI-Buildathon/tree/main/05-Run-Burger-Ordering-Agent-System)
+</article>
 
 </div>
 
-</div>
+Not sure where to begin? [Read the start guide](start-here.md).

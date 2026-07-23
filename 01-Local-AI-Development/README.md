@@ -1,8 +1,8 @@
 ![Foundry Local](./assets/foundry-local-logo.png)
 
-**Click the image below to watch the recording.**
+**Optional companion recording:** click the image below for a guided walkthrough.
 
-[![Reactor Livestream](./assets/poster-quest1.png)](https://www.youtube.com/live/GHH50rDlLn0?si=-i3hPYq1o6H271_z)
+[![Watch the Quest 1 companion recording](./assets/quest-1-companion-recording.png)](https://www.youtube.com/live/GHH50rDlLn0?si=-i3hPYq1o6H271_z)
 
 ## Overview
 
@@ -15,26 +15,10 @@ With Foundry Local, you gain:
 - **Cost Efficiency**: No cloud compute costs incurred.
 - **Offline Access**: AI capabilities even without internet connectivity.
 
-> [!NOTE]
->
-> **Hackathon Award Category: Offline-Ready AI Award**
->
-> This quest mapped to our Offline-Ready AI Award category, which recognized the best performing AI solutions with standout offline capabilities (local inference).
->
-> Winning solutions featured apps that:
->
-> - Processed sensitive data entirely on-device.
-> - Used Foundry Local for reasoning and cloud storage services for optional sync or analytics.
->
-> Winners demonstrated:
->
-> - **Privacy** (no sensitive data leaving the device).
-> - **Latency** optimization using local inference.
->
-> Checkout some Foundry Local + JavaScript projects: -
->
-> 1. [Interview Doctor](https://github.com/leestott/interview-doctor-js) - AI-powered interview preparation assistant that runs **100% offline** on your local machine
-> 1. [Gas Field Support Agent](https://github.com/leestott/local-rag) - A fully offline, on-device Retrieval-Augmented Generation (RAG) support agent for gas field inspection and maintenance engineers. 
+Here are two Foundry Local and JavaScript projects you can explore:
+
+1. [Interview Doctor](https://github.com/leestott/interview-doctor-js) - An AI-powered interview preparation assistant that runs entirely on your local machine.
+2. [Gas Field Support Agent](https://github.com/leestott/local-rag) - An offline, on-device RAG support agent for gas-field inspection and maintenance engineers.
 
 First step, **installation instructions** for your OS:
 
@@ -196,21 +180,17 @@ Once configured, GitHub Copilot Chat will use your local Foundry model for all r
 | **Qwen models** | Multilingual code generation |
 | **GPT models** | Advanced capabilities and broad compatibility |
 
-> [!NOTE]
->
-> For the Offline-Ready AI Award, using GitHub Copilot with Foundry Local demonstrates a powerful offline development workflow. Highlight this capability in your submission!
-
 ### 3. Software Development Kits (SDKs)
 
 Foundry Local provides SDKs to programmatically send requests to the local management service. Since the endpoint is dynamically allocated each time the service starts, the SDK handles endpoint discovery and management for you (control plane).
 
 #### Step 1: Initialize New Project
 
-Create a parent folder for your Build-a-thon projects and navigate into it:
+Create a parent folder for your JavaScript AI projects and navigate into it:
 
    ```bash
-    mkdir buildathon
-    cd buildathon
+    mkdir javascript-ai-quests
+    cd javascript-ai-quests
   ```
 
   Create a new folder for this quest, navigate into it and initialize a Node.js project:
@@ -394,7 +374,7 @@ Example UI:
 
 ## Stay connected
 
-Have a question, project, or insight to share? Join the [Build-a-thon Discord channel](https://aka.ms/JSAIonDiscord)
+Have a question, project, or insight to share? Join the [JavaScript AI community on Discord](https://aka.ms/JSAIonDiscord).
 
 ## AI Note
 
