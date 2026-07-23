@@ -91,6 +91,7 @@ input {
 .md-content__inner {
   max-width: 70rem;
   margin-inline: auto;
+  padding-inline: clamp(0.9rem, 2vw, 1.6rem);
 }
 
 .md-typeset {
@@ -413,10 +414,6 @@ input {
 }
 
 @media (max-width: 760px) {
-  .md-content__inner {
-    padding-inline: 0.9rem;
-  }
-
   .md-typeset {
     font-size: 0.82rem;
   }
