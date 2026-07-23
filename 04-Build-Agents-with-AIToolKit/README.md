@@ -1,8 +1,8 @@
 ![AI Toolkit](./assets/aitk.png)
 
-**Click the image below to watch the recording.**
+**Optional companion recording:** click the image below for a guided walkthrough.
 
-[![Reactor Livestream](./assets/poster-quest4.png)](https://www.youtube.com/live/k0q5-VIGtWQ?si=yXLiyalxU6wELpxW)
+[![Watch the Quest 4 companion recording](./assets/quest-4-companion-recording.png)](https://www.youtube.com/live/k0q5-VIGtWQ?si=yXLiyalxU6wELpxW)
 
 ## Overview
 
@@ -19,24 +19,6 @@ The **AI Toolkit** is a powerful VS Code extension that streamlines generative A
 - **Agent Builder**: Create agents with system prompts, variables, and MCP tool integrations
 - **Evaluation**: Measure agent performance with built-in metrics
 - **Code Export**: Export agent code for integration into applications
-
-> [!NOTE]
->
-> **Hackathon Award Category: Agent Architecture Award**
->
-> This quest mapped to our special award category that recognized the best AI agents with innovative and well-architected designs.
->
-> Winning submissions featured:
->
-> - Agents that solved complex problems with multiple steps of reasoning
-> - Agents that integrated with custom MCP servers to access specialized tools or data
-> - Agents with sophisticated evaluation techniques that pushed performance boundaries
->
-> Winners demonstrated:
->
-> - Innovative agent design patterns
-> - Leverage of MCP servers for specialized tool integration
-> - Evaluation methods that validated agent performance
 
 ### Install the AI Toolkit Extension
 
@@ -416,7 +398,7 @@ Include clear instructions on:
 3. How to open the UI: Open chat.html in browser
 4. How to test: Send a message and verify agent responds
 
-Make it simple, hackathon-ready, and immediately usable!
+Make it simple, easy to extend, and immediately usable!
 ```
 
 Sample UI Output:
@@ -444,7 +426,7 @@ This gives you a complete and ready chat application for your AI agent! 🚀
 
 ## Stay connected
 
-Have a question, project, or insight to share? Join the [Build-a-thon Discord channel](https://aka.ms/JSAIonDiscord)
+Have a question, project, or insight to share? Join the [JavaScript AI community on Discord](https://aka.ms/JSAIonDiscord).
 
 ## AI Note
 

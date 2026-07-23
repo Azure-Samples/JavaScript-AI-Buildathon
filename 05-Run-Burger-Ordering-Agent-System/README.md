@@ -1,8 +1,8 @@
 ![Burger Ordering Agent Logo](./assets/burger-logo.png)
 
-**Click the image below to watch the livestream/recording.**
+**Optional companion recording:** click the image below for a guided walkthrough.
 
-[![Reactor Livestream](./assets/poster-quest5.png)](https://www.youtube.com/live/kBVsqJbM7Vc?si=hmIEfla6KOB9MsYW)
+[![Watch the Quest 5 companion recording](./assets/quest-5-companion-recording.png)](https://www.youtube.com/live/kBVsqJbM7Vc?si=hmIEfla6KOB9MsYW)
 
 ## Overview
 
@@ -12,13 +12,7 @@ In this quest, you will set up and run a **complete end-to-end Burger Ordering A
 
 > [!NOTE]
 >
-> **Hackathon Award Category: Agentic System Architecture Award**
->
-> This quest mapped to our special award category recognizing agentic designs that are **useful, reliable, and secure**.
->
-> The quest demonstrated foundational patterns: **MCP tool integration** enabling agents to interact with external systems (useful), **structured agent workflows** with proper error handling ensuring consistent behavior (reliable), and **API-based architectures** allowing for controlled access and validation (secure).
->
-> Winners leveraged these patterns to build production-ready agent systems that users could trust.
+> This quest highlights three foundations of an agent system: **MCP tool integration** for interaction with external systems, **structured agent workflows** with error handling for consistent behavior, and **API-based architecture** for controlled access and validation.
 
 ## Steps to Complete the Quest
 
@@ -83,13 +77,13 @@ There are 6 tours to walk you through the entire agent implementation flow. We r
 > [!WARNING]
 > Trouble viewing the CodeTour? Try setting `comments.maxHeightExceeded` to `false`
 
-### Return to the Build-a-thon
+### Continue learning
 
-Once you have completed the CodeTour and explored the Agent implementation, return to the main Build-a-thon repository to continue with the next step.
+Once you have completed the CodeTour and explored the agent implementation, return to the [Quest directory](https://github.com/Azure-Samples/JavaScript-AI-Buildathon#the-learning-path) to choose what to explore next.
 
 ## Stay connected
 
-Have a question, project, or insight to share? Join the [Build-a-thon Discord channel](https://aka.ms/JSAIonDiscord)
+Have a question, project, or insight to share? Join the [JavaScript AI community on Discord](https://aka.ms/JSAIonDiscord).
 
 ## AI Note
 
