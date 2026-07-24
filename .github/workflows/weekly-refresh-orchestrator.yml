@@ -1,0 +1,86 @@
+name: Weekly Refresh Preview
+
+# Phase 2B may add `0 8 * * 1` only after default-branch trials and issue-output
+# spikes pass. Phase 2A remains manual-only.
+on:
+  workflow_dispatch:
+    inputs:
+      week_key:
+        description: Optional ISO week key; defaults to the current UTC ISO week
+        required: false
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+  copilot-requests: write
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      week_key: ${{ steps.context.outputs.week_key }}
+      prior_week_key: ${{ steps.context.outputs.prior_week_key }}
+      parent_key: ${{ steps.context.outputs.parent_key }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Resolve deterministic reporting context
+        id: context
+        env:
+          REQUESTED_WEEK_KEY: ${{ inputs.week_key }}
+        run: |
+          node scripts/weekly-refresh-report.mjs context \
+            --week "$REQUESTED_WEEK_KEY" \
+            --github-output "$GITHUB_OUTPUT"
+
+  foundry-local:
+    needs: context
+    uses: ./.github/workflows/discover-foundry-local.lock.yml
+    with:
+      week_key: ${{ needs.context.outputs.week_key }}
+      prior_week_key: ${{ needs.context.outputs.prior_week_key }}
+
+  microsoft-foundry:
+    needs: context
+    uses: ./.github/workflows/discover-microsoft-foundry.lock.yml
+    with:
+      week_key: ${{ needs.context.outputs.week_key }}
+      prior_week_key: ${{ needs.context.outputs.prior_week_key }}
+
+  agentic-rag:
+    needs: context
+    uses: ./.github/workflows/discover-agentic-rag.lock.yml
+    with:
+      week_key: ${{ needs.context.outputs.week_key }}
+      prior_week_key: ${{ needs.context.outputs.prior_week_key }}
+
+  foundry-toolkit:
+    needs: context
+    uses: ./.github/workflows/discover-foundry-toolkit.lock.yml
+    with:
+      week_key: ${{ needs.context.outputs.week_key }}
+      prior_week_key: ${{ needs.context.outputs.prior_week_key }}
+
+  context-engineering:
+    needs: context
+    uses: ./.github/workflows/discover-context-engineering.lock.yml
+    with:
+      week_key: ${{ needs.context.outputs.week_key }}
+      prior_week_key: ${{ needs.context.outputs.prior_week_key }}
+
+  digest:
+    if: ${{ always() && needs.context.result == 'success' }}
+    needs:
+      - context
+      - foundry-local
+      - microsoft-foundry
+      - agentic-rag
+      - foundry-toolkit
+      - context-engineering
+    uses: ./.github/workflows/weekly-refresh-digest.lock.yml
+    with:
+      week_key: ${{ needs.context.outputs.week_key }}
+      prior_week_key: ${{ needs.context.outputs.prior_week_key }}

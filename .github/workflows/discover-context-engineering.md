@@ -2,10 +2,33 @@
 name: Discover Context Engineering
 description: Manually audits the Context Engineering quest and report-only CodeTours using approved evidence
 on:
+  workflow_call:
+    inputs:
+      week_key:
+        description: ISO week key for this reporting run
+        required: true
+        type: string
+      prior_week_key:
+        description: ISO week key used to locate prior findings
+        required: true
+        type: string
   workflow_dispatch:
+    inputs:
+      week_key:
+        description: ISO week key for this reporting run
+        required: true
+        type: string
+      prior_week_key:
+        description: ISO week key used to locate prior findings
+        required: true
+        type: string
 permissions:
   contents: read
   copilot-requests: write
+concurrency:
+  group: weekly-refresh-${{ inputs.week_key }}-context-engineering
+  cancel-in-progress: false
+  job-discriminator: ${{ inputs.week_key }}
 strict: true
 engine:
   id: copilot
@@ -16,6 +39,12 @@ network:
     - modelcontextprotocol.io
 imports:
   - shared/discovery-policy.md
+  - uses: shared/report-output.md
+    with:
+      quest-id: 5
+      quest-slug: context-engineering
+      quest-title: Context Engineering in Agents
+      quest-label: quest/5-context-engineering
   - ../agents/context-engineering-quest-master.agent.md
 safe-outputs:
   activation-comments: false
@@ -29,9 +58,9 @@ safe-outputs:
 timeout-minutes: 20
 ---
 
-# Phase 1 Context Engineering Discovery
+# Phase 2A Context Engineering Reporting
 
-Run a read-only manual trial for quest slug `context-engineering`.
+Run a read-only staged report for quest slug `context-engineering`.
 
 ## Execution
 
@@ -44,15 +73,19 @@ Run a read-only manual trial for quest slug `context-engineering`.
 5. Invoke `external-codetour-auditor` once for the six report-only CodeTours.
 6. Reconcile all reports. Reject unsupported claims and make uncertainty
    explicit.
-7. Return one concise GitHub-flavored Markdown report. Do not create or update
-   any persistent resource.
+7. Compare against any exact prior finding keys supplied for
+   `${{ inputs.prior_week_key }}`.
+8. Call `emit_weekly_report` exactly once with the structured report.
+9. Return one concise GitHub-flavored Markdown summary. Do not create or update
+   repository content or GitHub issues, comments, branches, or pull requests.
 
 ## Final report contract
 
 Start nested headings at `###` and include:
 
 - `Result: material-change | no-material-change | blocked`
-- Trial key `phase1-${{ github.run_id }}` and quest identity
+- Week key `${{ inputs.week_key }}`, prior week `${{ inputs.prior_week_key }}`,
+  and quest identity
 - Executive summary and current quest status
 - Official-source facts and deltas with lifecycle, URL, location, observed
   wording, and fingerprint

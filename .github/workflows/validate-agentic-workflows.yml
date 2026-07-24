@@ -12,7 +12,7 @@ on:
       - ".github/mcp.json"
       - ".github/skills/**"
       - ".github/workflows/**"
-      - "scripts/validate-refresh-config.mjs"
+      - "scripts/**"
   workflow_dispatch:
 
 permissions:

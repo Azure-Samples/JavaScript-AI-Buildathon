@@ -3,5 +3,7 @@
   "ghAwVersion": "v0.77.5",
   "ghAwSetupAction": "github/gh-aw-actions/setup-cli@3ea13c02d765410340d533515cb31a7eef2baaf0",
   "checkoutAction": "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+  "downloadArtifactAction": "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+  "uploadArtifactAction": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
   "pythonVersion": "3.12"
 }
