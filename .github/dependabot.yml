@@ -1,10 +1,12 @@
-version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "monthly"
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "monthly"
+- directory: /
+  ignore:
+  - dependency-name: "github/gh-aw-actions/**" # Managed by gh aw compile. Version-locked to the gh-aw compiler; do not bump.
+  package-ecosystem: github-actions
+  schedule:
+    interval: monthly
+- directory: /
+  package-ecosystem: pip
+  schedule:
+    interval: monthly
+version: 2

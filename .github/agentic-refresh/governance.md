@@ -78,6 +78,24 @@ in `quests.json`. It may record an external CodeTour finding in the Buildathon
 child issue, but it cannot create an external issue, branch, commit, or pull
 request. A human maintainer decides whether and how to transfer the finding.
 
+## Phase 1 compiler guard
+
+gh-aw v0.77.5 normally reserves `issues: write` for generated conclusion and
+safe-output framework jobs even when a workflow disables automatic failure
+issues. The five manual Phase 1 discovery workflows therefore:
+
+- grant the agent job only `contents: read` and `copilot-requests: write`;
+- disable activation comments, no-op issues, missing-data issues, missing-tool
+  issues, incomplete-run issues, and generic failure issues;
+- disable threat detection because there is no mutating output to inspect;
+- force all safe-output processing into staged preview mode;
+- fail configuration validation if compiled locks broaden permissions or lose
+  any suppression guard.
+
+With staging enabled, the compiled Phase 1 locks contain no repository write
+permission. Phase 2 must deliberately remove staging and revisit permissions
+before enabling real issue reporting.
+
 ## SAML authorization
 
 SAML authorization is needed only for local audits and human GitHub operations.
