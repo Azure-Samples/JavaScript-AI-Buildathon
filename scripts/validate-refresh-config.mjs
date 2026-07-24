@@ -728,6 +728,208 @@ function validatePinnedActions(workflowText, workflowPath) {
   }
 }
 
+function readFrontmatter(text, filePath) {
+  check(text.startsWith("---\n"), `${filePath} must start with frontmatter`);
+  const end = text.indexOf("\n---\n", 4);
+  check(end > 0, `${filePath} must close its frontmatter`);
+  return end > 0 ? text.slice(4, end) : "";
+}
+
+function readYamlList(frontmatter, key) {
+  const match = frontmatter.match(
+    new RegExp(`^${key}:\\s*\\n((?: {2,}- [^\\n]+\\n?)+)`, "m"),
+  );
+  if (!match) {
+    return [];
+  }
+
+  return match[1]
+    .split("\n")
+    .filter(Boolean)
+    .map((line) => line.replace(/^\s*-\s*/, "").replace(/^["']|["']$/g, ""));
+}
+
+function validateDiscoveryPolicy(policyText) {
+  const frontmatter = readFrontmatter(
+    policyText,
+    ".github/workflows/shared/discovery-policy.md",
+  );
+  const expectedCommands = [
+    "cat *",
+    "find *",
+    "gh api *",
+    "gh repo view *",
+    "gh search code *",
+    "grep *",
+    "jq *",
+    "sed *",
+    "wc *",
+  ];
+  const bashMatch = frontmatter.match(
+    /^  bash:\s*\n((?: {4}- [^\n]+\n?)+)/m,
+  );
+  const commands = bashMatch
+    ? bashMatch[1]
+        .split("\n")
+        .filter(Boolean)
+        .map((line) =>
+          line.replace(/^\s*-\s*/, "").replace(/^["']|["']$/g, ""),
+        )
+    : [];
+
+  check(
+    !/^\s{2}(?:contents|issues|pull-requests|actions):\s*write$/m.test(
+      frontmatter,
+    ),
+    "discovery policy must not grant repository mutation permissions",
+  );
+  check(
+    /^\s{2}github:\s*$/m.test(frontmatter) &&
+      /^\s{4}mode:\s*gh-proxy$/m.test(frontmatter) &&
+      /^\s{2}web-fetch:\s*$/m.test(frontmatter),
+    "discovery policy must expose only reviewed GitHub and web retrieval tools",
+  );
+  check(
+    sameJson(commands, expectedCommands),
+    "discovery policy bash commands must exactly match the reviewed read-only allowlist",
+  );
+  check(
+    !/^\s{2}edit:\s*$/m.test(frontmatter),
+    "discovery policy must not enable edit",
+  );
+  check(
+    !/^safe-outputs:\s*$/m.test(frontmatter),
+    "shared discovery policy must leave output suppression to each main workflow",
+  );
+  check(
+    policyText.includes("No safe-output handler") &&
+      policyText.includes("Result: no-material-change") &&
+      policyText.includes("Result: blocked"),
+    "discovery policy must define explicit no-change and blocked outcomes",
+  );
+}
+
+function validateDiscoveryWorkflow(
+  quest,
+  specification,
+  workflowText,
+  agentText,
+  compiledText,
+) {
+  const workflowPath = `.github/workflows/${specification.workflow}`;
+  const agentPath = `.github/agents/${quest.agent}.agent.md`;
+  const frontmatter = readFrontmatter(workflowText, workflowPath);
+  const agentFrontmatter = readFrontmatter(agentText, agentPath);
+  const allowedDomains = readYamlList(frontmatter, "network:\\n  allowed");
+  const agentBlocks = [
+    ...workflowText.matchAll(/^## agent: `([a-z][a-z0-9_-]*)`$/gm),
+  ].map((match) => match[1]);
+  const expectedAgentBlocks = [
+    "official-source-researcher",
+    "buildathon-content-auditor",
+    ...(quest.externalReports.length > 0
+      ? ["external-codetour-auditor"]
+      : []),
+  ];
+
+  check(
+    /^\s{2}workflow_dispatch:\s*$/m.test(frontmatter) &&
+      !/^\s{2}schedule:\s*$/m.test(frontmatter),
+    `${workflowPath} must be manual-only in Phase 1`,
+  );
+  check(
+    /^strict:\s*true$/m.test(frontmatter),
+    `${workflowPath} must enable strict mode`,
+  );
+  check(
+    /^permissions:\s*\n  contents:\s*read\s*\n  copilot-requests:\s*write$/m.test(
+      frontmatter,
+    ),
+    `${workflowPath} must grant only repository read and Copilot inference permissions`,
+  );
+  check(
+    new RegExp(`^  agent:\\s*${quest.agent}$`, "m").test(frontmatter),
+    `${workflowPath} must select ${quest.agent}`,
+  );
+  check(
+    frontmatter.includes("shared/discovery-policy.md") &&
+      frontmatter.includes(`../agents/${quest.agent}.agent.md`),
+    `${workflowPath} must import the shared policy and exactly scoped Quest Master`,
+  );
+  check(
+    sameJson(allowedDomains, specification.domains),
+    `${workflowPath} network domains must exactly match the reviewed quest allowlist`,
+  );
+  check(
+    /^safe-outputs:\s*\n  activation-comments:\s*false\s*\n  missing-data:\s*false\s*\n  missing-tool:\s*false\s*\n  noop:\s*false\s*\n  report-failure-as-issue:\s*false\s*\n  report-incomplete:\s*false\s*\n  staged:\s*true\s*\n  threat-detection:\s*false$/m.test(
+      frontmatter,
+    ) &&
+      !/^\s{2}(?:create-|update-|add-|push-|dispatch-|close-|assign-|upload-)/m.test(
+        frontmatter,
+      ) &&
+      !/^\s{2}(?:contents|issues|pull-requests|actions):\s*write$/m.test(
+        frontmatter,
+      ),
+    `${workflowPath} must disable automatic writes without enabling mutation permissions or outputs`,
+  );
+  check(
+    compiledText.includes('GH_AW_FAILURE_REPORT_AS_ISSUE: "false"') &&
+      compiledText.includes('GH_AW_SAFE_OUTPUTS_STAGED: "true"') &&
+      compiledText.includes("Tools: create_issue"),
+    `${workflowPath} compiled fallback must remain disabled and staged`,
+  );
+  check(
+    !/^\s{6}(?:contents|issues|pull-requests|actions|checks):\s*write$/m.test(
+        compiledText,
+      ),
+    `${workflowPath} compiled jobs must not grant repository write permissions`,
+  );
+  check(
+    sameJson(agentBlocks, expectedAgentBlocks),
+    `${workflowPath} inline researchers must exactly match the reviewed topology`,
+  );
+  check(
+    workflowText.includes(`quest slug \`${quest.slug}\``) &&
+      workflowText.includes("Do not create or update"),
+    `${workflowPath} must declare its fixed quest and read-only outcome`,
+  );
+  check(
+    new RegExp(`^name:\\s*${quest.agent}$`, "m").test(agentFrontmatter) &&
+      /^disable-model-invocation:\s*true$/m.test(agentFrontmatter),
+    `${agentPath} must define the expected non-invocable Quest Master profile`,
+  );
+
+  for (const source of quest.officialSourcePrefixes) {
+    check(
+      agentText.includes(source) && workflowText.includes(source),
+      `${agentPath} and ${workflowPath} must include approved source ${source}`,
+    );
+  }
+  for (const paths of Object.values(quest.ownedPaths)) {
+    for (const ownedPath of paths) {
+      check(
+        agentText.includes(ownedPath) && workflowText.includes(ownedPath),
+        `${agentPath} and ${workflowPath} must include owned path ${ownedPath}`,
+      );
+    }
+  }
+  for (const externalReport of quest.externalReports) {
+    check(
+      agentText.includes(externalReport.repository) &&
+        workflowText.includes(externalReport.repository) &&
+        agentText.includes("manual-maintainer") &&
+        workflowText.includes("manual-maintainer"),
+      `${agentPath} and ${workflowPath} must preserve the external manual-handoff boundary`,
+    );
+    for (const observedPath of externalReport.observedPaths) {
+      check(
+        workflowText.includes(observedPath),
+        `${workflowPath} must include observed path ${observedPath}`,
+      );
+    }
+  }
+}
+
 const capabilities = await readJson(".github/agentic-refresh/capabilities.json");
 const quests = await readJson(".github/agentic-refresh/quests.json");
 const labels = await readJson(".github/agentic-refresh/labels.json");
@@ -747,6 +949,49 @@ const workflowDirectory = ".github/workflows";
 const workflowFiles = (await readdir(resolve(root, workflowDirectory)))
   .filter((name) => /\.ya?ml$/i.test(name))
   .sort();
+const discoveryPolicy = await readText(
+  ".github/workflows/shared/discovery-policy.md",
+);
+const discoverySpecifications = new Map([
+  [
+    "foundry-local",
+    {
+      workflow: "discover-foundry-local.md",
+      domains: ["www.foundrylocal.ai"],
+    },
+  ],
+  [
+    "microsoft-foundry",
+    {
+      workflow: "discover-microsoft-foundry.md",
+      domains: ["learn.microsoft.com"],
+    },
+  ],
+  [
+    "agentic-rag",
+    {
+      workflow: "discover-agentic-rag.md",
+      domains: ["docs.langchain.com"],
+    },
+  ],
+  [
+    "foundry-toolkit",
+    {
+      workflow: "discover-foundry-toolkit.md",
+      domains: [
+        "code.visualstudio.com",
+        "marketplace.visualstudio.com",
+      ],
+    },
+  ],
+  [
+    "context-engineering",
+    {
+      workflow: "discover-context-engineering.md",
+      domains: ["docs.langchain.com", "modelcontextprotocol.io"],
+    },
+  ],
+]);
 
 const expectedRepositories = new Set([
   "Azure-Samples/JavaScript-AI-Buildathon",
@@ -768,6 +1013,24 @@ validateLabels(labels);
 validateGitHubTokenPolicy(tokenPolicy);
 validateRuleset(ruleset);
 validateHumanMergeRuleset(humanMergeRuleset);
+validateDiscoveryPolicy(discoveryPolicy);
+
+for (const quest of quests.quests) {
+  const specification = discoverySpecifications.get(quest.slug);
+  check(specification, `missing Phase 1 discovery specification for ${quest.slug}`);
+  if (!specification) {
+    continue;
+  }
+  validateDiscoveryWorkflow(
+    quest,
+    specification,
+    await readText(`${workflowDirectory}/${specification.workflow}`),
+    await readText(`.github/agents/${quest.agent}.agent.md`),
+    await readText(
+      `${workflowDirectory}/${specification.workflow.replace(/\.md$/, ".lock.yml")}`,
+    ),
+  );
+}
 
 check(
   tooling.ghAwVersion === "v0.77.5",
@@ -798,6 +1061,6 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${quests.quests.length} quests and ${capabilities.repositories.length} repository capability records.`,
+    `Validated ${quests.quests.length} quests, ${discoverySpecifications.size} read-only discovery workflows, and ${capabilities.repositories.length} repository capability records.`,
   );
 }

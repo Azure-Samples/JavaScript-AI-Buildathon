@@ -38,6 +38,8 @@ jobs:
 
       - name: Validate compiled workflows
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           orphaned=0
           while IFS= read -r lock_file; do
@@ -56,6 +58,7 @@ jobs:
             changes="$(git status --porcelain --untracked-files=all -- .github/workflows)"
             if [[ -n "$changes" ]]; then
               printf '%s\n' "$changes"
+              git --no-pager diff -- .github/workflows
               echo "Compile generated workflow changes. Commit every synchronized .lock.yml file."
               exit 1
             fi
