@@ -18,6 +18,9 @@ Every quest run first emits one version 1 JSON artifact with:
 A completed report must include source fingerprints. A blocked report must state
 one concise reason and cannot propose changes. A no-change report cannot propose
 changes. Invalid or missing quest artifacts become blocked scopes in the digest.
+Source and path validation rejects adjacent URL-prefix matches, absolute paths,
+backslashes, normalization changes, and traversal segments before materializing
+an artifact.
 
 A child plan must contain:
 
