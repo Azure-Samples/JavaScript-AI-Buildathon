@@ -35,10 +35,11 @@ Apply these Phase 1 discovery rules:
   independently listed in the matching quest entry.
 - Use GitHub transport domains only for repositories listed in the matching
   quest entry. Cite the human-facing GitHub URL, not a transport URL.
-- Return the report in the final agent response. No safe-output handler is
-  configured; automatic comments, missing-data issues, missing-tool issues,
-  incomplete-run issues, and failure issues are disabled. The workflow-level
-  staged guard must remain enabled.
+- Return a concise summary in the final agent response and use only the imported
+  `emit_weekly_report` safe-output job for the structured run artifact.
+  Automatic comments, missing-data issues, missing-tool issues, incomplete-run
+  issues, and failure issues are disabled. The workflow-level staged guard must
+  remain enabled.
 - When no material drift is found, return `Result: no-material-change` with the
   inspected evidence and any coverage gaps.
 - When a boundary, citation, lifecycle, or source conflict cannot be resolved,

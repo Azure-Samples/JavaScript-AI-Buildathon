@@ -4,6 +4,11 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
+const resultValues = [
+  "material-change",
+  "no-material-change",
+  "blocked",
+];
 
 function check(condition, message) {
   if (!condition) {
@@ -802,10 +807,10 @@ function validateDiscoveryPolicy(policyText) {
     "shared discovery policy must leave output suppression to each main workflow",
   );
   check(
-    policyText.includes("No safe-output handler") &&
+    policyText.includes("`emit_weekly_report`") &&
       policyText.includes("Result: no-material-change") &&
       policyText.includes("Result: blocked"),
-    "discovery policy must define explicit no-change and blocked outcomes",
+    "discovery policy must define the staged report output and explicit outcomes",
   );
 }
 
@@ -833,9 +838,10 @@ function validateDiscoveryWorkflow(
   ];
 
   check(
-    /^\s{2}workflow_dispatch:\s*$/m.test(frontmatter) &&
+    /^\s{2}workflow_call:\s*$/m.test(frontmatter) &&
+      /^\s{2}workflow_dispatch:\s*$/m.test(frontmatter) &&
       !/^\s{2}schedule:\s*$/m.test(frontmatter),
-    `${workflowPath} must be manual-only in Phase 1`,
+    `${workflowPath} must support manual and reusable Phase 2A runs without a schedule`,
   );
   check(
     /^strict:\s*true$/m.test(frontmatter),
@@ -853,8 +859,13 @@ function validateDiscoveryWorkflow(
   );
   check(
     frontmatter.includes("shared/discovery-policy.md") &&
+      frontmatter.includes("uses: shared/report-output.md") &&
+      frontmatter.includes(`quest-id: ${quest.id}`) &&
+      frontmatter.includes(`quest-slug: ${quest.slug}`) &&
+      frontmatter.includes(`quest-title: ${quest.title}`) &&
+      frontmatter.includes(`quest-label: quest/${quest.id}-${quest.slug}`) &&
       frontmatter.includes(`../agents/${quest.agent}.agent.md`),
-    `${workflowPath} must import the shared policy and exactly scoped Quest Master`,
+    `${workflowPath} must import the reporting policy and exactly scoped Quest Master`,
   );
   check(
     sameJson(allowedDomains, specification.domains),
@@ -870,13 +881,14 @@ function validateDiscoveryWorkflow(
       !/^\s{2}(?:contents|issues|pull-requests|actions):\s*write$/m.test(
         frontmatter,
       ),
-    `${workflowPath} must disable automatic writes without enabling mutation permissions or outputs`,
+    `${workflowPath} must disable automatic writes and retain staged output processing`,
   );
   check(
     compiledText.includes('GH_AW_FAILURE_REPORT_AS_ISSUE: "false"') &&
       compiledText.includes('GH_AW_SAFE_OUTPUTS_STAGED: "true"') &&
-      compiledText.includes("Tools: create_issue"),
-    `${workflowPath} compiled fallback must remain disabled and staged`,
+      compiledText.includes("emit_weekly_report") &&
+      compiledText.includes("weekly-refresh-report.mjs materialize"),
+    `${workflowPath} compiled reporting output must remain disabled for writes and staged`,
   );
   check(
     !/^\s{6}(?:contents|issues|pull-requests|actions|checks):\s*write$/m.test(
@@ -890,8 +902,11 @@ function validateDiscoveryWorkflow(
   );
   check(
     workflowText.includes(`quest slug \`${quest.slug}\``) &&
+      workflowText.includes("${{ inputs.week_key }}") &&
+      workflowText.includes("${{ inputs.prior_week_key }}") &&
+      workflowText.includes("`emit_weekly_report`") &&
       workflowText.includes("Do not create or update"),
-    `${workflowPath} must declare its fixed quest and read-only outcome`,
+    `${workflowPath} must declare its fixed quest, reporting context, and read-only outcome`,
   );
   check(
     new RegExp(`^name:\\s*${quest.agent}$`, "m").test(agentFrontmatter) &&
@@ -930,6 +945,169 @@ function validateDiscoveryWorkflow(
   }
 }
 
+function validateReportOutput(reportOutputText, actionsLock) {
+  const path = ".github/workflows/shared/report-output.md";
+  const frontmatter = readFrontmatter(reportOutputText, path);
+  const checkoutPin =
+    actionsLock.entries["actions/checkout@v6.0.2"]?.sha;
+  const uploadPin =
+    actionsLock.entries["actions/upload-artifact@v7.0.1"]?.sha;
+
+  check(
+    ["quest-id", "quest-slug", "quest-title", "quest-label"].every((field) =>
+      new RegExp(`^  ${field}:\\s*$`, "m").test(frontmatter),
+    ),
+    `${path} must define the exact parameterized quest identity`,
+  );
+  check(
+    /^\s{4}emit-weekly-report:\s*$/m.test(frontmatter) &&
+      frontmatter.includes("needs: agent") &&
+      frontmatter.includes("if: always()") &&
+      frontmatter.includes("type: choice") &&
+      frontmatter.includes("report_json:"),
+    `${path} must define one structured report materializer job`,
+  );
+  check(
+    frontmatter.includes(
+      `actions/checkout@${checkoutPin}`,
+    ) &&
+      frontmatter.includes(
+        `actions/upload-artifact@${uploadPin}`,
+      ) &&
+      frontmatter.includes("weekly-refresh-report.mjs materialize") &&
+      frontmatter.includes('"$GH_AW_AGENT_OUTPUT"'),
+    `${path} must materialize and upload reports with pinned actions`,
+  );
+  check(
+    !/^\s+(?:contents|issues|pull-requests|actions|checks|statuses):\s*write$/m.test(
+      frontmatter,
+    ),
+    `${path} must not grant a repository write permission`,
+  );
+  check(
+    reportOutputText.includes("schemaVersion") &&
+      reportOutputText.includes("officialSourceDeltas") &&
+      reportOutputText.includes("priorFindingKeys") &&
+      reportOutputText.includes("blockedReason") &&
+      reportOutputText.includes("Call `emit_weekly_report` exactly once"),
+    `${path} must expose the complete versioned report contract`,
+  );
+  validatePinnedActions(reportOutputText, path);
+}
+
+function validateDigestWorkflow(digestText, compiledText, tooling) {
+  const path = ".github/workflows/weekly-refresh-digest.md";
+  const frontmatter = readFrontmatter(digestText, path);
+
+  check(
+    /^\s{2}workflow_call:\s*$/m.test(frontmatter) &&
+      !/^\s{2}workflow_dispatch:\s*$/m.test(frontmatter) &&
+      !/^\s{2}schedule:\s*$/m.test(frontmatter),
+    `${path} must be reusable only; the orchestrator owns manual activation`,
+  );
+  check(
+    /^permissions:\s*\n  actions:\s*read\s*\n  contents:\s*read\s*\n  copilot-requests:\s*write$/m.test(
+      frontmatter,
+    ),
+    `${path} must grant only artifact, repository-read, and inference permissions`,
+  );
+  check(
+    /^network:\s*\{\}$/m.test(frontmatter),
+    `${path} must deny agent network access`,
+  );
+  check(
+    frontmatter.includes(tooling.downloadArtifactAction) &&
+      frontmatter.includes(tooling.uploadArtifactAction) &&
+      frontmatter.includes("weekly-refresh-report.mjs digest") &&
+      frontmatter.includes("continue-on-error: true") &&
+      frontmatter.includes("merge-multiple: true"),
+    `${path} must tolerate missing quest artifacts and build a pinned deterministic preview`,
+  );
+  check(
+    /^safe-outputs:\s*\n  activation-comments:\s*false\s*\n  missing-data:\s*false\s*\n  missing-tool:\s*false\s*\n  noop:\s*false\s*\n  report-failure-as-issue:\s*false\s*\n  report-incomplete:\s*false\s*\n  staged:\s*true\s*\n  threat-detection:\s*false$/m.test(
+      frontmatter,
+    ),
+    `${path} must keep every framework output staged and suppressed`,
+  );
+  check(
+    compiledText.includes('GH_AW_SAFE_OUTPUTS_STAGED: "true"') &&
+      compiledText.includes("weekly-refresh-report.mjs digest") &&
+      !/^\s+(?:contents|issues|pull-requests|actions|checks|statuses):\s*write$/m.test(
+        compiledText,
+      ),
+    `${path} compiled workflow must remain staged and free of repository writes`,
+  );
+  check(
+    digestText.includes("exactly five quest results") &&
+      digestText.includes("child preview exists only") &&
+      digestText.includes("Do not create or update"),
+    `${path} must audit the deterministic five-quest preview without mutation`,
+  );
+  validatePinnedActions(digestText, path);
+}
+
+function validateOrchestrator(orchestratorText, quests, tooling) {
+  const path = ".github/workflows/weekly-refresh-orchestrator.yml";
+  const discoveryUses = [
+    ...orchestratorText.matchAll(
+      /uses:\s*\.\/\.github\/workflows\/(discover-[a-z-]+\.lock\.yml)/g,
+    ),
+  ].map((match) => match[1]);
+  const expectedUses = quests.quests
+    .map(({ slug }) => `discover-${slug}.lock.yml`)
+    .sort();
+
+  check(
+    /^\s{2}workflow_dispatch:\s*$/m.test(orchestratorText) &&
+      !/^\s{2}schedule:\s*$/m.test(orchestratorText),
+    `${path} must remain manual-only in Phase 2A`,
+  );
+  check(
+    orchestratorText.includes("0 8 * * 1") &&
+      orchestratorText.includes("Phase 2B"),
+    `${path} must document but not activate the intended Monday schedule`,
+  );
+  check(
+    /^permissions:\s*\n  actions:\s*read\s*\n  contents:\s*read\s*\n  copilot-requests:\s*write$/m.test(
+      orchestratorText,
+    ) &&
+      !/^\s+(?:contents|issues|pull-requests|actions|checks|statuses):\s*write$/m.test(
+        orchestratorText,
+      ),
+    `${path} must grant only read and inference permissions`,
+  );
+  check(
+    sameJson(discoveryUses.sort(), expectedUses) &&
+      discoveryUses.length === quests.quests.length,
+    `${path} must fan out to each discovery workflow exactly once`,
+  );
+  check(
+    orchestratorText.includes("weekly-refresh-report.mjs context") &&
+      orchestratorText.includes("prior_week_key") &&
+      orchestratorText.includes("always() && needs.context.result == 'success'") &&
+      orchestratorText.includes(
+        "uses: ./.github/workflows/weekly-refresh-digest.lock.yml",
+      ),
+    `${path} must use one week algorithm and run the digest after every quest outcome`,
+  );
+  check(
+    orchestratorText.includes(tooling.checkoutAction),
+    `${path} must use the reviewed checkout action pin`,
+  );
+  validatePinnedActions(orchestratorText, path);
+}
+
+function validateReportContract(reportContractText) {
+  check(
+    reportContractText.includes("version 1 JSON artifact") &&
+      resultValues.every((result) => reportContractText.includes(result)) &&
+      reportContractText.includes("deterministic parent key") &&
+      reportContractText.includes("child issue Markdown preview only") &&
+      reportContractText.includes("No Phase 2A workflow creates or updates"),
+    "report-contract.md must define the Phase 2A schema, outcomes, identifiers, and no-write boundary",
+  );
+}
+
 const capabilities = await readJson(".github/agentic-refresh/capabilities.json");
 const quests = await readJson(".github/agentic-refresh/quests.json");
 const labels = await readJson(".github/agentic-refresh/labels.json");
@@ -941,6 +1119,7 @@ const humanMergeRuleset = await readJson(
   ".github/agentic-refresh/rulesets/human-merge.json",
 );
 const tooling = await readJson(".github/agentic-refresh/tooling.json");
+const actionsLock = await readJson(".github/aw/actions-lock.json");
 const codeowners = await readText(".github/CODEOWNERS");
 const copilotSetup = await readText(
   ".github/workflows/copilot-setup-steps.yml",
@@ -951,6 +1130,21 @@ const workflowFiles = (await readdir(resolve(root, workflowDirectory)))
   .sort();
 const discoveryPolicy = await readText(
   ".github/workflows/shared/discovery-policy.md",
+);
+const reportOutput = await readText(
+  ".github/workflows/shared/report-output.md",
+);
+const reportContract = await readText(
+  ".github/agentic-refresh/report-contract.md",
+);
+const digestWorkflow = await readText(
+  ".github/workflows/weekly-refresh-digest.md",
+);
+const digestCompiledWorkflow = await readText(
+  ".github/workflows/weekly-refresh-digest.lock.yml",
+);
+const weeklyOrchestrator = await readText(
+  ".github/workflows/weekly-refresh-orchestrator.yml",
 );
 const discoverySpecifications = new Map([
   [
@@ -1014,6 +1208,10 @@ validateGitHubTokenPolicy(tokenPolicy);
 validateRuleset(ruleset);
 validateHumanMergeRuleset(humanMergeRuleset);
 validateDiscoveryPolicy(discoveryPolicy);
+validateReportOutput(reportOutput, actionsLock);
+validateDigestWorkflow(digestWorkflow, digestCompiledWorkflow, tooling);
+validateOrchestrator(weeklyOrchestrator, quests, tooling);
+validateReportContract(reportContract);
 
 for (const quest of quests.quests) {
   const specification = discoverySpecifications.get(quest.slug);
@@ -1035,6 +1233,13 @@ for (const quest of quests.quests) {
 check(
   tooling.ghAwVersion === "v0.77.5",
   "tooling.json must pin gh-aw v0.77.5",
+);
+check(
+  tooling.downloadArtifactAction ===
+    `actions/download-artifact@${actionsLock.entries["actions/download-artifact@v8.0.1"]?.sha}` &&
+    tooling.uploadArtifactAction ===
+      `actions/upload-artifact@${actionsLock.entries["actions/upload-artifact@v7.0.1"]?.sha}`,
+  "tooling.json artifact action pins must match the gh-aw action lock",
 );
 check(
   copilotSetup.includes(tooling.ghAwSetupAction) &&
@@ -1061,6 +1266,6 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${quests.quests.length} quests, ${discoverySpecifications.size} read-only discovery workflows, and ${capabilities.repositories.length} repository capability records.`,
+    `Validated ${quests.quests.length} quests, ${discoverySpecifications.size} staged reporting workflows, the weekly digest/orchestrator, and ${capabilities.repositories.length} repository capability records.`,
   );
 }

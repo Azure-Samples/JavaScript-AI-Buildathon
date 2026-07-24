@@ -96,6 +96,23 @@ With staging enabled, the compiled Phase 1 locks contain no repository write
 permission. Phase 2 must deliberately remove staging and revisit permissions
 before enabling real issue reporting.
 
+## Phase 2A staged reporting guard
+
+The weekly reporting layer remains manual-only and report-only:
+
+- the deterministic orchestrator has `workflow_dispatch` but no schedule;
+- all five Quest Master workflows accept reusable `workflow_call` inputs for an
+  ISO week and prior ISO week;
+- the only agent-requested output is a custom job that validates and uploads a
+  run-scoped JSON artifact;
+- the digest tolerates missing quest artifacts by recording the scope as
+  blocked, then creates deterministic parent and child previews as artifacts;
+- no compiled or traditional workflow grants issue, branch, pull-request,
+  workflow-dispatch, or content write permission.
+
+The intended `0 8 * * 1` schedule and real issue safe outputs remain Phase 2B
+activation work and require default-branch trials plus the bounded token spike.
+
 ## SAML authorization
 
 SAML authorization is needed only for local audits and human GitHub operations.

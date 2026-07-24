@@ -2,10 +2,33 @@
 name: Discover Foundry Local
 description: Manually audits the Foundry Local quest using read-only approved evidence
 on:
+  workflow_call:
+    inputs:
+      week_key:
+        description: ISO week key for this reporting run
+        required: true
+        type: string
+      prior_week_key:
+        description: ISO week key used to locate prior findings
+        required: true
+        type: string
   workflow_dispatch:
+    inputs:
+      week_key:
+        description: ISO week key for this reporting run
+        required: true
+        type: string
+      prior_week_key:
+        description: ISO week key used to locate prior findings
+        required: true
+        type: string
 permissions:
   contents: read
   copilot-requests: write
+concurrency:
+  group: weekly-refresh-${{ inputs.week_key }}-foundry-local
+  cancel-in-progress: false
+  job-discriminator: ${{ inputs.week_key }}
 strict: true
 engine:
   id: copilot
@@ -15,6 +38,12 @@ network:
     - www.foundrylocal.ai
 imports:
   - shared/discovery-policy.md
+  - uses: shared/report-output.md
+    with:
+      quest-id: 1
+      quest-slug: foundry-local
+      quest-title: Foundry Local
+      quest-label: quest/1-foundry-local
   - ../agents/foundry-local-quest-master.agent.md
 safe-outputs:
   activation-comments: false
@@ -28,9 +57,9 @@ safe-outputs:
 timeout-minutes: 20
 ---
 
-# Phase 1 Foundry Local Discovery
+# Phase 2A Foundry Local Reporting
 
-Run a read-only manual trial for quest slug `foundry-local`.
+Run a read-only staged report for quest slug `foundry-local`.
 
 ## Execution
 
@@ -42,15 +71,19 @@ Run a read-only manual trial for quest slug `foundry-local`.
    file and section references.
 5. Reconcile both reports. Reject unsupported claims and make uncertainty
    explicit.
-6. Return one concise GitHub-flavored Markdown report. Do not create or update
-   any persistent resource.
+6. Compare against any exact prior finding keys supplied for
+   `${{ inputs.prior_week_key }}`.
+7. Call `emit_weekly_report` exactly once with the structured report.
+8. Return one concise GitHub-flavored Markdown summary. Do not create or update
+   repository content or GitHub issues, comments, branches, or pull requests.
 
 ## Final report contract
 
 Start nested headings at `###` and include:
 
 - `Result: material-change | no-material-change | blocked`
-- Trial key `phase1-${{ github.run_id }}` and quest identity
+- Week key `${{ inputs.week_key }}`, prior week `${{ inputs.prior_week_key }}`,
+  and quest identity
 - Executive summary and current quest status
 - Official-source facts and deltas with lifecycle, URL, location, observed
   wording, and fingerprint

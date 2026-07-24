@@ -11,8 +11,7 @@ on:
       - "docs/**"
       - "mkdocs.yml"
       - "requirements.txt"
-      - "scripts/validate-content-links.mjs"
-      - "scripts/validate-refresh-config.mjs"
+      - "scripts/**"
       - ".github/workflows/validate-content.yml"
   workflow_dispatch:
 
@@ -34,6 +33,9 @@ jobs:
 
       - name: Validate refresh configuration
         run: node scripts/validate-refresh-config.mjs
+
+      - name: Test weekly refresh reporting
+        run: node scripts/weekly-refresh-report.mjs self-test
 
       - name: Validate local content links
         run: node scripts/validate-content-links.mjs
