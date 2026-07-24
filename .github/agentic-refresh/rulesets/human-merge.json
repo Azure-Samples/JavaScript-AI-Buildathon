@@ -1,0 +1,28 @@
+{
+  "name": "Agentic refresh human-only merges",
+  "target": "branch",
+  "enforcement": "disabled",
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "~DEFAULT_BRANCH"
+      ],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "update",
+      "parameters": {
+        "update_allows_fetch_and_merge": false
+      }
+    }
+  ],
+  "bypass_actors": [
+    {
+      "actor_id": 40116776,
+      "actor_type": "User",
+      "bypass_mode": "pull_request"
+    }
+  ]
+}

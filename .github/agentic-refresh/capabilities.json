@@ -1,0 +1,112 @@
+{
+  "version": 2,
+  "defaultMode": "report-only",
+  "lastReviewedAt": "2026-07-24",
+  "repositories": [
+    {
+      "name": "Azure-Samples/JavaScript-AI-Buildathon",
+      "role": "automation-host",
+      "status": "blocked",
+      "writeAutomationAllowed": false,
+      "capabilities": {
+        "repositoryScopedTokenSelected": true,
+        "copilotCodeReviewEnabled": true,
+        "copilotInferenceAvailable": false,
+        "aiCreditBudgetAvailable": false,
+        "repositoryAdministratorAvailable": true,
+        "githubTokenIssueWritesConfirmed": false,
+        "githubTokenPullRequestWritesConfirmed": false,
+        "explicitDispatchChecksConfirmed": false,
+        "refreshBranchCreationAllowed": false,
+        "rulesetConfigured": false,
+        "conversationResolutionRequired": true,
+        "codeOwnerReviewRequired": false,
+        "requiredChecksKnown": true
+      },
+      "requiredChecks": [
+        "validate-content",
+        "validate-agentic-workflows"
+      ],
+      "pendingRequiredChecks": [
+        "copilot-review-gate"
+      ],
+      "approval": {
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidence": null
+      },
+      "auditEvidence": {
+        "copilotCodeReviewWorkflowId": 209015997,
+        "rulesetId": 19622585,
+        "approverVariable": "REFRESH_APPROVER_LOGIN=juliamuiruri4",
+        "labelsConfigured": true,
+        "phaseZeroPullRequest": 110
+      },
+      "blockers": [
+        "The Copilot inference permission and AI-credit budget have not been confirmed.",
+        "A manual trial must prove that GITHUB_TOKEN can create Buildathon issues, refresh/** branches, and pull requests under the organization policy.",
+        "A required-check spike must prove explicit workflow dispatch after GITHUB_TOKEN-created pull requests and branch updates.",
+        "Ruleset 19622585 must be activated after CODEOWNERS and both Phase 0 validation checks are merged and have successful check runs.",
+        "The human-only merge ruleset template must be created or confirmed in repository settings; the REST API returned 404 when user bypass was requested."
+      ]
+    },
+    {
+      "name": "Azure-Samples/serverless-chat-langchainjs",
+      "role": "external-report-only",
+      "status": "report-only",
+      "writeAutomationAllowed": false,
+      "capabilities": {
+        "repositoryScopedTokenSelected": false,
+        "copilotCodeReviewEnabled": true,
+        "copilotInferenceAvailable": false,
+        "aiCreditBudgetAvailable": false,
+        "repositoryAdministratorAvailable": false,
+        "githubTokenIssueWritesConfirmed": false,
+        "githubTokenPullRequestWritesConfirmed": false,
+        "explicitDispatchChecksConfirmed": false,
+        "refreshBranchCreationAllowed": false,
+        "rulesetConfigured": false,
+        "conversationResolutionRequired": false,
+        "codeOwnerReviewRequired": false,
+        "requiredChecksKnown": false
+      },
+      "requiredChecks": [],
+      "approval": {
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidence": null
+      },
+      "policyReason": "Cross-repository writes are intentionally disabled; findings require a manual maintainer handoff.",
+      "blockers": []
+    },
+    {
+      "name": "Azure-Samples/mcp-agent-langchainjs",
+      "role": "external-report-only",
+      "status": "report-only",
+      "writeAutomationAllowed": false,
+      "capabilities": {
+        "repositoryScopedTokenSelected": false,
+        "copilotCodeReviewEnabled": true,
+        "copilotInferenceAvailable": false,
+        "aiCreditBudgetAvailable": false,
+        "repositoryAdministratorAvailable": false,
+        "githubTokenIssueWritesConfirmed": false,
+        "githubTokenPullRequestWritesConfirmed": false,
+        "explicitDispatchChecksConfirmed": false,
+        "refreshBranchCreationAllowed": false,
+        "rulesetConfigured": false,
+        "conversationResolutionRequired": false,
+        "codeOwnerReviewRequired": false,
+        "requiredChecksKnown": false
+      },
+      "requiredChecks": [],
+      "approval": {
+        "approvedBy": null,
+        "approvedAt": null,
+        "evidence": null
+      },
+      "policyReason": "Cross-repository writes are intentionally disabled; findings require a manual maintainer handoff.",
+      "blockers": []
+    }
+  ]
+}

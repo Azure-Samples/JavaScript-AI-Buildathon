@@ -1,0 +1,194 @@
+{
+  "version": 2,
+  "schedule": {
+    "cron": "0 8 * * 1",
+    "timezone": "UTC",
+    "description": "Monday 08:00 UTC, equivalent to fixed GMT+1 09:00"
+  },
+  "governance": {
+    "defaultMode": "report-only",
+    "capabilitiesFile": ".github/agentic-refresh/capabilities.json",
+    "tokenPolicyFile": ".github/agentic-refresh/github-token.json",
+    "tokenModel": "repository-scoped-github-token",
+    "crossRepositoryWritesAllowed": false,
+    "externalRepositoryMode": "report-only",
+    "approvalCommand": "/approve-refresh",
+    "approverVariable": "REFRESH_APPROVER_LOGIN",
+    "branchPattern": "^refresh/[0-9]{4}-W[0-9]{2}/[a-z0-9-]+/(01-core|02-docs)$",
+    "maximumActiveImplementations": 2,
+    "maximumAssetRevisionRounds": 2,
+    "maximumCopilotReviewRounds": 2,
+    "protectedPaths": [
+      ".github/workflows/**",
+      ".github/agents/**",
+      ".github/skills/**",
+      ".github/agentic-refresh/**",
+      ".github/CODEOWNERS",
+      "scripts/**",
+      "requirements.txt"
+    ]
+  },
+  "transportDomains": [
+    "api.github.com",
+    "raw.githubusercontent.com"
+  ],
+  "quests": [
+    {
+      "id": 1,
+      "slug": "foundry-local",
+      "title": "Foundry Local",
+      "agent": "foundry-local-quest-master",
+      "officialSourcePrefixes": [
+        "https://www.foundrylocal.ai/",
+        "https://github.com/microsoft/foundry-local"
+      ],
+      "sourceRepositories": [
+        "microsoft/foundry-local"
+      ],
+      "writableRepositories": [
+        "Azure-Samples/JavaScript-AI-Buildathon"
+      ],
+      "ownedPaths": {
+        "Azure-Samples/JavaScript-AI-Buildathon": [
+          "01-Local-AI-Development/**",
+          "README.md",
+          "docs/quests.md"
+        ]
+      },
+      "externalReports": []
+    },
+    {
+      "id": 2,
+      "slug": "microsoft-foundry",
+      "title": "Microsoft Foundry",
+      "agent": "microsoft-foundry-quest-master",
+      "officialSourcePrefixes": [
+        "https://learn.microsoft.com/en-us/azure/foundry/",
+        "https://github.com/microsoft/microsoft-foundry-e2e-js"
+      ],
+      "sourceRepositories": [
+        "microsoft/microsoft-foundry-e2e-js"
+      ],
+      "writableRepositories": [
+        "Azure-Samples/JavaScript-AI-Buildathon"
+      ],
+      "ownedPaths": {
+        "Azure-Samples/JavaScript-AI-Buildathon": [
+          "02-E2E-Model-Development-on-Foundry/**",
+          "README.md",
+          "docs/quests.md"
+        ]
+      },
+      "externalReports": []
+    },
+    {
+      "id": 3,
+      "slug": "agentic-rag",
+      "title": "LangChain.js Agentic RAG",
+      "agent": "agentic-rag-quest-master",
+      "officialSourcePrefixes": [
+        "https://github.com/Azure-Samples/serverless-chat-langchainjs",
+        "https://github.com/microsoft/langchainjs-for-beginners",
+        "https://docs.langchain.com/oss/javascript/langgraph/agentic-rag",
+        "https://docs.langchain.com/"
+      ],
+      "sourceRepositories": [
+        "Azure-Samples/serverless-chat-langchainjs",
+        "microsoft/langchainjs-for-beginners"
+      ],
+      "writableRepositories": [
+        "Azure-Samples/JavaScript-AI-Buildathon"
+      ],
+      "ownedPaths": {
+        "Azure-Samples/JavaScript-AI-Buildathon": [
+          "03-Run-Serverless-RAG-Support-System/**",
+          "README.md",
+          "docs/quests.md"
+        ]
+      },
+      "externalReports": [
+        {
+          "repository": "Azure-Samples/serverless-chat-langchainjs",
+          "mode": "report-only",
+          "handoff": "manual-maintainer",
+          "observedPaths": [
+            ".tours/1-rag-overview.tour",
+            ".tours/2-document-ingestion.tour",
+            ".tours/3-vector-storage.tour",
+            ".tours/4-query-retrieval.tour",
+            ".tours/5-response-generation.tour",
+            ".tours/6-streaming-chat-history.tour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "foundry-toolkit",
+      "title": "Microsoft Foundry Toolkit",
+      "agent": "foundry-toolkit-quest-master",
+      "officialSourcePrefixes": [
+        "https://github.com/microsoft/azure-skills/blob/main/skills/microsoft-foundry/SKILL.md",
+        "https://github.com/microsoft/foundry-toolkit",
+        "https://code.visualstudio.com/docs/intelligentapps/overview",
+        "https://marketplace.visualstudio.com/items/ms-windows-ai-studio.windows-ai-studio/changelog"
+      ],
+      "sourceRepositories": [
+        "microsoft/azure-skills",
+        "microsoft/foundry-toolkit"
+      ],
+      "writableRepositories": [
+        "Azure-Samples/JavaScript-AI-Buildathon"
+      ],
+      "ownedPaths": {
+        "Azure-Samples/JavaScript-AI-Buildathon": [
+          "04-Build-Agents-with-AIToolKit/**",
+          "README.md",
+          "docs/quests.md"
+        ]
+      },
+      "externalReports": []
+    },
+    {
+      "id": 5,
+      "slug": "context-engineering",
+      "title": "Context Engineering in Agents",
+      "agent": "context-engineering-quest-master",
+      "officialSourcePrefixes": [
+        "https://modelcontextprotocol.io/docs/getting-started/intro",
+        "https://docs.langchain.com/oss/javascript/langchain/mcp",
+        "https://github.com/microsoft/mcp-for-beginners",
+        "https://github.com/Azure-Samples/mcp-agent-langchainjs"
+      ],
+      "sourceRepositories": [
+        "microsoft/mcp-for-beginners",
+        "Azure-Samples/mcp-agent-langchainjs"
+      ],
+      "writableRepositories": [
+        "Azure-Samples/JavaScript-AI-Buildathon"
+      ],
+      "ownedPaths": {
+        "Azure-Samples/JavaScript-AI-Buildathon": [
+          "05-Run-Burger-Ordering-Agent-System/**",
+          "README.md",
+          "docs/quests.md"
+        ]
+      },
+      "externalReports": [
+        {
+          "repository": "Azure-Samples/mcp-agent-langchainjs",
+          "mode": "report-only",
+          "handoff": "manual-maintainer",
+          "observedPaths": [
+            ".tours/1-introduction.tour",
+            ".tours/2-designing-agents.tour",
+            ".tours/3-building-mcp-tools.tour",
+            ".tours/4-building-agent-api.tour",
+            ".tours/5-backend-api-design.tour",
+            ".tours/6-infrastructure-deployment.tour"
+          ]
+        }
+      ]
+    }
+  ]
+}

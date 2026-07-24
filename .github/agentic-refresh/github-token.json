@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "token": "GITHUB_TOKEN",
+  "scope": "current-repository-only",
+  "storedSecretRequired": false,
+  "personalTokenFallbackAllowed": false,
+  "crossRepositoryWritesAllowed": false,
+  "copilotInference": {
+    "permission": "copilot-requests: write",
+    "personalTokenFallbackAllowed": false
+  },
+  "permissionsByOperation": {
+    "discoveryReport": {
+      "contents": "read",
+      "issues": "write",
+      "copilot-requests": "write"
+    },
+    "implementation": {
+      "contents": "write",
+      "issues": "write",
+      "pull-requests": "write",
+      "copilot-requests": "write"
+    },
+    "validationDispatch": {
+      "actions": "write",
+      "contents": "read"
+    }
+  },
+  "constraints": {
+    "allowedRepository": "Azure-Samples/JavaScript-AI-Buildathon",
+    "allowedBranchPrefix": "refresh/",
+    "defaultBranchWritesAllowed": false,
+    "mergeAllowed": false,
+    "humanMergeRuleset": ".github/agentic-refresh/rulesets/human-merge.json"
+  },
+  "writeHandling": {
+    "agentGitHubTools": "read-only",
+    "consumer": "gh-aw-safe-outputs",
+    "allowedOperations": [
+      "createRefreshBranch",
+      "updateRefreshBranch",
+      "createPullRequest",
+      "updatePullRequest",
+      "createIssue",
+      "updateIssue",
+      "comment"
+    ],
+    "forbiddenOperations": [
+      "mergePullRequest",
+      "updateDefaultBranch",
+      "deleteBranch",
+      "forcePush",
+      "writeExternalRepository"
+    ]
+  },
+  "eventModel": {
+    "tokenGeneratedEventsTriggerWorkflows": false,
+    "explicitDispatchRequiredAfterPullRequestCreation": true,
+    "explicitDispatchRequiredAfterRefreshBranchUpdate": true,
+    "requiredCheckDispatchMustBeProvenBeforeWrites": true
+  },
+  "externalRepositories": {
+    "mode": "report-only",
+    "manualHandoffRequired": true
+  }
+}
