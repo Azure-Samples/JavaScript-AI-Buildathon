@@ -33,6 +33,26 @@ function hasUniqueValues(values) {
   return new Set(values).size === values.length;
 }
 
+function canonicalize(value) {
+  if (Array.isArray(value)) {
+    return value.map(canonicalize);
+  }
+
+  if (value !== null && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([key, nestedValue]) => [key, canonicalize(nestedValue)]),
+    );
+  }
+
+  return value;
+}
+
+function sameJson(left, right) {
+  return JSON.stringify(canonicalize(left)) === JSON.stringify(canonicalize(right));
+}
+
 function isSafeOwnedPath(value) {
   return (
     typeof value === "string" &&
@@ -49,10 +69,14 @@ function isSafeOwnedPath(value) {
 
 function validateCapabilities(capabilities, expectedRepositories) {
   const requiredCapabilities = [
-    "githubAppInstalled",
+    "repositoryScopedTokenSelected",
     "copilotCodeReviewEnabled",
+    "copilotInferenceAvailable",
     "aiCreditBudgetAvailable",
     "repositoryAdministratorAvailable",
+    "githubTokenIssueWritesConfirmed",
+    "githubTokenPullRequestWritesConfirmed",
+    "explicitDispatchChecksConfirmed",
     "refreshBranchCreationAllowed",
     "rulesetConfigured",
     "conversationResolutionRequired",
@@ -60,7 +84,7 @@ function validateCapabilities(capabilities, expectedRepositories) {
     "requiredChecksKnown",
   ];
 
-  check(capabilities.version === 1, "capabilities.json version must be 1");
+  check(capabilities.version === 2, "capabilities.json version must be 2");
   check(
     capabilities.defaultMode === "report-only",
     "capabilities.json must default to report-only",
@@ -78,14 +102,26 @@ function validateCapabilities(capabilities, expectedRepositories) {
   check(
     JSON.stringify(repositories.map(({ name }) => name).sort()) ===
       JSON.stringify([...expectedRepositories].sort()),
-    "capability repositories must exactly match the writable repository allowlist",
+    "capability repositories must exactly match the automation and external evidence repositories",
+  );
+  check(
+    repositories.filter(({ role }) => role === "automation-host").length === 1 &&
+      repositories.find(({ role }) => role === "automation-host")?.name ===
+        "Azure-Samples/JavaScript-AI-Buildathon",
+    "Buildathon must be the only automation host",
   );
 
   for (const repository of repositories) {
     const prefix = `capabilities for ${repository.name}`;
     check(
-      ["unverified", "blocked", "confirmed"].includes(repository.status),
+      ["unverified", "blocked", "confirmed", "report-only"].includes(
+        repository.status,
+      ),
       `${prefix} has an invalid status`,
+    );
+    check(
+      ["automation-host", "external-report-only"].includes(repository.role),
+      `${prefix} has an invalid role`,
     );
     check(
       typeof repository.writeAutomationAllowed === "boolean",
@@ -99,9 +135,42 @@ function validateCapabilities(capabilities, expectedRepositories) {
       );
     }
 
+    if (repository.role === "external-report-only") {
+      check(
+        repository.status === "report-only" &&
+          repository.writeAutomationAllowed === false,
+        `${prefix} must remain report-only with writes disabled`,
+      );
+      check(
+        repository.capabilities.repositoryScopedTokenSelected === false,
+        `${prefix} must not select a Buildathon workflow token`,
+      );
+      check(
+        [
+          "githubTokenIssueWritesConfirmed",
+          "githubTokenPullRequestWritesConfirmed",
+          "explicitDispatchChecksConfirmed",
+          "refreshBranchCreationAllowed",
+          "rulesetConfigured",
+        ].every((key) => repository.capabilities[key] === false),
+        `${prefix} must not declare external write capabilities`,
+      );
+      check(
+        typeof repository.policyReason === "string" &&
+          repository.policyReason.length > 0,
+        `${prefix} must explain the report-only policy`,
+      );
+    } else {
+      check(
+        repository.capabilities.repositoryScopedTokenSelected === true,
+        `${prefix} must select the repository-scoped GITHUB_TOKEN`,
+      );
+    }
+
     if (repository.writeAutomationAllowed) {
       check(
-        repository.status === "confirmed",
+        repository.role === "automation-host" &&
+          repository.status === "confirmed",
         `${prefix} may allow writes only when status is confirmed`,
       );
       check(
@@ -136,7 +205,7 @@ function validateCapabilities(capabilities, expectedRepositories) {
   }
 }
 
-function validateQuests(config, capabilityRepositories) {
+function validateQuests(config, capabilityByRepository) {
   const expectedOwnedPaths = new Map([
     [
       1,
@@ -166,14 +235,6 @@ function validateQuests(config, capabilityRepositories) {
           "README.md",
           "docs/quests.md",
         ],
-        "Azure-Samples/serverless-chat-langchainjs": [
-          ".tours/1-rag-overview.tour",
-          ".tours/2-document-ingestion.tour",
-          ".tours/3-vector-storage.tour",
-          ".tours/4-query-retrieval.tour",
-          ".tours/5-response-generation.tour",
-          ".tours/6-streaming-chat-history.tour",
-        ],
       },
     ],
     [
@@ -194,18 +255,51 @@ function validateQuests(config, capabilityRepositories) {
           "README.md",
           "docs/quests.md",
         ],
-        "Azure-Samples/mcp-agent-langchainjs": [
-          ".tours/1-introduction.tour",
-          ".tours/2-designing-agents.tour",
-          ".tours/3-building-mcp-tools.tour",
-          ".tours/4-building-agent-api.tour",
-          ".tours/5-backend-api-design.tour",
-          ".tours/6-infrastructure-deployment.tour",
-        ],
       },
     ],
   ]);
-  check(config.version === 1, "quests.json version must be 1");
+  const expectedExternalReports = new Map([
+    [1, []],
+    [2, []],
+    [
+      3,
+      [
+        {
+          repository: "Azure-Samples/serverless-chat-langchainjs",
+          mode: "report-only",
+          handoff: "manual-maintainer",
+          observedPaths: [
+            ".tours/1-rag-overview.tour",
+            ".tours/2-document-ingestion.tour",
+            ".tours/3-vector-storage.tour",
+            ".tours/4-query-retrieval.tour",
+            ".tours/5-response-generation.tour",
+            ".tours/6-streaming-chat-history.tour",
+          ],
+        },
+      ],
+    ],
+    [4, []],
+    [
+      5,
+      [
+        {
+          repository: "Azure-Samples/mcp-agent-langchainjs",
+          mode: "report-only",
+          handoff: "manual-maintainer",
+          observedPaths: [
+            ".tours/1-introduction.tour",
+            ".tours/2-designing-agents.tour",
+            ".tours/3-building-mcp-tools.tour",
+            ".tours/4-building-agent-api.tour",
+            ".tours/5-backend-api-design.tour",
+            ".tours/6-infrastructure-deployment.tour",
+          ],
+        },
+      ],
+    ],
+  ]);
+  check(config.version === 2, "quests.json version must be 2");
   check(config.schedule?.cron === "0 8 * * 1", "weekly cron must be 0 8 * * 1");
   check(config.schedule?.timezone === "UTC", "weekly schedule timezone must be UTC");
   check(
@@ -221,13 +315,18 @@ function validateQuests(config, capabilityRepositories) {
     "approver variable must be REFRESH_APPROVER_LOGIN",
   );
   check(
-    config.governance?.githubAppIdVariable === "AGENTIC_REFRESH_APP_ID",
-    "GitHub App ID variable name is invalid",
+    config.governance?.tokenPolicyFile ===
+      ".github/agentic-refresh/github-token.json",
+    "token policy file must reference github-token.json",
   );
   check(
-    config.governance?.githubAppPrivateKeySecret ===
-      "AGENTIC_REFRESH_APP_PRIVATE_KEY",
-    "GitHub App private-key secret name is invalid",
+    config.governance?.tokenModel === "repository-scoped-github-token",
+    "token model must use the repository-scoped GITHUB_TOKEN",
+  );
+  check(
+    config.governance?.crossRepositoryWritesAllowed === false &&
+      config.governance?.externalRepositoryMode === "report-only",
+    "cross-repository writes must be disabled and external repositories report-only",
   );
   check(
     config.governance?.maximumActiveImplementations === 2,
@@ -251,6 +350,14 @@ function validateQuests(config, capabilityRepositories) {
     check(
       !branchPattern.test("main"),
       "branch pattern must reject the default branch",
+    );
+    check(
+      !branchPattern.test("refresh/2026-W30/agentic-rag/01-sample"),
+      "branch pattern must reject external sample branches",
+    );
+    check(
+      !branchPattern.test("refresh/2026-W30/agentic-rag/02-codetour"),
+      "branch pattern must reject external CodeTour branches",
     );
   } catch {
     errors.push("branch pattern must be a valid regular expression");
@@ -313,10 +420,15 @@ function validateQuests(config, capabilityRepositories) {
       hasUniqueValues(quest.writableRepositories ?? []),
       `${prefix} writable repositories must be unique`,
     );
+    check(
+      JSON.stringify(quest.writableRepositories) ===
+        JSON.stringify(["Azure-Samples/JavaScript-AI-Buildathon"]),
+      `${prefix} may write only to the Buildathon repository`,
+    );
 
     for (const repository of quest.writableRepositories ?? []) {
       check(
-        capabilityRepositories.has(repository),
+        capabilityByRepository.has(repository),
         `${prefix} writable repository is missing from capabilities.json: ${repository}`,
       );
       check(
@@ -349,6 +461,40 @@ function validateQuests(config, capabilityRepositories) {
         JSON.stringify(expectedOwnedPaths.get(quest.id)),
       `${prefix} owned paths must exactly match the reviewed path allowlist`,
     );
+    check(
+      JSON.stringify(quest.externalReports) ===
+        JSON.stringify(expectedExternalReports.get(quest.id)),
+      `${prefix} external reports must exactly match the reviewed report-only allowlist`,
+    );
+
+    for (const externalReport of quest.externalReports ?? []) {
+      check(
+        externalReport.mode === "report-only" &&
+          externalReport.handoff === "manual-maintainer",
+        `${prefix} external reports must require manual maintainer handoff`,
+      );
+      check(
+        quest.sourceRepositories?.includes(externalReport.repository),
+        `${prefix} external report repository must be an allowlisted source repository`,
+      );
+      check(
+        !quest.writableRepositories?.includes(externalReport.repository),
+        `${prefix} external report repository must not be writable`,
+      );
+      check(
+        capabilityByRepository.get(externalReport.repository)?.role ===
+            "external-report-only" &&
+          capabilityByRepository.get(externalReport.repository)
+              ?.writeAutomationAllowed === false,
+        `${prefix} external report repository must have a report-only capability record`,
+      );
+      for (const observedPath of externalReport.observedPaths ?? []) {
+        check(
+          isSafeOwnedPath(observedPath),
+          `${prefix} has unsafe external observed path: ${observedPath}`,
+        );
+      }
+    }
   }
 }
 
@@ -393,62 +539,108 @@ function validateLabels(labels) {
   }
 }
 
-function validateGitHubApp(app, expectedRepositories) {
-  const exactPermissions = {
-    metadata: "read",
-    contents: "write",
-    pullRequests: "write",
-    issues: "write",
-    actions: "read",
-    checks: "read",
+function validateGitHubTokenPolicy(policy) {
+  const expectedPermissions = {
+    discoveryReport: {
+      contents: "read",
+      issues: "write",
+      "copilot-requests": "write",
+    },
+    implementation: {
+      contents: "write",
+      issues: "write",
+      "pull-requests": "write",
+      "copilot-requests": "write",
+    },
+    validationDispatch: {
+      actions: "write",
+      contents: "read",
+    },
   };
+  const allowedOperations = [
+    "createRefreshBranch",
+    "updateRefreshBranch",
+    "createPullRequest",
+    "updatePullRequest",
+    "createIssue",
+    "updateIssue",
+    "comment",
+  ];
+  const forbiddenOperations = [
+    "mergePullRequest",
+    "updateDefaultBranch",
+    "deleteBranch",
+    "forcePush",
+    "writeExternalRepository",
+  ];
 
-  check(app.version === 1, "github-app.json version must be 1");
+  check(policy.version === 1, "github-token.json version must be 1");
+  check(policy.token === "GITHUB_TOKEN", "token policy must use GITHUB_TOKEN");
   check(
-    app.installationScope === "selected-repositories",
-    "GitHub App installation must use selected repositories",
+    policy.scope === "current-repository-only" &&
+      policy.constraints?.allowedRepository ===
+        "Azure-Samples/JavaScript-AI-Buildathon",
+    "GITHUB_TOKEN must be scoped to the Buildathon repository",
   );
   check(
-    JSON.stringify([...app.repositories].sort()) ===
-      JSON.stringify([...expectedRepositories].sort()),
-    "GitHub App repositories must match the writable repository allowlist",
+    policy.storedSecretRequired === false &&
+      policy.personalTokenFallbackAllowed === false,
+    "token policy must not require or permit a stored personal token",
   );
   check(
-    JSON.stringify(app.permissions) === JSON.stringify(exactPermissions),
-    "GitHub App permissions must match the least-privilege policy",
+    policy.crossRepositoryWritesAllowed === false &&
+      policy.externalRepositories?.mode === "report-only" &&
+      policy.externalRepositories?.manualHandoffRequired === true,
+    "external repositories must remain report-only with manual handoff",
   );
   check(
-    app.constraints?.allowedBranchPrefix === "refresh/",
-    "GitHub App branch prefix must be refresh/",
+    policy.copilotInference?.permission === "copilot-requests: write" &&
+      policy.copilotInference?.personalTokenFallbackAllowed === false,
+    "Copilot inference must use copilot-requests: write without PAT fallback",
   );
   check(
-    app.constraints?.defaultBranchWritesAllowed === false,
-    "GitHub App must not write to the default branch",
-  );
-  check(app.constraints?.mergeAllowed === false, "GitHub App must not merge");
-  check(
-    app.constraints?.humanMergeRuleset ===
-      ".github/agentic-refresh/rulesets/human-merge.json",
-    "GitHub App policy must reference the human-only merge ruleset",
+    sameJson(policy.permissionsByOperation, expectedPermissions),
+    "token policy permissions must exactly match the reviewed least-privilege groups",
   );
   check(
-    app.constraints?.installationTokenMaximumLifetimeMinutes <= 60,
-    "GitHub App tokens must expire within 60 minutes",
+    policy.constraints?.allowedBranchPrefix === "refresh/" &&
+      policy.constraints?.defaultBranchWritesAllowed === false &&
+      policy.constraints?.mergeAllowed === false,
+    "token policy must restrict branches and forbid default-branch writes and merge",
   );
   check(
-    app.tokenHandling?.exposedToAgent === false,
-    "GitHub App tokens must not be exposed to agents",
+    policy.writeHandling?.agentGitHubTools === "read-only" &&
+      policy.writeHandling?.consumer === "gh-aw-safe-outputs",
+    "agent tools must be read-only and writes limited to gh-aw safe outputs",
   );
   check(
-    app.tokenHandling?.consumer === "pinned-deterministic-safe-output-action",
-    "GitHub App tokens must be limited to the deterministic safe-output action",
+    sameJson(
+      [...(policy.writeHandling?.allowedOperations ?? [])].sort(),
+      [...allowedOperations].sort(),
+    ),
+    "token policy allowed operations must exactly match the reviewed safe-output allowlist",
   );
   check(
-    app.tokenHandling?.forbiddenOperations?.includes("mergePullRequest") &&
-      app.tokenHandling.forbiddenOperations.includes("updateDefaultBranch") &&
-      app.tokenHandling.forbiddenOperations.includes("deleteBranch") &&
-      app.tokenHandling.forbiddenOperations.includes("forcePush"),
-    "GitHub App token policy must forbid merge and destructive operations",
+    forbiddenOperations.every((operation) =>
+      policy.writeHandling?.forbiddenOperations?.includes(operation),
+    ),
+    "token policy must forbid merge, destructive, and cross-repository operations",
+  );
+  check(
+    allowedOperations.every(
+      (operation) =>
+        !policy.writeHandling?.forbiddenOperations?.includes(operation),
+    ),
+    "token policy allowed and forbidden operations must not overlap",
+  );
+  check(
+    policy.eventModel?.tokenGeneratedEventsTriggerWorkflows === false &&
+      policy.eventModel?.explicitDispatchRequiredAfterPullRequestCreation ===
+        true &&
+      policy.eventModel?.explicitDispatchRequiredAfterRefreshBranchUpdate ===
+        true &&
+      policy.eventModel?.requiredCheckDispatchMustBeProvenBeforeWrites === true,
+    "token policy must account for GITHUB_TOKEN event suppression",
   );
 }
 
@@ -539,7 +731,9 @@ function validatePinnedActions(workflowText, workflowPath) {
 const capabilities = await readJson(".github/agentic-refresh/capabilities.json");
 const quests = await readJson(".github/agentic-refresh/quests.json");
 const labels = await readJson(".github/agentic-refresh/labels.json");
-const app = await readJson(".github/agentic-refresh/github-app.json");
+const tokenPolicy = await readJson(
+  ".github/agentic-refresh/github-token.json",
+);
 const ruleset = await readJson(".github/agentic-refresh/rulesets/main.json");
 const humanMergeRuleset = await readJson(
   ".github/agentic-refresh/rulesets/human-merge.json",
@@ -561,9 +755,17 @@ const expectedRepositories = new Set([
 ]);
 
 validateCapabilities(capabilities, expectedRepositories);
-validateQuests(quests, new Set(capabilities.repositories.map(({ name }) => name)));
+validateQuests(
+  quests,
+  new Map(
+    capabilities.repositories.map((repository) => [
+      repository.name,
+      repository,
+    ]),
+  ),
+);
 validateLabels(labels);
-validateGitHubApp(app, expectedRepositories);
+validateGitHubTokenPolicy(tokenPolicy);
 validateRuleset(ruleset);
 validateHumanMergeRuleset(humanMergeRuleset);
 
@@ -596,6 +798,6 @@ if (errors.length > 0) {
   process.exitCode = 1;
 } else {
   console.log(
-    `Validated ${quests.quests.length} quests and ${capabilities.repositories.length} report-only repository capability records.`,
+    `Validated ${quests.quests.length} quests and ${capabilities.repositories.length} repository capability records.`,
   );
 }

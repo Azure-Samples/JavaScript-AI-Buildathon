@@ -3,12 +3,16 @@
 This directory contains the Phase 0 governance boundary for future quest refresh
 automation.
 
-- [`capabilities.json`](./capabilities.json) keeps every repository report-only
-  until an administrator confirms all write prerequisites.
-- [`quests.json`](./quests.json) defines source allowlists, repository ownership,
-  approval identity, branch shape, and operational limits.
-- [`governance.md`](./governance.md) documents the GitHub App and repository
-  settings that require administrator action.
+- [`capabilities.json`](./capabilities.json) keeps Buildathon writes disabled
+  until the repository-scoped token and dispatch spikes pass. External
+  repositories are permanently report-only under this strategy.
+- [`quests.json`](./quests.json) defines source allowlists, Buildathon ownership,
+  external observation paths, approval identity, branch shape, and operational
+  limits.
+- [`github-token.json`](./github-token.json) defines the built-in
+  `GITHUB_TOKEN` permission and event model without storing a PAT or App key.
+- [`governance.md`](./governance.md) documents the repository settings and
+  technical spikes required before enabling Buildathon write automation.
 - [`lifecycle-policy.md`](./lifecycle-policy.md),
   [`audience-style-guide.md`](./audience-style-guide.md),
   [`report-contract.md`](./report-contract.md),

@@ -1,81 +1,69 @@
 # Refresh capability matrix
 
 The machine-readable source of truth is
-[`capabilities.json`](./capabilities.json). A repository is **report-only**
-unless every required capability is confirmed, an administrator records
-approval evidence, and `writeAutomationAllowed` is explicitly set to `true`.
+[`capabilities.json`](./capabilities.json).
 
-| Repository | Current mode | Capability status | Administrator approval |
+- Buildathon stays **report-only** until every same-repository write and dispatch
+  capability is confirmed, approval evidence is recorded, and
+  `writeAutomationAllowed` is explicitly set to `true`.
+- The two external sample repositories are intentionally **report-only** and do
+  not have an automated write-enablement path under this strategy.
+
+| Repository | Role | Current mode | Capability status |
 |---|---|---|---|
-| `Azure-Samples/JavaScript-AI-Buildathon` | Report-only | Blocked | Missing |
-| `Azure-Samples/serverless-chat-langchainjs` | Report-only | Blocked | Missing |
-| `Azure-Samples/mcp-agent-langchainjs` | Report-only | Blocked | Missing |
+| `Azure-Samples/JavaScript-AI-Buildathon` | Automation host | Report-only | Blocked |
+| `Azure-Samples/serverless-chat-langchainjs` | External evidence | Report-only | Policy |
+| `Azure-Samples/mcp-agent-langchainjs` | External evidence | Report-only | Policy |
 
-## Required confirmation
+## Buildathon confirmation
 
-For each repository, an administrator must confirm:
+Before Buildathon write automation is enabled, confirm:
 
-1. The dedicated GitHub App is installed for that repository.
-2. Copilot Code Review is enabled and an AI-credit budget is available.
-3. `refresh/**` branches may be created by the App.
-4. The main-branch ruleset requires pull requests, CODEOWNER approval,
-   conversation resolution, and the repository's known CI checks.
-5. The App cannot bypass the ruleset, push to `main`, force-push, delete a
-   protected branch, or merge.
-6. `REFRESH_APPROVER_LOGIN` is set to the exact approved GitHub login.
-7. `AGENTIC_REFRESH_APP_ID` and `AGENTIC_REFRESH_APP_PRIVATE_KEY` are configured
-   without exposing their values in issues, logs, or repository files.
+1. Copilot inference works with `copilot-requests: write` and the organization
+   has an available AI-credit budget.
+2. `GITHUB_TOKEN` can create a Buildathon issue through a bounded safe output.
+3. `GITHUB_TOKEN` can create and update only `refresh/**` branches and open a
+   Buildathon pull request through bounded safe outputs.
+4. Explicit workflow dispatch produces every required check for the current head
+   SHA after token-created PRs and subsequent automated updates.
+5. Copilot Code Review can be explicitly requested for the current head SHA.
+6. The main ruleset requires pull requests, CODEOWNER approval, conversation
+   resolution, and the known required checks.
+7. The workflow cannot push to `main`, merge, force-push, delete branches, or
+   write to another repository.
+8. `REFRESH_APPROVER_LOGIN` is set to the exact approved GitHub login.
 
-Record the approver login, UTC timestamp, and a settings or approval reference
-in `capabilities.json`. Do not replace an unknown capability with an assumption.
+Record the approver login, UTC timestamp, and trial evidence in
+`capabilities.json`. Do not replace an unknown capability with an assumption.
 
 ## Audit findings
 
 The SSO-authorized keyring token completed a read-only audit on July 23, 2026.
 
-- Buildathon: Julia has repository administration; Copilot Code Review is
-  active; refresh labels and `REFRESH_APPROVER_LOGIN` are configured. Active
-  branch protection requires one approval and conversation resolution. Disabled
-  ruleset `19622585` is prepared to require the Phase 0 checks, one CODEOWNER
-  approval, approval after the latest push, conversation resolution, and to
-  block deletion and force-push after this Phase 0 change lands. A separate
-  update-restriction template permits only Julia, through a pull request, to
-  update `main`; the App is not a bypass actor. GitHub returned HTTP 404 when
-  that user-bypass ruleset was created through the REST API, so an administrator
-  must confirm or create it in repository settings. The App, AI-credit budget
-  confirmation, ruleset activation, and explicit App permission for
-  `refresh/**` branches are missing.
-- Serverless Chat: Julia has write but not administration; two active rulesets
-  and Copilot Code Review are visible. An administrator must confirm the
-  rulesets, budget, App installation, and `refresh/**` branch policy.
-- MCP Agent: Julia has write but not administration; Copilot Code Review is
-  visible, but no qualifying ruleset or classic main-branch protection was
-  visible. An administrator must establish the complete governance boundary.
+- Buildathon: Copilot Code Review is active; refresh labels and
+  `REFRESH_APPROVER_LOGIN` are configured. Active branch protection requires one
+  approval and conversation resolution. Disabled ruleset `19622585` is prepared
+  to require the Phase 0 checks, CODEOWNER approval, approval after the latest
+  push, conversation resolution, and to block deletion and force-push. A
+  separate human-only update template still requires administrator confirmation
+  because the user-bypass REST request returned HTTP 404.
+- Serverless Chat and MCP Agent remain external evidence sources only. No
+  workflow in Buildathon may write to them.
 
-Julia cannot access the Azure-Samples organization settings needed to create an
-organization-owned App. An organization owner must complete that action.
+The unavailable organization-owned GitHub App is no longer a blocker or planned
+dependency. Built-in-token event suppression and repository write permissions
+are the new technical gates.
 
-## Organization-owner handoff
+## Activation sequence
 
-Ask an Azure-Samples owner to:
+1. Merge the Phase 0 pull request.
+2. Confirm or create the human-only merge ruleset in repository settings.
+3. Activate ruleset `19622585` and the human-only merge ruleset.
+4. Run read-only discovery trials.
+5. Run the bounded `GITHUB_TOKEN` issue, branch, PR, explicit-dispatch, and
+   Copilot-review spike.
+6. Enable issue-only reporting if issue writes pass.
+7. Enable Buildathon implementation only after every write/review gate passes.
 
-1. Create an organization-owned **Azure Samples Agentic Refresh** GitHub App
-   with the repository permissions in `github-app.json` and no organization
-   permissions.
-2. Disable webhooks and restrict installation to the Azure-Samples account.
-3. Install it only on `Azure-Samples/JavaScript-AI-Buildathon`.
-4. Provide the App ID through repository variable
-   `AGENTIC_REFRESH_APP_ID`.
-5. Store the generated PEM private key directly in repository secret
-   `AGENTIC_REFRESH_APP_PRIVATE_KEY`; never send it through chat or an issue.
-6. Confirm that Copilot Code Review has an available AI-credit budget.
-7. Confirm that the App may create `refresh/**` branches but cannot bypass
-   ruleset `19622585`, write to `main`, or merge.
-8. After the Phase 0 pull request merges and both validation checks have run
-   successfully, activate ruleset `19622585` and the human-only merge ruleset.
-9. Confirm that App installation tokens are available only to the pinned
-   deterministic safe-output action and never to an agent or generic shell step.
-
-The external repositories stay report-only. Their App installation requires a
-separate capability approval after a repository administrator confirms each
-ruleset, CI, CODEOWNER, branch, and budget requirement.
+External CodeTour findings remain manual handoffs regardless of Buildathon
+capability results.
